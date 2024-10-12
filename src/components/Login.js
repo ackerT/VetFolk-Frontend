@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom'; 
-import vetImage from './vet.png';
+import vetImage from '../img/vet.png';
+import "./Login.css"
 
 function Login() {
   const [isLoginActive, setIsLoginActive] = useState(true);
@@ -93,7 +94,7 @@ function Login() {
 
       // Verifica si la respuesta es correcta y redirige
       if (response.ok && data.success) { // Asegúrate de que tu backend envíe el campo 'success'
-        navigate('/landing'); // Redirecciona a la página de aterrizaje
+        navigate('/Home'); // Redirecciona a la página de aterrizaje
       } else {
         setLoginMessage('Correo o contraseña incorrectos'); // Mensaje de error
       }

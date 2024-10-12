@@ -1,9 +1,9 @@
 import React from 'react';
-import vetImage from './vet.png';
+import vetImage from '../img/vet.png';
 
-function Landing() {
+function Home() {
   return (
-    <div className="landing-page">
+    <div className="home-page">
         <img src={vetImage} alt="Imagen de Bienvenida" className="welcome-img" />
       <h1>Pronto Estará Listo</h1>
       <p>¡Seguimos trabajando para ofrecerte lo mejor para tus mascotas!</p>
@@ -11,4 +11,4 @@ function Landing() {
   );
 }
 
-export default Landing;
+export default Home;
