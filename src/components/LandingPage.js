@@ -1,20 +1,26 @@
-import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom'; 
-import vetImage from '../img/vet.png';
 import vetImageB from '../img/VetBlanco.png';
 import hero1 from '../img/hero.jpg';
-import consultaVet from '../img/consulta.jpg';
-import consultaVet2 from '../img/consulta2.jpg';
-import grooming from '../img/grooming.jpg';
-import cirugias from '../img/cirugias.jpg';
 import {Swiper, SwiperSlide, useSwiper} from 'swiper/react';
+import data from '../slider.json';
 import "swiper/css";
+import {sliderSettings} from "../common.js";
 import "./LandingPage.css";
 
 
 
 function LandingPage(){
     const navigate = useNavigate();
+
+    const SliderButton = ()=>{
+        const swiper = useSwiper();
+    return (
+        <div className='flexCenter s-button'>
+            <button onClick={()=> swiper.slidePrev()}>&lt;</button>
+            <button onClick={()=> swiper.slideNext()}>&gt;</button>
+        </div>
+    );
+    };
 
     return(
         <><section className='h-wrapper'>
@@ -23,8 +29,8 @@ function LandingPage(){
                     <img src={vetImageB} alt='logo' width={60} className='logo' />
                 </a>
                 <div className='h-menu flexCenter'>
-                    <a>Inicio</a>
-                    <a>Servicios</a>
+                    <a href='/' style={{ textDecoration: 'none', color: 'white' }}>Inicio</a>
+                    <a href='#serv' style={{ textDecoration: 'none', color: 'white' }}>Servicios</a>
                     <a>Contacto</a>
                     <button className='button' onClick={() => navigate('/login')}>
                         Comencemos
@@ -66,11 +72,32 @@ function LandingPage(){
             </section>
             
             <section className='s-wrapper'>
-                <div className='paddings innerWidth s-container'>
+                 <div className='paddings innerWidth s-container'  id='serv'>
                     <div className='s-head flexColStart'>
-                       <h1>Nuestros Servicios</h1> 
+                        <h1>Nuestros Servicios</h1> 
                     </div>
-                </div>
+                    <Swiper {...sliderSettings}>
+                        <SliderButton/>
+                        {
+                        data.map((card, i)=> (
+                            <SwiperSlide key={i}>
+                                <div className='flexColStart s-card'>
+                                    <img src={card.image} alt='servicios'/>
+                                    <span className='primaryText'>{card.name}</span>
+                                    <span className='secondaryText'>{card.detail}</span>
+                                </div>
+                            </SwiperSlide>
+                        ))
+                    }
+                    </Swiper>
+
+                   <div className='sc-button'>
+                    <button className='c-button' onClick={() => navigate('/login')}>
+                        ¡Agendar Cita!
+                    </button>
+                    </div>
+                    </div>
+                 
             </section>
 
             </>
