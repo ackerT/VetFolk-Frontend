@@ -1,6 +1,6 @@
-
 import React, { useState } from "react"
 import { useForm, Controller } from "react-hook-form"
+import { useNavigate } from "react-router-dom"
 import { 
   Button, 
   TextField, 
@@ -14,12 +14,14 @@ import {
   Grid 
 } from "@mui/material"
 import { createTheme, ThemeProvider } from "@mui/material/styles"
+import ArrowBackIcon from '@mui/icons-material/ArrowBack'
 
 const theme = createTheme()
 
 export default function Component() {
   const { control, handleSubmit, formState: { errors } } = useForm()
   const [isSubmitting, setIsSubmitting] = useState(false)
+  const navigate = useNavigate()
 
   const onSubmit = (data) => {
     setIsSubmitting(true)
@@ -28,6 +30,10 @@ export default function Component() {
     setTimeout(() => {
       setIsSubmitting(false)
     }, 2000)
+  }
+
+  const handleGoBack = () => {
+    navigate(-1)
   }
 
   return (
@@ -233,6 +239,15 @@ export default function Component() {
               disabled={isSubmitting}
             >
               {isSubmitting ? "Enviando..." : "Agendar Cita"}
+            </Button>
+            <Button
+              startIcon={<ArrowBackIcon />}
+              onClick={handleGoBack}
+              fullWidth
+              variant="outlined"
+              sx={{ mb: 2 }}
+            >
+              Regresar
             </Button>
           </Box>
         </Box>
