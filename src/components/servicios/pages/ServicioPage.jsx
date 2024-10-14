@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { serviData} from '../data/ServiData'; // Verifica la ruta servidata
+import { serviData} from '../data/ServiData'; // Verifica la ruta  si funciona aun este en rojo
 
 
 export const ServicioPage = () => {
