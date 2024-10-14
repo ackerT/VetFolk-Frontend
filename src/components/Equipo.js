@@ -56,7 +56,8 @@ const Equipo = () => {
                             <h2>{persona.nombre}</h2>
                             <h3>{persona.especialidad}</h3>
                             <p>{persona.descripcion}</p>
-                            <button onClick={() => alert(`Más información sobre ${persona.nombre}`)}>
+                            <button className="button-sombra" 
+                                onClick={() => alert(`Más información sobre ${persona.nombre}`)}>
                                 Saber más
                             </button>
                         </div>
@@ -72,7 +73,8 @@ const Equipo = () => {
                             <h2>{persona.nombre}</h2>
                             <h3>{persona.especialidad}</h3>
                             <p>{persona.descripcion}</p>
-                            <button onClick={() => alert(`Más información sobre ${persona.nombre}`)}>
+                            <button className="button-sombra" 
+                                onClick={() => alert(`Más información sobre ${persona.nombre}`)}>
                                 Saber más
                             </button>
                         </div>
