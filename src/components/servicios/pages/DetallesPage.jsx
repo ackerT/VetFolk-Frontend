@@ -76,8 +76,9 @@ export const DetallesPage = () => {
                 {/* Descomentar para mostrar la imagen */}
                 {/* <img src={vetImage} alt="Imagen de Veterinaria" style={styles.vetImg} /> */}
 
-                 {/* Formulario falta consumirlo */} 
-                 <FormularioPage/>
+                 {/* Formulario falta consumirlo  
+                 <FormularioPage/>   */} 
+                  <Link to='/agendar-cita' style={styles.linkBack}>Agender Cita</Link>
             </div>
         </div>
     );

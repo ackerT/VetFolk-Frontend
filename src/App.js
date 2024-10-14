@@ -14,11 +14,11 @@ function App() {
       <Routes>
         <Route path='/' element={<Login/>}></Route>
         <Route path="/landing" element={<Landing />} />
-        
+
         {/*   Que me muestros servicio  que tiene la veterinaria */}
       <Route path='/servicio' element={<ServicioPage/>}></Route>
       <Route path='/servicio/:id' element={<DetallesPage/>}></Route>
-      <Route path='/agendar-Cita' element={<FormularioPage/>}></Route>
+      <Route path='/agendar-cita' element={<FormularioPage/>}></Route>
        
     {/* 
     //Rutas de las url 
