@@ -19,33 +19,46 @@ export const DetallesPage = () => {
             flexDirection: 'column',
             alignItems: 'center',
             padding: '20px',
-            backgroundColor: '#f4f4f4',
+            backgroundColor: '#c9d4d4',
             minHeight: '100vh',
         },
         card: {
-            backgroundColor: '#ffffff',
+            backgroundColor: '#c9d4d4',
+            width: '50vw',
+            minHeight: '600px',
+            maxWidth: '100%',
+            width: '600px',
             borderRadius: '10px',
             boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
             padding: '20px',
             marginTop: '20px',
-            width: '100%',
-            maxWidth: '600px',
             textAlign: 'center',
         },
         cardTitle: {
-            fontSize: '24px',
-            color: '#333',
-            marginBottom: '15px',
+            padding: '20px 0',
+            backgroundColor: '#c9d4d4',
+            fontSize: '25px',
+            fontFamily: 'Poppins, sans-serif', // Aplicamos Poppins
+            fontWeight: '60', // Peso de la fuente
+            color: '#', // Color personalizado
+            marginBottom: '50px', // Separación con las cards
+            fontWeight: 'bold',
         },
         cardDescription: {
-            fontSize: '16px',
-            color: '#666',
+            padding: '20px 0',
+            backgroundColor: '#c9d4d4',
+            fontSize: '20px',
+            fontFamily: 'Poppins, sans-serif', // Aplicamos Poppins
+            fontWeight: '60', // Peso de la fuente
+            color: '#343434', // Color personalizado
+            marginBottom: '50px', // Separación con las cards
+            fontWeight: 'bold',
             lineHeight: '1.5',
         },
         linkBack: {
             marginTop: '20px',
-            fontSize: '16px',
-            color: '#007bff',
+            fontSize: '20px',
+            color: '#2c6b6b',
             textDecoration: 'none',
             padding: '10px 15px',
             borderRadius: '5px',
@@ -69,7 +82,7 @@ export const DetallesPage = () => {
 
     return (
         <div style={styles.detallesPage}>  {/* Cambiar DetallesPage a detallesPage */}
-            <Link to='/servicio' style={styles.linkBack}>Atrás</Link>
+           
             <div style={styles.card}>
                 <h2 style={styles.cardTitle}>{servicioEncontrado.nombre}</h2>
                 <p style={styles.cardDescription}>{servicioEncontrado.descripcion}</p>
@@ -78,8 +91,10 @@ export const DetallesPage = () => {
 
                  {/* Formulario falta consumirlo  
                  <FormularioPage/>   */} 
-                  <Link to='/agendar-cita' style={styles.linkBack}>Agender Cita</Link>
+                  
             </div>
+            <Link to='/agendar-cita' style={styles.linkBack}>Agender Cita</Link>
+            <Link to='/servicio' style={styles.linkBack}>Atrás</Link>
         </div>
     );
      
