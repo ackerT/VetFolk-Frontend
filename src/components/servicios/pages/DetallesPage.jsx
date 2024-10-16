@@ -1,3 +1,5 @@
+
+//src/components/page/DetallesPage.jsx
 import React from 'react';
 import { Link, useParams } from 'react-router-dom'; // 
 import { serviData} from '../data/ServiData'; // Verifica la ruta servidata
@@ -83,19 +85,17 @@ export const DetallesPage = () => {
     return (
         <div style={styles.detallesPage}>  {/* Cambiar DetallesPage a detallesPage */}
            
+          
             <div style={styles.card}>
                 <h2 style={styles.cardTitle}>{servicioEncontrado.nombre}</h2>
                 <p style={styles.cardDescription}>{servicioEncontrado.descripcion}</p>
-                {/* Descomentar para mostrar la imagen */}
-                {/* <img src={vetImage} alt="Imagen de Veterinaria" style={styles.vetImg} /> */}
-
-                 {/* Formulario falta consumirlo  
-                 <FormularioPage/>   */} 
-                  
+                <img src={servicioEncontrado.imagen} alt={servicioEncontrado.nombre} style={styles.vetImg} /> {/* Usar la imagen del servicio */}
             </div>
-            <Link to='/agendar-cita' style={styles.linkBack}>Agender Cita</Link>
+            <Link to='/agendar-cita' style={styles.linkBack}>Agendar Cita</Link>
             <Link to='/servicio' style={styles.linkBack}>Atrás</Link>
         </div>
+   
+     
     );
      
     

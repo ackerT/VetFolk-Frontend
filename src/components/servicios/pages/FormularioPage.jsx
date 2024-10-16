@@ -1,6 +1,6 @@
-import React, { useState } from "react"
-import { useForm, Controller } from "react-hook-form"
-import { useNavigate } from "react-router-dom"
+import React, { useState } from "react";
+import { useForm, Controller } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
 import { 
   Button, 
   TextField, 
@@ -11,30 +11,37 @@ import {
   Box, 
   Typography, 
   Container, 
-  Grid 
-} from "@mui/material"
-import { createTheme, ThemeProvider } from "@mui/material/styles"
-import ArrowBackIcon from '@mui/icons-material/ArrowBack'
+  Grid,
+  Alert,  // Importar componente Alert de Material UI
+  Collapse  // Importar Collapse para animar la notificación
+} from "@mui/material";
+import { createTheme, ThemeProvider } from "@mui/material/styles";
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 
-const theme = createTheme()
+const theme = createTheme();
 
 export default function Component() {
-  const { control, handleSubmit, formState: { errors } } = useForm()
-  const [isSubmitting, setIsSubmitting] = useState(false)
-  const navigate = useNavigate()
+  const { control, handleSubmit, formState: { errors } } = useForm();
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [showNotification, setShowNotification] = useState(false); // Estado para la notificación
+  const navigate = useNavigate();
 
   const onSubmit = (data) => {
-    setIsSubmitting(true)
-    console.log(data)
-    // Simulate API call
+    setIsSubmitting(true);
+    console.log(data);
+    // Simular llamada a la API
     setTimeout(() => {
-      setIsSubmitting(false)
-    }, 2000)
-  }
+      setIsSubmitting(false);
+      setShowNotification(true); // Mostrar notificación al terminar el envío
+      setTimeout(() => {
+        setShowNotification(false); // Ocultar notificación después de unos segundos
+      }, 3000);
+    }, 2000);
+  };
 
   const handleGoBack = () => {
-    navigate(-1)
-  }
+    navigate(-1);
+  };
 
   return (
     <ThemeProvider theme={theme}>
@@ -50,6 +57,14 @@ export default function Component() {
           <Typography component="h1" variant="h5">
             Agendar una Cita
           </Typography>
+          
+          {/* Notificación */}
+          <Collapse in={showNotification}>
+            <Alert severity="success" sx={{ mt: 2, width: '100%' }}>
+              ¡Cita agendada con éxito!
+            </Alert>
+          </Collapse>
+          
           <Box component="form" onSubmit={handleSubmit(onSubmit)} noValidate sx={{ mt: 3 }}>
             <Grid container spacing={2}>
               <Grid item xs={12}>
@@ -112,9 +127,9 @@ export default function Component() {
               </Grid>
               <Grid item xs={12}>
                 <FormControl fullWidth>
-                  <InputLabel id="breed-label">Raza</InputLabel>
+                  <InputLabel id="breed-label">Expecie</InputLabel>
                   <Controller
-                    name="Raza"
+                    name="Especie"
                     control={control}
                     defaultValue=""
                     rules={{ required: "Este campo es requerido" }}
@@ -123,8 +138,8 @@ export default function Component() {
                         {...field}
                         labelId="breed-label"
                         id="breed"
-                        label="Raza"
-                        error={Boolean(errors.Raza)}
+                        label="Expecie"
+                        error={Boolean(errors.Expecie)}
                       >
                         <MenuItem value="Perro">Perro</MenuItem>
                         <MenuItem value="Gato">Gato</MenuItem>
@@ -253,5 +268,5 @@ export default function Component() {
         </Box>
       </Container>
     </ThemeProvider>
-  )
+  );
 }

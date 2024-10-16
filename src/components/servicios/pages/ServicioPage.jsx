@@ -1,3 +1,6 @@
+
+//src/components/page/servicioPage.jsx
+
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { serviData} from '../data/ServiData'; // Verifica la ruta  si funciona aun este en rojo
