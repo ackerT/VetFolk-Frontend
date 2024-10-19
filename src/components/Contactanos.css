@@ -1,3 +1,19 @@
+.contact-card i {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.contact-card p {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.contact-card h5 {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-family: 'Poppins';
+  font-weight: bold;
+}
+
 .contact-page {
   background-color: #006666;
   color: white;
