@@ -1,18 +1,10 @@
-
-//src/components/page/DetallesPage.jsx
 import React from 'react';
-import { Link, useParams } from 'react-router-dom'; // 
-import { serviData} from '../data/ServiData'; // Verifica la ruta servidata
-import {FormularioPage} from '../pages/FormularioPage'; 
+import { Link, useParams } from 'react-router-dom'; 
+import { serviData } from '../data/ServiData'; 
 
-
-
-
-export const DetallesPage = () => { 
-    // 
+export const DetallesPage = () => {
     const { id } = useParams();
     const servicioEncontrado = serviData.find(servicio => servicio.id === parseInt(id));
-    console.log(servicioEncontrado);
 
     // Estilos
     const styles = {
@@ -29,7 +21,6 @@ export const DetallesPage = () => {
             width: '50vw',
             minHeight: '600px',
             maxWidth: '100%',
-            width: '600px',
             borderRadius: '10px',
             boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
             padding: '20px',
@@ -37,67 +28,63 @@ export const DetallesPage = () => {
             textAlign: 'center',
         },
         cardTitle: {
-            padding: '20px 0',
-            backgroundColor: '#c9d4d4',
-            fontSize: '25px',
-            fontFamily: 'Poppins, sans-serif', // Aplicamos Poppins
-            fontWeight: '60', // Peso de la fuente
-            color: '#', // Color personalizado
-            marginBottom: '50px', // Separación con las cards
-            fontWeight: 'bold',
+            fontFamily: 'Poppins, sans-serif', // Familia de la fuente
+            fontWeight: '90%', // Grosor de la fuente
+            fontSize: '60px', // Tamaño del h2
+            color: '#2c6b6b', // Color personalizado
+            marginBottom: '0px', // Separación con las cards
         },
         cardDescription: {
             padding: '20px 0',
+            fontFamily: 'Poppins, sans-serif', // Familia de la fuente
             backgroundColor: '#c9d4d4',
             fontSize: '20px',
-            fontFamily: 'Poppins, sans-serif', // Aplicamos Poppins
-            fontWeight: '60', // Peso de la fuente
-            color: '#343434', // Color personalizado
-            marginBottom: '50px', // Separación con las cards
+            fontFamily: 'Poppins, sans-serif',
             fontWeight: 'bold',
+            color: '#343434',
+            marginBottom: '50px',
             lineHeight: '1.5',
         },
-        linkBack: {
-            marginTop: '20px',
-            fontSize: '20px',
-            color: '#2c6b6b',
-            textDecoration: 'none',
-            padding: '10px 15px',
-            borderRadius: '5px',
-            border: '1px solid #007bff',
-            backgroundColor: '#ffffff',
-            transition: 'background-color 0.3s ease',
+        // Nuevo estilo para contenedor de botones
+        buttonContainer: {
+            display: 'flex',
+            flexDirection: 'column', // Alinea los botones uno debajo del otro
+            gap: '20px', // Espacio entre los botones
+            width: '90%',
+            alignItems: 'center', // Centra los botones horizontalmente
         },
-        linkBackHover: {
-            backgroundColor: '#007bff',
-            color: '#ffffff',
+        linkBack: {
+            width: '80%',
+            padding: '20px', // Tamaño del botón ajustado
+            backgroundColor: '#00897b',
+            color: '#fff',
+            textDecoration: 'none',
+            borderRadius: '15px',
+            textAlign: 'center',
+            fontSize: '18px',
+            fontWeight: 'bold',
+            transition: 'background-color 0.6s ease',
         },
         vetImg: {
-            width: '100%',
+            width: '90%',
             maxWidth: '500px',
             borderRadius: '10px',
             marginTop: '20px',
         },
     };
 
-    
-
     return (
-        <div style={styles.detallesPage}>  {/* Cambiar DetallesPage a detallesPage */}
-           
-          
+        <div style={styles.detallesPage}>
             <div style={styles.card}>
                 <h2 style={styles.cardTitle}>{servicioEncontrado.nombre}</h2>
                 <p style={styles.cardDescription}>{servicioEncontrado.descripcion}</p>
-                <img src={servicioEncontrado.imagen} alt={servicioEncontrado.nombre} style={styles.vetImg} /> {/* Usar la imagen del servicio */}
+                <img src={servicioEncontrado.imagen} alt={servicioEncontrado.nombre} style={styles.vetImg} />
             </div>
-            <Link to='/agendar-cita' style={styles.linkBack}>Agendar Cita</Link>
-            <Link to='/servicio' style={styles.linkBack}>Atrás</Link>
+            {/* Contenedor de botones con separación */}
+            <div style={styles.buttonContainer}>
+                <Link to='/agendar-cita' style={styles.linkBack}>Agendar Cita</Link>
+                <Link to='/servicio' style={styles.linkBack}>Atrás</Link>
+            </div>
         </div>
-   
-     
     );
-     
-    
-
 };

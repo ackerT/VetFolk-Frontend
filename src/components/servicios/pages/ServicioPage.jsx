@@ -61,7 +61,7 @@ export const ServicioPage = () => {
         },
         h2: {
             fontFamily: 'Poppins, sans-serif', // Aplicamos Poppins
-            fontWeight: '600', // Peso de la fuente
+            fontWeight: '600', // tamano de la fuente
             fontSize: '50px', // Tamaño del h2
             color: '#2c6b6b', // Color personalizado
             marginBottom: '50px', // Separación con las cards
