@@ -29,6 +29,47 @@ import { DateCalendar } from '@mui/x-date-pickers/DateCalendar';
 const theme = createTheme({
   typography: {
     fontFamily: 'Poppins, sans-serif',
+    h5: {
+      color: '#00897b', // Cambiar el color del título "Agendar Cita"
+      fontSize: '1.8rem', // Ajustar tamaño de letra del título
+    },
+    button: {
+      fontSize: '1rem', // Aumentar tamaño de letra para botones
+    },
+  },
+  palette: {
+    primary: {
+      main: '#00897b', // Color principal para botones
+    },
+    text: {
+      primary: '#000', // Color del texto en botones y modal
+    },
+  },
+  components: {
+    MuiButton: {
+      styleOverrides: {
+        root: {
+          borderRadius: '20px', // Bordes redondeados
+          padding: '8px 16px', // Espaciado para botones
+          '&:hover': {
+            backgroundColor: '#00796b', // Color del fondo al hacer hover
+          },
+          transition: 'background-color 0.3s', // Suavizar la transición del hover
+        },
+      },
+    },
+
+    MuiDialog: {
+      styleOverrides: {
+        paper: {
+          backgroundColor: '#e8f0fe', // Color de fondo de la modal
+          borderRadius: '8px', // Esquinas redondeadas
+          padding: '20px', // Espaciado interno
+          width: '80%', // Ancho de la modal
+          maxWidth: '500px', // Ancho máximo de la modal
+        },
+      },
+    },
   },
 });
 
@@ -84,17 +125,23 @@ export default function Component() {
     setOpenModal(false);
   };
 
+  // Función para verificar si la fecha está ocupada
+  const isDateOccupied = (date) => {
+    const formattedDate = date.format('YYYY-MM-DD');
+    return existingAppointments.some(appointment => appointment.fecha === formattedDate);
+  };
+
   return (
     <ThemeProvider theme={theme}>
-      <LocalizationProvider dateAdapter={AdapterDayjs}> {/* Asegúrate de que esto envuelva todo */}
-        <Container component="main" maxWidth="xs">
-          <Box sx={{ marginTop: 10, display: "flex", flexDirection: "column", alignItems: "center" }}>
+      <LocalizationProvider dateAdapter={AdapterDayjs}>
+        <Container component="main" maxWidth="sm">
+          <Box sx={{ marginTop: 10, display: "flex", flexDirection: "column", alignItems: "center", padding: '20px' }}>
             <Typography component="h1" variant="h5">
               Agendar una Cita
             </Typography>
 
             <Collapse in={showNotification}>
-              <Alert severity="success" sx={{ mt: 2, width: '100%' }}>
+              <Alert severity="success" sx={{ mt: 2, width: '100%', fontSize: '1.5rem' }}>
                 ¡Cita agendada con éxito!
               </Alert>
             </Collapse>
@@ -117,6 +164,9 @@ export default function Component() {
                         autoFocus
                         error={Boolean(errors["Nombre Completo"])}
                         helperText={errors["Nombre Completo"]?.message}
+                        InputProps={{
+                          style: { fontSize: '1.2rem' } // Cambiar tamaño de letra del formulario
+                        }}
                       />
                     )}
                   />
@@ -136,13 +186,16 @@ export default function Component() {
                         label="Teléfono"
                         error={Boolean(errors.Telefono)}
                         helperText={errors.Telefono?.message}
+                        InputProps={{
+                          style: { fontSize: '1.3rem' } // Cambiar tamaño de letra del formulario
+                        }}
                       />
                     )}
                   />
                 </Grid>
                 <Grid item xs={12}>
                   <Controller
-                    name="Nombre de la Mascota"
+                    name="Nombre de su Mascota"
                     control={control}
                     defaultValue=""
                     rules={{ required: "Este campo es requerido" }}
@@ -152,9 +205,12 @@ export default function Component() {
                         required
                         fullWidth
                         id="petName"
-                        label="Nombre de la Mascota"
+                        label="Nombre de su Mascota"
                         error={Boolean(errors["Nombre de la Mascota"])}
                         helperText={errors["Nombre de la Mascota"]?.message}
+                        InputProps={{
+                          style: { fontSize: '1.2rem' } // Cambiar tamaño de letra del formulario
+                        }}
                       />
                     )}
                   />
@@ -174,6 +230,9 @@ export default function Component() {
                           id="breed"
                           label="Especie"
                           error={Boolean(errors.Especie)}
+                          InputProps={{
+                            style: { fontSize: '1.2rem' } // Cambiar tamaño de letra del formulario
+                          }}
                         >
                           <MenuItem value="Perro">Perro</MenuItem>
                           <MenuItem value="Gato">Gato</MenuItem>
@@ -184,7 +243,7 @@ export default function Component() {
                     />
                   </FormControl>
                 </Grid>
-                <Grid item xs={6}>
+                <Grid item xs={12} sx={{ display: 'flex', justifyContent: 'center' }}>
                   <Controller
                     name="Hora"
                     control={control}
@@ -206,37 +265,48 @@ export default function Component() {
                         }}
                         error={Boolean(errors.Hora)}
                         helperText={errors.Hora?.message}
+                        InputProps={{
+                          style: { fontSize: '1.2rem', textAlign: 'center' } // Cambiar tamaño de letra del input de hora
+                        }}
                       />
                     )}
                   />
                 </Grid>
-                <Grid item xs={6}>
-                  <TextField
-                    label="Ingresar fecha (YYYY-MM-DD)"
-                    value={textValue}
-                    onChange={handleTextChange}
-                    fullWidth
-                    error={!dayjs(textValue).isValid()}
-                    helperText={!dayjs(textValue).isValid() ? "Fecha no válida" : ""}
+                <Grid item xs={12} sx={{ display: 'flex', justifyContent: 'center' }}>
+                  <Controller
+                    name="Fecha"
+                    control={control}
+                    defaultValue={textValue}
+                    render={({ field }) => (
+                      <DateCalendar
+                        {...field}
+                        value={fecha}
+                        onChange={(newValue) => cambiarFecha(newValue)}
+                        renderDay={(day, _value, _utils) => {
+                          const isOccupied = isDateOccupied(day);
+                          return (
+                            <span style={{ color: isOccupied ? 'red' : 'inherit' }}>
+                              {day.date()}
+                            </span>
+                          );
+                        }}
+                        sx={{
+                          '& .MuiCalendarPicker-day.Mui-selected': {
+                            backgroundColor: '#00897b', // Color de fondo de la fecha seleccionada
+                          },
+                          '& .MuiCalendarPicker-day:hover': {
+                            backgroundColor: '#00897b', // Color de fondo al hacer hover en la fecha
+                          },
+                          '& .MuiTypography-root': {
+                            fontSize: '1.5rem', // Cambiar tamaño de letra del calendario
+                          },
+                          width: '100%', // Hacer el calendario más ancho
+                          maxWidth: '400px', // Limitar el ancho máximo del calendario
+                          margin: '0 auto', // Centrar el calendario
+                        }}
+                      />
+                    )}
                   />
-                </Grid>
-                <Grid item xs={12}>
-                  <DateCalendar
-                    value={fecha}
-                    onChange={cambiarFecha}
-                  />
-                </Grid>
-                <Grid item xs={12} sx={{ mt: 2 }}>
-                  <Button
-                    type="button"
-                    fullWidth
-                    variant="outlined"
-                    color="primary"
-                    startIcon={<ArrowBackIcon />}
-                    onClick={handleGoBack}
-                  >
-                    Volver
-                  </Button>
                 </Grid>
                 <Grid item xs={12}>
                   <Button
@@ -246,20 +316,32 @@ export default function Component() {
                     color="primary"
                     disabled={isSubmitting}
                   >
-                    {isSubmitting ? "Cargando..." : "Agendar Cita"}
+                    Agendar Cita
+                  </Button>
+                </Grid>
+                <Grid item xs={12}>
+                  <Button
+                    variant="contained"
+                    fullWidth
+                    sx={{ backgroundColor: '#00897b', '&:hover': { backgroundColor: '#00796b' } }} // Cambiar color a #00897b
+                    onClick={handleGoBack}
+                    startIcon={<ArrowBackIcon />}
+                  >
+                    Atrás
                   </Button>
                 </Grid>
               </Grid>
             </Box>
           </Box>
-
           <Dialog open={openModal} onClose={handleCloseModal}>
-            <DialogTitle>Fecha y Hora no Disponibles</DialogTitle>
+            <DialogTitle sx={{ fontSize: '1.5rem', color: '#00897b' }}>¡Hola!</DialogTitle>
             <DialogContent>
-              <Typography>La fecha y hora seleccionadas no están disponibles. Por favor, elige otra fecha o hora.</Typography>
+              <Typography sx={{ color: '#000', fontSize: '1.5rem' }}>
+                Ya existe una cita para esta fecha y hora.
+              </Typography>
             </DialogContent>
             <DialogActions>
-              <Button onClick={handleCloseModal} color="blue">
+              <Button onClick={handleCloseModal} variant="contained" sx={{ color: '#fff' }}>
                 Cerrar
               </Button>
             </DialogActions>

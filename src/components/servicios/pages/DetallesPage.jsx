@@ -47,11 +47,13 @@ export const DetallesPage = () => {
         },
         // Nuevo estilo para contenedor de botones
         buttonContainer: {
+
             display: 'flex',
             flexDirection: 'column', // Alinea los botones uno debajo del otro
             gap: '20px', // Espacio entre los botones
             width: '90%',
             alignItems: 'center', // Centra los botones horizontalmente
+
         },
         linkBack: {
             width: '80%',
@@ -63,6 +65,7 @@ export const DetallesPage = () => {
             textAlign: 'center',
             fontSize: '18px',
             fontWeight: 'bold',
+            
             transition: 'background-color 0.6s ease',
         },
         vetImg: {
