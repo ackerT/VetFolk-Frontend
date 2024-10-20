@@ -1,0 +1,27 @@
+[
+  {
+    "name": "Consultas Veterinarias",
+    "detail": "Atención médica completa para tu mascota, con diagnóstico preciso y recomendaciones personalizadas para su salud y bienestar.",
+    "image": "/consulta.jpg"
+  },
+  {
+    "name": "Vacunación y desparasitación",
+    "detail": "Protección y prevención a tiempo. Mantenemos a tu mascota saludable con vacunas y tratamientos antiparasitarios esenciales.",
+    "image": "/vacunacion.jpg"
+  },
+  {
+    "name": "Cirugías",
+    "detail": "Cirugías seguras y profesionales realizadas por expertos. Cuidamos cada detalle para garantizar una recuperación óptima.",
+    "image": "/cirugias.jpg"
+  },
+  {
+    "name": "Baño y perruquería",
+    "detail": "Servicios de higiene y cuidado estético para tu mascota. Deja a tu mejor amigo limpio, cómodo y con un look adorable en nuestra perruquería especializada.",
+    "image": "/grooming.jpg"
+  },
+  {
+    "name": "Venta de productos para mascotas",
+    "detail": "Alimentos, accesorios y productos de farmacia para mascotas, disponibles solo en nuestra tienda física.",
+    "image": "/venta3.jpg"
+  }
+]

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Swiper, SwiperSlide, useSwiper } from 'swiper/react';
 import { useNavigate } from 'react-router-dom'; 
-import data from '../products.json'; 
+import data from '../products.json';
 import { sliderSettings } from "../common.js";
 import "swiper/css";
 import './Products.css';
@@ -21,7 +21,7 @@ const Products = () => {
 
 
     return (
-        <section className='s-wrapper'>                   
+        <section className='s-wrapper'>7                    
         <div className='s-head flexColStart'>
         <h1>Productos que puedes encontrar en nuestra tienda física</h1> 
         </div>
