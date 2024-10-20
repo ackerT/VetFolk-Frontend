@@ -29,21 +29,25 @@ export const DetallesPage = () => {
         },
         cardTitle: {
             fontFamily: 'Poppins, sans-serif', // Familia de la fuente
-            fontWeight: '90%', // Grosor de la fuente
-            fontSize: '60px', // Tamaño del h2
+            fontWeight: '60%', // Grosor de la fuente
+            fontSize: '36px', // Tamaño más pequeño
             color: '#2c6b6b', // Color personalizado
+            marginTop: '30px',
             marginBottom: '0px', // Separación con las cards
+            fontWeight: 'bold',
         },
         cardDescription: {
             padding: '20px 0',
             fontFamily: 'Poppins, sans-serif', // Familia de la fuente
             backgroundColor: '#c9d4d4',
-            fontSize: '20px',
-            fontFamily: 'Poppins, sans-serif',
+            fontSize: '16px',
             fontWeight: 'bold',
             color: '#343434',
             marginBottom: '50px',
             lineHeight: '1.5',
+             maxWidth: '80%', // Limita el ancho máximo de la descripción
+        textAlign: 'center', // Centra el texto
+        margin: '0 auto', // Asegura que el texto esté centrado horizontalmente
         },
         // Nuevo estilo para contenedor de botones
         buttonContainer: {
@@ -69,8 +73,11 @@ export const DetallesPage = () => {
             transition: 'background-color 0.6s ease',
         },
         vetImg: {
-            width: '90%',
+            width: '60%',
             maxWidth: '500px',
+            borderRadius: '10px',
+            marginTop: '20px',
+            height: 'auto',
             borderRadius: '10px',
             marginTop: '20px',
         },

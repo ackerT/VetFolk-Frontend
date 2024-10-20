@@ -14,7 +14,7 @@ export const serviData = [
       descripcion: "Aplicación de  las vacunas y tratamiento antiparasitario para mantener la salud de tu mascota, El protocolo de las vacunas es esencial en la vida de nuestras mascotas, para su bienestar, es necesario cumplir al 100% del plan de vacunas establecido por el médico veterinario. Las vacunas es la manera más eficaces de prevenir las enfermedades infecciosas y mortales. Para nuestro servicio de vacunación no paga consulta, puede venir de lunes a domingo.",
       imagen:'/public/Michi.pgn',
       url: "/servicio/2",
-      imagen: `${process.env.PUBLIC_URL}/asset/imgServicios/hero-r.png`, 
+      imagen: `${process.env.PUBLIC_URL}/asset/imgServicios/Michi.png`, 
 
     },
     {

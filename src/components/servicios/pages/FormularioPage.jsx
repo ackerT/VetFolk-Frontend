@@ -31,7 +31,8 @@ const theme = createTheme({
     fontFamily: 'Poppins, sans-serif',
     h5: {
       color: '#00897b', // Cambiar el color del título "Agendar Cita"
-      fontSize: '1.8rem', // Ajustar tamaño de letra del título
+      fontSize: '1.6rem', // Ajustar tamaño de letra del título
+      fontWeight: 'bold',// En negrita el h5
     },
     button: {
       fontSize: '1rem', // Aumentar tamaño de letra para botones
@@ -131,21 +132,34 @@ export default function Component() {
     return existingAppointments.some(appointment => appointment.fecha === formattedDate);
   };
 
-  return (
+  return ( 
+     
     <ThemeProvider theme={theme}>
       <LocalizationProvider dateAdapter={AdapterDayjs}>
-        <Container component="main" maxWidth="sm">
-          <Box sx={{ marginTop: 10, display: "flex", flexDirection: "column", alignItems: "center", padding: '20px' }}>
+        {/* editar  el tamaño máximo del contenedor del formulario */}
+        <Container component="main" maxWidth="sm" sx={{ width: '90%', maxWidth: '400px' }}>
+          <Box 
+            sx={{ 
+              marginTop: 10, 
+              display: "flex", 
+              flexDirection: "column", 
+              alignItems: "center", 
+              padding: '20px',
+              width: '100%',
+              maxWidth: '600px' // Limitar el ancho máximo del formulario
+            }}
+            >
+               {/* editar el tamaña del h5 */}
             <Typography component="h1" variant="h5">
               Agendar una Cita
             </Typography>
-
+              {/* Muestra la notificacion */}
             <Collapse in={showNotification}>
               <Alert severity="success" sx={{ mt: 2, width: '100%', fontSize: '1.5rem' }}>
                 ¡Cita agendada con éxito!
               </Alert>
             </Collapse>
-
+                   {/*  formulario */}
             <Box component="form" onSubmit={handleSubmit(onSubmit)} noValidate sx={{ mt: 3 }}>
               <Grid container spacing={2}>
                 <Grid item xs={12}>
@@ -298,9 +312,9 @@ export default function Component() {
                             backgroundColor: '#00897b', // Color de fondo al hacer hover en la fecha
                           },
                           '& .MuiTypography-root': {
-                            fontSize: '1.5rem', // Cambiar tamaño de letra del calendario
+                            fontSize: '1.3rem', // Cambiar tamaño de letra del calendario
                           },
-                          width: '100%', // Hacer el calendario más ancho
+                          width: '80%', // Hacer el calendario más ancho
                           maxWidth: '400px', // Limitar el ancho máximo del calendario
                           margin: '0 auto', // Centrar el calendario
                         }}
@@ -308,6 +322,7 @@ export default function Component() {
                     )}
                   />
                 </Grid>
+                 {/* iditar botones del  formulario */}
                 <Grid item xs={12}>
                   <Button
                     type="submit"
@@ -333,6 +348,7 @@ export default function Component() {
               </Grid>
             </Box>
           </Box>
+           {/* Editar el modalel  */}
           <Dialog open={openModal} onClose={handleCloseModal}>
             <DialogTitle sx={{ fontSize: '1.5rem', color: '#00897b' }}>¡Hola!</DialogTitle>
             <DialogContent>
