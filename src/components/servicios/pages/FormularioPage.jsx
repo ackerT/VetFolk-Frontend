@@ -26,6 +26,7 @@ import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { DateCalendar } from '@mui/x-date-pickers/DateCalendar';
 
+
 const theme = createTheme({
   typography: {
     fontFamily: 'Poppins, sans-serif',
@@ -149,6 +150,9 @@ export default function Component() {
               maxWidth: '600px' // Limitar el ancho máximo del formulario
             }}
             >
+
+              {/* editar imagen */}
+              
                {/* editar el tamaña del h5 */}
             <Typography component="h1" variant="h5">
               Agendar una Cita

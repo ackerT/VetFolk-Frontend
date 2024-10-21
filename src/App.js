@@ -6,6 +6,9 @@ import Landing from './components/Landing';
 import {ServicioPage }from './components/servicios/pages/ServicioPage';
 import {DetallesPage} from './components/servicios/pages/DetallesPage';
 import FormularioPage from './components/servicios/pages/FormularioPage';
+import {ProductoPage} from './components/servicios/pages/ProductoPage';
+import {HomePage} from './components/servicios/pages/HomePage';
+
 
 
 function App() {
@@ -19,6 +22,8 @@ function App() {
       <Route path='/servicio' element={<ServicioPage/>}></Route>
       <Route path='/servicio/:id' element={<DetallesPage/>}></Route>
       <Route path='/agendar-cita' element={<FormularioPage/>}></Route>
+      <Route path='/producto' element={<ProductoPage/>}></Route>
+      <Route path='/home' element={<HomePage/>}></Route>
        
     {/* 
     //Rutas de las url 

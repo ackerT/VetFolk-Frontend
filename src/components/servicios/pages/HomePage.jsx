@@ -1,10 +1,16 @@
-// src/components/page/servicioPage.jsx
-
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { serviData } from '../data/ServiData'; // Verifica la ruta si funciona aun este en rojo
 
-export const ServicioPage = () => {
+export const HomePage = () => {
+
+    function enviarFormulario() {
+        // Obtener el valor del primer formulario
+        const valorNombre = document.getElementById('Consulta').value;
+    
+      }
+      
+
     const styles = {
         container: {
             display: 'flex',
@@ -12,58 +18,59 @@ export const ServicioPage = () => {
             alignItems: 'center',
             flexDirection: 'column',
             margin: '20px',
-            padding: '100px',
+            padding: '10px',
         },
         cardContainer: {
             display: 'flex',
-            justifyContent: 'space-around',
-            width: '300%',
-            maxWidth: '1200px',
+            flexDirection: 'row', // Cambiado para que las tarjetas estén en una fila
+            justifyContent: 'center', // Centramos las tarjetas horizontalmente
+            alignItems: 'center', // Alineamos las tarjetas en el eje vertical
+            flexWrap: 'wrap', // Permite que las tarjetas se vayan a la siguiente línea si no caben
+            gap: '20px', // Espacio entre las tarjetas
+            maxWidth: '100%', // Permitir que el contenedor ocupe todo el ancho disponible
         },
         card: {
             display: 'flex',
             flexDirection: 'column',
-            justifyContent: 'space-between', // Cambiar a space-between para distribuir el contenido
+            justifyContent: 'space-between',
             alignItems: 'center',
             minHeight: '600px',
-            width: '260px', // Ajustar el ancho de las cards
-            backgroundColor: '#c9d4d4',
+            width: '260px',
+            backgroundColor: '#fff', // Cambiado a blanco
             borderRadius: '10px',
             boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
             overflow: 'hidden',
-            gap: '10px', // Espacio entre las cards
-            margin: '10px', // Separación adicional entre las cards
             textAlign: 'center',
         },
         imageContainer: {
             width: '100%',
-            height: '250px', // Ajustar la altura de la imagen
+            height: '250px',
             overflow: 'hidden',
         },
         image: {
             width: '100%',
-            height: '100%', // Ajustar para ocupar todo el espacio
+            height: '100%',
             objectFit: 'cover',
         },
         cardTitle: {
             padding: '10px',
-            backgroundColor: '#c9d4d4',
+            backgroundColor: '#fff', // Cambiado a blanco para que coincida con la tarjeta
             fontSize: '20px',
-            fontFamily: 'Poppins, sans-serif', // Aplicamos Poppins
-            fontWeight: 'bold', // Peso de la fuente
-            color: '#2c6b6b', // Color personalizado
-            marginBottom: '0px', // Separación con las cards
+            fontFamily: 'Poppins, sans-serif',
+            fontWeight: 'bold',
+            color: '#2c6b6b',
+            marginBottom: '0px',
         },
         h2: {
-            fontFamily: 'Poppins, sans-serif', // Aplicamos Poppins
-            fontWeight: '600', // Tamaño de la fuente
-            fontSize: '50px', // Tamaño del h2
-            color: '#2c6b6b', // Color personalizado
-            marginBottom: '50px', // Separación con las cards
+            fontFamily: 'Poppins, sans-serif',
+            fontWeight: '600',
+            fontSize: '50px',
+            color: '#2c6b6b',
+            marginBottom: '50px',
         },
         button: {
-            width: '100%', // Ancho consistente
-            padding: '25x 0', // Tamaño más proporcionado
+            width: '100%',
+            padding: '25px 0',
             backgroundColor: '#00897b',
             color: '#fff',
             textDecoration: 'none',
@@ -72,7 +79,7 @@ export const ServicioPage = () => {
             fontSize: '20px',
             fontWeight: 'bold',
             transition: 'background-color 0.3s ease',
-            margin: '5px 0', // Espaciado de 1 píxel entre botones
+            margin: '5px 0',
         },
         buttonHover: {
             backgroundColor: '#004d40',
@@ -81,7 +88,7 @@ export const ServicioPage = () => {
 
     return (
         <div style={styles.container}>
-            <h2 style={styles.h2}>Nuestros servicios</h2>
+            <h2 style={styles.h2}> Nuestros Servicos </h2>
             <div style={styles.cardContainer}>
                 {serviData.map(({ url, id, nombre, imagen }) => (
                     <div key={id} style={styles.card}>
@@ -89,9 +96,8 @@ export const ServicioPage = () => {
                             <img src={imagen} alt={nombre} style={styles.image} />
                         </div>
                         <div style={styles.cardTitle}>{nombre}</div>
-                        <Link to={url} style={styles.button}>
-                            Leer más
-                        </Link>
+                        <Link to='/agendar-cita' style={styles.button}> Agendar cita</Link>
+
                     </div>
                 ))}
             </div>

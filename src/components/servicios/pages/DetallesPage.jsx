@@ -91,9 +91,11 @@ export const DetallesPage = () => {
                 <img src={servicioEncontrado.imagen} alt={servicioEncontrado.nombre} style={styles.vetImg} />
             </div>
             {/* Contenedor de botones con separación */}
+            {/* bboton de agendar */}
             <div style={styles.buttonContainer}>
                 <Link to='/agendar-cita' style={styles.linkBack}>Agendar Cita</Link>
-                <Link to='/servicio' style={styles.linkBack}>Atrás</Link>
+                {/* Boton de atras  vamos a mandar un valor por defecto */}
+                <Link to='/home' style={styles.linkBack}>Atrás</Link>
             </div>
         </div>
     );
