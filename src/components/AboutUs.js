@@ -1,59 +1,53 @@
 import React from 'react';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import data from '../slider.json'; // Puedes usar datos de otro archivo si lo prefieres
-import "swiper/css";
-import './AboutUs.css'; // Asegúrate de crear y utilizar este archivo CSS
+import './AboutUs.css';
 
 const AboutUs = () => {
-    return (
-        <>
-            <section className='aboutus-wrapper'>
-                <div className='aboutus-container paddings innerWidth'>
-                    <div className='aboutus-header flexColStart'>
-                        <h1>Sobre Nosotros</h1>
-                    </div>
+  return (
+    <div className="about-us-container">
+      <h1>Sobre Nosotros</h1>
+      <p>En VetFolk, nos dedicamos a brindar atención médica y grooming de calidad para tus mascotas.</p>
 
-                    {/* Carrusel de Misión, Visión, y Valores */}
-                    <div className='aboutus-carousel'>
-                        <Swiper spaceBetween={30} slidesPerView={1} loop={true} autoplay={{ delay: 3000 }}>
-                            {data.map((card, i) => (
-                                <SwiperSlide key={i}>
-                                    <div className='flexColStart about-slide'>
-                                        <h2>{card.title}</h2>
-                                        <p>{card.description}</p>
-                                    </div>
-                                </SwiperSlide>
-                            ))}
-                        </Swiper>
-                    </div>
+      <div className="mission-vision-values">
+        <div className="card mission">
+          <h2>Misión</h2>
+          <p>
+            Nuestra misión es ofrecer un cuidado integral, compasivo y de alta calidad para todas las mascotas que llegan a nuestra clínica...
+          </p>
+        </div>
 
-                    {/* Sección para Conocer al Equipo */}
-                    <div className='aboutus-team'>
-                        <h2>Conoce a Nuestro Equipo</h2>
-                        <div className='team-container'>
-                            <div className='team-member'>
-                                <img src='/equipo1.jpg' alt='Dr. Juan Pérez' className='team-image' />
-                                <h3>Dr. Juan Pérez</h3>
-                                <p>Veterinario Especialista en Animales Exóticos</p>
-                            </div>
+        <div className="card vision">
+          <h2>Visión</h2>
+          <p>
+            Nuestra visión es ser reconocidos como líderes en el campo de la medicina veterinaria a nivel local y regional...
+          </p>
+        </div>
 
-                            <div className='team-member'>
-                                <img src='/equipo2.jpg' alt='Dra. Ana Martínez' className='team-image' />
-                                <h3>Dra. Ana Martínez</h3>
-                                <p>Especialista en Medicina Felina y Canina</p>
-                            </div>
+        <div className="card values">
+          <h2>Valores</h2>
+          <p>
+            Compromiso con el bienestar animal, respeto y empatía hacia las mascotas y sus dueños...
+          </p>
+        </div>
+      </div>
 
-                            <div className='team-member'>
-                                <img src='/equipo3.jpg' alt='Luis Gómez' className='team-image' />
-                                <h3>Luis Gómez</h3>
-                                <p>Asistente Veterinario y Técnico en Grooming</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-        </>
-    );
+      <div className="team-section">
+        <h2>Conoce a Nuestro Equipo</h2>
+        <div className="team">
+          <div className="team-member">
+            <img src="grooming.jpg" alt="Miembro del equipo 1" />
+            <h3>Javi</h3>
+            <p>Veterinario especializado en cuidados médicos</p>
+          </div>
+          <div className="team-member">
+            <img src="grooming.jpg" alt="Miembro del equipo 2" />
+            <h3>Xiomi</h3>
+            <p>Especialista en grooming y cuidado animal</p>
+          </div>
+          {/* Agregar más miembros del equipo aquí */}
+        </div>
+      </div>
+    </div>
+  );
 };
 
 export default AboutUs;

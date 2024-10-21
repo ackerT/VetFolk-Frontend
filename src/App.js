@@ -4,6 +4,7 @@ import Login from './components/Login';
 import LandingPage from './components/LandingPage';
 import Home from './components/Home';
 import Products from './components/Products';
+import AboutUs from './components/AboutUs';
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
     <Route path='/login' element={<Login/>}></Route>
     <Route path="/home" element={<Home />} />
     <Route path="/products" element={<Products />} />
+    <Route path="/about-us" element={<AboutUs />} />
    </Routes>
    </BrowserRouter> 
   );

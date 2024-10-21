@@ -1,99 +1,64 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600&display=swap');
-
-.aboutus-wrapper {
-    background: #f0ffff; /* Fondo de la sección */
-    padding: 3rem 0;
-    position: relative;
+.about-us-container {
+    padding: 20px;
+    text-align: center;
+    background-color: #f0ffff; 
+    top: 0;
 }
-
-.aboutus-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 2rem;
-}
-
-.aboutus-header {
-    margin-bottom: 2rem;
-    position: relative;
-    left: 7%;
-}
-
-.aboutus-header h1 {
-    color: #ea3c3c;
-    font-family: 'Poppins';
-    font-weight: 600;
-    font-size: 2rem;
-}
-
-.aboutus-carousel {
-    margin-top: 2rem;
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-.about-slide {
-    background-color: white;
-    padding: 2rem;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.about-slide h2 {
-    font-family: 'Baloo 2', cursive;
-    color: #2c6b6b;
-    margin-bottom: 1rem;
-}
-
-.about-slide p {
-    font-family: 'Nunito', sans-serif;
-    color: #343434;
-}
-
-.aboutus-team {
-    margin-top: 4rem;
-    width: 100%;
-}
-
-.aboutus-team h2 {
-    color: #ea3c3c;
-    font-family: 'Poppins';
-    font-weight: 600;
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
-}
-
-.team-container {
+  
+  .mission-vision-values {
     display: flex;
     justify-content: space-around;
-    flex-wrap: wrap;
-    gap: 2rem;
-}
-
-.team-member {
+    margin-top: 20px;
+  }
+  
+  .card {
     background-color: white;
-    padding: 1.5rem;
+    padding: 20px;
     border-radius: 10px;
-    width: 250px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 30%;
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  
+  .card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+  }
+  
+  .mission h2, .vision h2, .values h2 {
+    color: #ea3c3c;
+  }
+  
+  .team-section {
+    margin-top: 40px;
+  }
+  
+  .team {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+  }
+  
+  .team-member {
+    background-color: white;
+    padding: 10px;
+    border-radius: 10px;
     text-align: center;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.team-image {
-    width: 100%;
+  }
+  
+  .team-member img {
     border-radius: 50%;
-    margin-bottom: 1rem;
-}
-
-.team-member h3 {
-    color: #2c6b6b;
-    font-family: 'Baloo 2', cursive;
-    margin-bottom: 0.5rem;
-}
-
-.team-member p {
+    width: 150px;
+    height: 150px;
+  }
+  
+  .team-member h3 {
+    margin-top: 10px;
     color: #343434;
-    font-size: 0.9rem;
-    font-family: 'Nunito', sans-serif;
-}
+  }
+  
+  .team-member p {
+    color: #2c6b6b;
+  }
+  

@@ -12,7 +12,7 @@ const Products = () => {
     const SliderButton = ()=>{
         const swiper = useSwiper();
     return (
-        <div className='flexCenter s-button'>
+        <div className='flexCenter s-button2'>
             <button onClick={()=> swiper.slidePrev()}>&lt;</button>
             <button onClick={()=> swiper.slideNext()}>&gt;</button>
         </div>
@@ -21,16 +21,15 @@ const Products = () => {
 
 
     return (
-        <section className='s-wrapper'>7                    
-        <div className='s-head flexColStart'>
+        <section className='s-wrapper2'>                   
+        <div className='s-head2 flexColStart'>
         <h1>Productos que puedes encontrar en nuestra tienda física</h1> 
         </div>
-
-            <div className='paddings innerWidth s-container' id='serv'>
+            <div className='paddings innerWidth s-container2' id='serv'>
                 {
                     data.map((category, index) => (
                         <div key={index}>
-                            <div className='s-head flexColStart'>
+                            <div className='s-head2 flexColStart'>
                                 <h2>{category.category}</h2>
                                 <h3>{category.description}</h3> {/* Mostrar descripción de la categoría */}
                             </div>
@@ -41,7 +40,7 @@ const Products = () => {
                                 {
                                     category.items.map((item, i) => (
                                         <SwiperSlide key={i}>
-                                            <div className='flexColStart s-card'>
+                                            <div className='flexColStart s-card2'>
                                                 <img src={item.image} alt={item.name} />
                                                 <span className='primaryText'>{item.name}</span>
                                                 <span className='secondaryText'>{item.detail}</span>

@@ -1,27 +1,32 @@
 [
   {
     "name": "Consultas Veterinarias",
-    "detail": "Atención médica completa para tu mascota, con diagnóstico preciso y recomendaciones personalizadas para su salud y bienestar.",
-    "image": "/consulta.jpg"
+    "image": "consulta.jpg",
+    "detail": "Atención médica general para mascotas.",
+    "fullDetail": "Realizamos consultas veterinarias para mascotas de todas las edades, con un enfoque personalizado para el diagnóstico y tratamiento de cualquier afección."
   },
   {
-    "name": "Vacunación y desparasitación",
-    "detail": "Protección y prevención a tiempo. Mantenemos a tu mascota saludable con vacunas y tratamientos antiparasitarios esenciales.",
-    "image": "/vacunacion.jpg"
+    "name": "Vacunación y Desparasitación",
+    "image": "vacunacion.jpg",
+    "detail": "Protege a tu mascota de enfermedades.",
+    "fullDetail": "Aplicamos todas las vacunas necesarias para prevenir enfermedades en tu mascota y brindamos servicios de desparasitación periódica."
   },
   {
     "name": "Cirugías",
-    "detail": "Cirugías seguras y profesionales realizadas por expertos. Cuidamos cada detalle para garantizar una recuperación óptima.",
-    "image": "/cirugias.jpg"
+    "image": "cirugias.jpg",
+    "detail": "Cirugía veterinaria especializada.",
+    "fullDetail": "Ofrecemos cirugías veterinarias para diversas condiciones médicas, con el mayor cuidado y equipo especializado para garantizar la seguridad y bienestar de tu mascota."
   },
   {
-    "name": "Baño y perruquería",
-    "detail": "Servicios de higiene y cuidado estético para tu mascota. Deja a tu mejor amigo limpio, cómodo y con un look adorable en nuestra perruquería especializada.",
-    "image": "/grooming.jpg"
+    "name": "Baño y Perruquería",
+    "image": "grooming.jpg",
+    "detail": "Mantén a tu mascota limpia y arreglada.",
+    "fullDetail": "Nuestro servicio de baño y peluquería garantiza que tu mascota se mantenga limpia, con su pelaje en perfecto estado. Utilizamos productos hipoalergénicos y de alta calidad."
   },
   {
-    "name": "Venta de productos para mascotas",
-    "detail": "Alimentos, accesorios y productos de farmacia para mascotas, disponibles solo en nuestra tienda física.",
-    "image": "/venta3.jpg"
+    "name": "Venta de Alimentos y Accesorios",
+    "image": "venta3.jpg",
+    "detail": "Todo lo que necesitas para tu mascota.",
+    "fullDetail": "En nuestra tienda encontrarás una amplia variedad de alimentos, productos de higiene y accesorios para que tu mascota siempre esté bien alimentada y cuidada."
   }
 ]
