@@ -1,0 +1,51 @@
+.contact-card i {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.contact-card p {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.contact-card h5 {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-family: 'Poppins';
+  font-weight: bold;
+}
+
+.contact-page {
+  background-color: #006666;
+  color: white;
+  padding: 50px;
+  text-align: center;
+}
+
+.contact-section {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.contact-card {
+  background-color: #004c4c;
+  border-radius: 10px;
+  padding: 20px;
+  width: 300px;
+  margin: 20px;
+}
+
+h1 {
+  font-size: 3rem;
+  margin-bottom: 40px;
+}
+
+h3 {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+}
+
+p {
+  font-size:  1rem;
+  line-height: 1.6;
+}

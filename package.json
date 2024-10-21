@@ -3,12 +3,17 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+<<<<<<< HEAD
     "@emotion/react": "^11.13.3",
     "@emotion/styled": "^11.13.0",
     "@fontsource/roboto": "^5.1.0",
     "@mui/icons-material": "^6.1.3",
     "@mui/material": "^6.1.3",
     "@mui/x-date-pickers": "^7.21.0",
+=======
+    "@fortawesome/free-solid-svg-icons": "^6.6.0",
+    "@fortawesome/react-fontawesome": "^0.2.2",
+>>>>>>> a47dfd9af6b10cb8cf9a72ca3c9b6b415a0336f7
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
@@ -16,12 +21,17 @@
     "dayjs": "^1.11.13",
     "moment": "^2.30.1",
     "react": "^18.3.1",
+<<<<<<< HEAD
     "react-big-calendar": "^1.15.0",
     "react-calendar": "^5.0.0",
+=======
+    "react-accessible-accordion": "^5.0.0",
+>>>>>>> a47dfd9af6b10cb8cf9a72ca3c9b6b415a0336f7
     "react-dom": "^18.3.1",
     "react-hook-form": "^7.53.0",
     "react-router-dom": "^6.27.0",
     "react-scripts": "5.0.1",
+    "swiper": "^11.1.14",
     "vet-folk-app": "file:",
     "web-vitals": "^2.1.4"
   },
