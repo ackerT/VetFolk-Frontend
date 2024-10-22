@@ -41,60 +41,48 @@ export const HomePage = () => {
             fontFamily: 'Poppins, sans-serif',
             fontWeight: '600',
         },
-        cardContainer: {
-            display: 'flex',
-            flexDirection: 'row',
-            justifyContent: 'center',
-            alignItems: 'center',
-            flexWrap: 'wrap',
-            gap: '20px',
-            maxWidth: '100%',
-            marginTop: '80px', // Para dar espacio bajo la barra de navegación
-        },
-        card: {
-            display: 'flex',
-            flexDirection: 'column',
-            justifyContent: 'space-between',
-            alignItems: 'center',
-            minHeight: '500px',
-            width: '260px',
-            backgroundColor: '#ffffff', // Color de la tarjeta
-            borderRadius: '10px',
-            boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
-            overflow: 'hidden',
-            textAlign: 'center',
-            transition: 'transform 0.3s ease', // Transición para el efecto hover
-            color: '#00897b', // Color de texto en la tarjeta
-        },
         imageContainer: {
-            width: '100%',
-            height: '250px',
+            width: '100%', // Ocupar todo el ancho
+            maxWidth: '800px', // Aumentar la máxima anchura de la imagen
+            height: 'auto', // Altura automática para mantener la proporción
             overflow: 'hidden',
+            marginTop: '80px', // Espacio bajo la barra de navegación
+            textAlign: 'center', // Centrar el contenido
         },
         image: {
-            width: '100%',
-            height: '100%',
+            width: '100%', // Mantener el ancho del 100%
+            height: 'auto', // Mantener proporción de la imagen
             objectFit: 'cover',
-        },
-        cardTitle: {
-            padding: '10px',
-            backgroundColor: 'transparent', // Hacer el fondo del título transparente
-            fontSize: '28px',
-            fontFamily: 'Poppins, sans-serif',
-            fontWeight: 'bold',
-            color: '#00897b', // Cambiar el color del texto del título a blanco
-            marginBottom: '0px',
         },
         h2: {
             fontFamily: 'Poppins, sans-serif',
             fontWeight: '600',
-            fontSize: '50px',
-            color:  '#00897b',
-            marginBottom: '30px',
+            fontSize: '48px',
+            color: '#00897b',
+            marginBottom: '0px',
+        },
+        h3Container: {
+            display: 'flex',
+            justifyContent: 'space-around', // Espacio alrededor de los elementos
+            marginTop: '20px', // Espacio encima de los h3
+        },
+        h3: {
+            fontFamily: 'Poppins, sans-serif',
+            fontWeight: '600',
+            fontSize: '30px',
+            color: '#00897b',
+            margin: '0 10px', // Espacio entre los h3
+        },
+        p: {
+            fontFamily: 'Poppins, sans-serif',
+            fontSize: '19px', // Igualar el tamaño del texto del h3
+            color: '#343434',
+            margin: '20px 0', // Añadir margen alrededor del párrafo
+            textAlign: 'center', // Centrar el texto del párrafo
         },
         button: {
-            width: '100%',
-            padding: '25px 0',
+            width: '80%',
+            padding: '17px 0',
             backgroundColor: '#00897b',
             color: '#ffffff',
             textDecoration: 'none',
@@ -103,7 +91,7 @@ export const HomePage = () => {
             fontSize: '18px',
             fontWeight: 'bold',
             transition: 'background-color 0.3s ease',
-            margin: '5px 0',
+            margin: '20px 0', // Añadir espacio alrededor del botón
         },
         footer: {
             display: 'flex',
@@ -123,24 +111,13 @@ export const HomePage = () => {
             fontSize: '16px', // Aumentar tamaño de letra del footer
             textAlign: 'center',
         },
-        socialIcons: {
-            display: 'flex',
-            gap: '15px',
-        },
-        socialIcon: {
-            color: '#00897b',
-            textDecoration: 'none',
-        },
-        cardHover: {
-            transform: 'scale(1.05)', // Escalar la tarjeta al pasar el mouse
-        },
     };
 
     return (
         <div style={styles.container}>
             {/* BARRA DE NAVEGACIÓN */}
             <div style={styles.nav}>
-                  {/* 
+                {/* 
                 <Link to='/' style={styles.navLink}>Inicio</Link>
                 <Link to='/conocenos' style={styles.navLink}>Conócenos</Link>
                 <Link to='/servicios' style={styles.navLink}>Servicios</Link>
@@ -148,28 +125,21 @@ export const HomePage = () => {
                 */}
             </div>
             <h2 style={styles.h2}>Nuestros Servicios</h2>
-            <div style={styles.cardContainer}>
-                {serviData.map(({ url, id, nombre, imagen }) => (
-                    <div 
-                        key={id} 
-                        style={{ ...styles.card, transition: 'transform 0.3s ease' }}
-                        onMouseEnter={(e) => e.currentTarget.style.transform = styles.cardHover.transform}
-                        onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}
-                    >
-                        <div style={styles.imageContainer}>
-                            <img src={imagen} alt={nombre} style={styles.image} />
-                        </div>
-                        <div style={styles.cardTitle}>{nombre}</div>
-                        <Link to='/agendar-cita' style={styles.button}>Agendar cita</Link>
-                    </div>
-                ))}
+            <div style={styles.imageContainer}>
+                {/* Mostrar solo la imagen del primer servicio */}
+                <p style={styles.p}>Ofrecen un diagnóstico preciso y cuidado personalizado para cada mascota. Nos aseguramos de que su mascota reciba la atención que merece.</p>
+                <img src={serviData[1].imagen} alt={serviData[1].nombre} style={styles.image} />
+                <div style={styles.h3Container}>
+                    <h3 style={styles.h3}>Consultas</h3>
+                    <h3 style={styles.h3}>Peluquería</h3>
+                </div>
             </div>
+            <Link to='/agendar-cita' style={styles.button}>Agendar cita</Link>
             {/* FOOTER */}
             <div style={styles.footer}>
                 <div style={styles.footerText}>
                     © 2024 Centro Veterinario VetFolk. Todos los derechos reservados.
                 </div>
-                
             </div>
         </div>
     );
