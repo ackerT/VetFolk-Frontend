@@ -26,45 +26,43 @@ import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { DateCalendar } from '@mui/x-date-pickers/DateCalendar';
 
-// Horas disponibles de 8:00 a.m. a 5:00 p.m.
 const availableHours = [
   "08:00 a.m.", "09:00 a.m.", "10:00 a.m.", "11:00 a.m.",
   "12:00 p.m.", "01:00 p.m.", "02:00 p.m.", "03:00 p.m.",
   "04:00 p.m.", "05:00 p.m."
 ];
 
-// Estilo personalizado para los botones
 const theme = createTheme({
   typography: {
     fontFamily: 'Poppins, sans-serif',
     h5: {
-      color: '#00897b', // Cambiar el color del título "Agendar Cita"
-      fontSize: '1.6rem', // Ajustar tamaño de letra del título
-      fontWeight: 'bold', // En negrita el h5
+      color: '#00897b',
+      fontSize: '1.6rem',
+      fontWeight: 'bold',
     },
     button: {
-      fontSize: '1rem', // Aumentar tamaño de letra para botones
+      fontSize: '1rem',
       fontFamily: 'Poppins, sans-serif',
     },
   },
   palette: {
     primary: {
-      main: '#00897b', // Color principal para botones
+      main: '#00897b',
     },
     text: {
-      primary: '#000', // Color del texto en botones y modal
+      primary: '#000',
     },
   },
   components: {
     MuiButton: {
       styleOverrides: {
         root: {
-          borderRadius: '20px', // Bordes redondeados
-          padding: '8px 16px', // Espaciado para botones
+          borderRadius: '20px',
+          padding: '6px 12px', // Tamaño más pequeño del botón
           '&:hover': {
-            backgroundColor: '#00796b', // Color del fondo al hacer hover
+            backgroundColor: '#00796b',
           },
-          transition: 'background-color 0.3s', // Suavizar la transición del hover
+          transition: 'background-color 0.3s',
         },
       },
     },
@@ -72,11 +70,11 @@ const theme = createTheme({
       styleOverrides: {
         paper: {
           fontFamily: 'Poppins, sans-serif',
-          backgroundColor: '#e8f0fe', // Color de fondo de la modal
-          borderRadius: '8px', // Esquinas redondeadas
-          padding: '20px', // Espaciado interno
-          width: '80%', // Ancho de la modal
-          maxWidth: '500px', // Ancho máximo de la modal
+          backgroundColor: '#e8f0fe',
+          borderRadius: '8px',
+          padding: '20px',
+          width: '80%',
+          maxWidth: '400px', // Modal más pequeña
         },
       },
     },
@@ -133,17 +131,17 @@ export default function Component() {
   return (
     <ThemeProvider theme={theme}>
       <LocalizationProvider dateAdapter={AdapterDayjs}>
-        <Container component="main" maxWidth="sm">
+        <Container component="main" maxWidth="xs"> {/* MaxWidth reducido a xs */}
           <Box 
             sx={{ 
-              marginTop: 10, 
+              marginTop: 6, // Espacio reducido en la parte superior
               display: "flex", 
               flexDirection: "column", 
               alignItems: "center", 
-              padding: '20px',
+              padding: '10px', // Espacio reducido dentro del formulario
               width: '100%',
-              maxWidth: '600px' 
-            }}
+              maxWidth: '500px' // reducido el formulario
+            }}s
           >
             <Typography component="h1" variant="h5">
               Agendar una Cita
@@ -170,6 +168,7 @@ export default function Component() {
                         label="Nombre Completo"
                         error={Boolean(errors["Nombre Completo"])}
                         helperText={errors["Nombre Completo"]?.message}
+                        size="small" // Hacer el campo de texto más pequeño
                       />
                     )}
                   />
@@ -189,6 +188,7 @@ export default function Component() {
                         label="Teléfono"
                         error={Boolean(errors.Telefono)}
                         helperText={errors.Telefono?.message}
+                        size="small" // Hacer el campo de texto más pequeño
                       />
                     )}
                   />
@@ -208,6 +208,7 @@ export default function Component() {
                         label="Nombre de su Mascota"
                         error={Boolean(errors["Nombre de la Mascota"])}
                         helperText={errors["Nombre de la Mascota"]?.message}
+                        size="small" // Hacer el campo de texto más pequeño
                       />
                     )}
                   />
@@ -227,6 +228,7 @@ export default function Component() {
                           id="service-type"
                           label="Tipo de Servicio"
                           error={Boolean(errors["Tipo de Servicio"])}
+                          size="small" // Hacer el select más pequeño
                         >
                           <MenuItem value="Consulta">Consulta</MenuItem>
                           <MenuItem value="Peluqueria">Cirugía</MenuItem>
@@ -235,7 +237,6 @@ export default function Component() {
                     />
                   </FormControl>
                 </Grid>
-                {/* Campo para la Hora */}
                 <Grid item xs={12}>
                   <Controller
                     name="Hora"
@@ -251,6 +252,7 @@ export default function Component() {
                           id="hour"
                           label="Hora"
                           error={Boolean(errors.Hora)}
+                          size="small" // Hacer el select más pequeño
                         >
                           {availableHours.map((hour) => (
                             <MenuItem key={hour} value={hour}>
@@ -293,25 +295,22 @@ export default function Component() {
                 variant="outlined"
                 sx={{ mb: 2 }}
               >
-                Volver
+                Regresar
               </Button>
             </Box>
           </Box>
-          <Dialog
-            open={openModal}
-            onClose={handleCloseModal}
-          >
-            <DialogTitle>Hola!</DialogTitle>
-            <DialogContent>
-              <Typography>
-                Ya existe una cita programada para esta fecha. Por favor, elija una fecha diferente.
-              </Typography>
-            </DialogContent>
-            <DialogActions>
-              <Button onClick={handleCloseModal}>Cerrar</Button>
-            </DialogActions>
-          </Dialog>
         </Container>
+        <Dialog open={openModal} onClose={handleCloseModal}>
+          <DialogTitle>Cita Ocupada</DialogTitle>
+          <DialogContent>
+            La fecha y hora seleccionadas ya están ocupadas. Por favor, seleccione otra fecha u hora.
+          </DialogContent>
+          <DialogActions>
+            <Button onClick={handleCloseModal} color="primary">
+              Cerrar
+            </Button>
+          </DialogActions>
+        </Dialog>
       </LocalizationProvider>
     </ThemeProvider>
   );
