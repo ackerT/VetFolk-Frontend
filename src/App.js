@@ -8,8 +8,7 @@ import {DetallesPage} from './components/servicios/pages/DetallesPage';
 import FormularioPage from './components/servicios/pages/FormularioPage';
 import {ProductoPage} from './components/servicios/pages/ProductoPage';
 import {HomePage} from './components/servicios/pages/HomePage';
-
-
+import CambioPasswordPage from './components/CambioPassword';
 
 function App() {
   return (
@@ -24,6 +23,7 @@ function App() {
       <Route path='/agendar-cita' element={<FormularioPage/>}></Route>
       <Route path='/producto' element={<ProductoPage/>}></Route>
       <Route path='/home' element={<HomePage/>}></Route>
+      <Route path='/cambio-password' element={<CambioPasswordPage/>}></Route>
        
     {/* 
     //Rutas de las url 
