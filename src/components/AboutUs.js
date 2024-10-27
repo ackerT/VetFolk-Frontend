@@ -14,7 +14,8 @@ const AboutUs = () => {
             <img src={vetImageB} alt='logo' width={60} className='logo' />
           </a>
           <div className='h-menu2 flexCenter'>
-            <a href='#servs' style={{ textDecoration: 'none', color: 'white' }}>Servicios</a>
+            {/* Enlace modificado para redirigir a Home y hacer scroll a la sección de servicios */}
+            <Link to="/home#servs" style={{ textDecoration: 'none', color: 'white' }}>Servicios</Link>
             <Link to='/about-us' style={{ textDecoration: 'none', color: 'white' }}>
               Sobre Nosotros
             </Link>
@@ -24,7 +25,7 @@ const AboutUs = () => {
           </div>
         </div>
       </section>
-<br></br><br></br><br></br><br></br><br></br>
+      <br /><br /><br /><br /><br /><br />
       <div className="about-us-container">
         <h1>Sobre Nosotros</h1>
         <p>En VetFolk, nos dedicamos a brindar atención médica y grooming de calidad para tus mascotas.</p>
@@ -65,41 +66,40 @@ const AboutUs = () => {
               <h3>Xiomi</h3>
               <p>Especialista en grooming y cuidado animal</p>
             </div>
-            {/* Agregar más*/}
+            {/* Agregar más */}
           </div>
         </div>
       </div>
 
-                {/*FOOTER*/}
-                <section className='f-wrapper1' id='contacto'>
-                <div className='paddings innerWidth flexCenter f-container1'>
+      {/* FOOTER */}
+      <section className='f-wrapper1' id='contacto'>
+        <div className='paddings innerWidth flexCenter f-container1'>
 
-                    {/*Izquierda*/}
-                    <div className='flexColStart f-left'>
-                       <img src={vetImage} alt='logo' width={180}></img> 
-                    </div>
+          {/* Izquierda */}
+          <div className='flexColStart f-left'>
+            <img src={vetImage} alt='logo' width={180} />
+          </div>
 
-                    {/*Mitad*/}
-                    <div className='flexColStart f-middle'>
-                       <span className='f-text1'><i className="fa-solid fa-location-dot f-icon"/> Barrio San Antonio, dos cuadras abajo de la estación de policía. <br/>Las Lajas, Comayagua.</span> <br/>
-                       <span className='f-text1'><i class="fa-solid fa-clock f-icon"/> Horario de Atención:</span> <br/> 
-                       <span className='f-text1'>   Lunes a Viernes 8:00 am - 5:00 pm</span> <br/>   
-                       <span className='f-text1'>   Sábados 9:00 am - 5:00 pm</span>
-                    </div>
+          {/* Mitad */}
+          <div className='flexColStart f-middle'>
+            <span className='f-text1'><i className="fa-solid fa-location-dot f-icon" /> Barrio San Antonio, dos cuadras abajo de la estación de policía. <br />Las Lajas, Comayagua.</span> <br />
+            <span className='f-text1'><i className="fa-solid fa-clock f-icon" /> Horario de Atención:</span> <br />
+            <span className='f-text1'>   Lunes a Viernes 8:00 am - 5:00 pm</span> <br />
+            <span className='f-text1'>   Sábados 9:00 am - 5:00 pm</span>
+          </div>
 
-                    {/*Derecha*/}
-                    <div className='flexColStart f-right'>
-                       <span className='f-text1'>Contacto:</span> <br/>
-                       <span className='f-text1'><i class="fa-solid fa-phone"/> +504 9978-0338</span> <br/>
-                       <span className='f-text1'><i class="fa-brands fa-facebook"/> Centro Veterinario VetFolk</span> <br/>
-                       <span className='f-text1'><i class="fa-brands fa-instagram"/> vetfolk</span> <br/>
-                       <span className='f-text1'><i class="fa-solid fa-envelope"/> cvetfolk@gmail.com</span> <br/>
-                    </div>
-                </div>
-            </section>
-            </>
+          {/* Derecha */}
+          <div className='flexColStart f-right'>
+            <span className='f-text1'>Contacto:</span> <br />
+            <span className='f-text1'><i className="fa-solid fa-phone" /> +504 9978-0338</span> <br />
+            <span className='f-text1'><i className="fa-brands fa-facebook" /> Centro Veterinario VetFolk</span> <br />
+            <span className='f-text1'><i className="fa-brands fa-instagram" /> vetfolk</span> <br />
+            <span className='f-text1'><i className="fa-solid fa-envelope" /> cvetfolk@gmail.com</span> <br />
+          </div>
+        </div>
+      </section>
+    </>
   );
 };
 
 export default AboutUs;
-

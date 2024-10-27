@@ -1,6 +1,30 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600&display=swap');
 
+
+/*Barra de navegación*/
+.h-wrapper3 {
+    background: linear-gradient(to right, #2c6b6b, #3f8e8e);
+ /*    position: absolute; */
+    top: 0;
+    left: 0;
+    width: 100%;
+    color: white;
+}
+
+.h-menu3 {
+    gap: 2rem;
+}
+
+.h-menu3>*:hover {
+    cursor: pointer;
+}
+
+.h-container3 {
+    justify-content: space-between;
+    padding: 1rem 15rem;
+}
+
 /*Productos*/
 .s-wrapper2{
     background: #f0ffff;
@@ -91,7 +115,7 @@
 }
 
 /*Footer*/
-.f-wrapper1{
+.f-wrapper2{
     position: absolute;
     top: 50;
     left: 0;
@@ -99,11 +123,11 @@
     background: #f0ffff;
 }
 
-.f-container1{
+.f-container2{
     justify-content: space-between;
 }
 
-.f-text1{
+.f-text2{
     color: #2c6b6b;
     font-family: 'Nunito';
     font-size: 1rem;
