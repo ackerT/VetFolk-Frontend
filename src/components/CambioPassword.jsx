@@ -12,6 +12,7 @@ import { Visibility, VisibilityOff } from "@mui/icons-material";
 import { useNavigate } from "react-router-dom"; // Importar useNavigate
 
 
+
 const theme = createTheme({
   typography: {
     fontFamily: 'Poppins, sans-serif',
@@ -20,6 +21,9 @@ const theme = createTheme({
 );
 
 const textFieldStyles = {
+  '& label.Mui-focused': {
+    color: "darkgreen", // Color de la etiqueta al enfocar
+  },
   mt: 2,
   '& .MuiOutlinedInput-root': {
     '& fieldset': {
@@ -31,9 +35,15 @@ const textFieldStyles = {
     '&.Mui-focused fieldset': {
       borderColor: 'green', // Color del borde en estado enfocado
     },
-  },
+    },
 };
 
+const ButtonEstilo={
+    backgroundColor: "transparent", // Color de la etiqueta al enfocar
+    border: "2px solid #2c6b6b",
+    color: "#2c6b6b",
+    fontstyle: "bold",
+}
 
 export default function CambioPassword() {
   const { control, handleSubmit, formState: { errors }, getValues } = useForm();
@@ -88,7 +98,7 @@ export default function CambioPassword() {
             width: '100%',
           }}
         >
-          <Typography component="h1" variant="h5" > 
+          <Typography component="h1" variant="h5" >
             Cambiar Contraseña:
           </Typography>
           <Collapse in={showNotification}>
@@ -114,23 +124,23 @@ export default function CambioPassword() {
                     required
                     fullWidth
                     label="Contraseña Actual"
-                    type= "password"
-/*                     type={showPassword.current ? "text" : "password"} //mostrar password */
+                    type="password"
+                    /*                     type={showPassword.current ? "text" : "password"} //mostrar password */
                     error={Boolean(errors.CurrentPassword)}
                     helperText={errors.CurrentPassword?.message}
                     size="small"
-/*                     InputProps={{ //Inicio Icono Password
-                      endAdornment: (
-                        <InputAdornment position="end">
-                          <IconButton
-                            onClick={() => handleClickShowPassword('current')}
-                            edge="end"
-                          >
-                            {showPassword.current ? <Visibility /> : <VisibilityOff />}
-                          </IconButton>
-                        </InputAdornment>
-                      ),
-                    }}               // fin Icono Password    */   
+                    /*                     InputProps={{ //Inicio Icono Password
+                                          endAdornment: (
+                                            <InputAdornment position="end">
+                                              <IconButton
+                                                onClick={() => handleClickShowPassword('current')}
+                                                edge="end"
+                                              >
+                                                {showPassword.current ? <Visibility /> : <VisibilityOff />}
+                                              </IconButton>
+                                            </InputAdornment>
+                                          ),
+                                        }}               // fin Icono Password    */
                     sx={{ mb: 2, mt: textFieldStyles }}
                   />
                 )}
@@ -145,6 +155,10 @@ export default function CambioPassword() {
                     value: 8,
                     message: "La nueva contraseña debe tener al menos 8 caracteres",
                   },
+                  pattern: {
+                    value: /^(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*_-])(?=.*[0-9])/,
+                    message: "La nueva contraseña debe contener al menos una letra mayúscula, una letra minúscula y un carácter especial (!@#$%^&*_-) y un número ",
+                  },
                 }}
                 render={({ field }) => (
                   <TextField
@@ -152,22 +166,22 @@ export default function CambioPassword() {
                     required
                     fullWidth
                     label="Nueva Contraseña"
-                    type={showPassword.current ? "text":"password"}
+                    type={showPassword.current ? "text" : "password"}
                     error={Boolean(errors.NewPassword)}
                     helperText={errors.NewPassword?.message}
                     size="small"
-                    InputProps={{ //Inicio Icono Password
+                    InputProps={{
                       endAdornment: (
                         <InputAdornment position="end">
                           <IconButton
-                            onClick={() => handleClickShowPassword('current')}
+                            onClick={() => handleClickShowPassword('new')}
                             edge="end"
                           >
-                            {showPassword.current ? <Visibility sx={{ fontSize: 15 }}/> : <VisibilityOff sx={{ fontSize: 15 }}/>}
+                            {showPassword.new ? <Visibility sx={{ fontSize: 15 }} /> : <VisibilityOff sx={{ fontSize: 15 }} />}
                           </IconButton>
                         </InputAdornment>
                       ),
-                    }}               // fin Icono Password    
+                    }}
                     sx={{ mb: 2, mt: textFieldStyles }}
                   />
                 )}
@@ -186,7 +200,7 @@ export default function CambioPassword() {
                     required
                     fullWidth
                     label="Confirmar Nueva Contraseña"
-                    type={showPassword.current ? "text":"password"}
+                    type={showPassword.current ? "text" : "password"}
                     error={Boolean(errors.ConfirmPassword)}
                     helperText={errors.ConfirmPassword?.message}
                     size="small"
@@ -197,7 +211,7 @@ export default function CambioPassword() {
                             onClick={() => handleClickShowPassword('current')}
                             edge="end"
                           >
-                            {showPassword.current ? <Visibility sx={{ fontSize: 15 }}/> : <VisibilityOff sx={{ fontSize: 15 }}/>}
+                            {showPassword.current ? <Visibility sx={{ fontSize: 15 }} /> : <VisibilityOff sx={{ fontSize: 15 }} />}
                           </IconButton>
                         </InputAdornment>
                       ),
@@ -210,7 +224,7 @@ export default function CambioPassword() {
                 type="submit"
                 fullWidth
                 variant="contained"
-                sx={{ mt: 3, mb: 2 }}
+                sx={{ mb: 2, mt: ButtonEstilo }}
                 disabled={isSubmitting}
               >
                 {isSubmitting ? "Cambiando..." : "Cambiar Contraseña"}
@@ -230,5 +244,4 @@ export default function CambioPassword() {
       </Container>
     </ThemeProvider>
   );
-}
-
+} 
