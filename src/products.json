@@ -1,0 +1,142 @@
+[
+    {
+      "category": "Farmacia",
+      "description": "Medicamentos y productos de salud para asegurar el bienestar de tus animales.",
+      "items": [
+        {
+          "name": "Medicamento A",
+          "detail": "Descripción del medicamento A.",
+          "image": "/medicamento1.png"
+        },
+        {
+            "name": "Medicamento B",
+            "detail": "Descripción del medicamento B.",
+            "image": "/medicamento2.png"
+        },
+        {
+            "name": "Medicamento B",
+            "detail": "Descripción del medicamento B.",
+            "image": "/medicamento3.png"
+        },
+        {
+            "name": "Medicamento B",
+            "detail": "Descripción del medicamento B.",
+            "image": "/medicamento4.png"
+        },
+        {
+            "name": "Medicamento B",
+            "detail": "Descripción del medicamento B.",
+            "image": "/medicamento5.png"
+        },
+        {
+            "name": "Medicamento B",
+            "detail": "Descripción del medicamento B.",
+            "image": "/medicamento6.png"
+        }
+      ]
+    },
+    {
+      "category": "Alimentos",
+      "description": "Alimentos nutritivos para el cuidado de tu mascota.",
+      "items": [
+        {
+          "name": "Comida para Perros",
+          "detail": "Alimento balanceado para perros de todas las edades.",
+          "image": "/alimento1.png"
+        },
+        {
+            "name": "Comida para Gatos",
+            "detail": "Alimento nutritivo para gatos.",
+            "image": "/alimento2.png"
+          },
+        {
+            "name": "Comida para Gatos",
+            "detail": "Alimento nutritivo para gatos.",
+            "image": "/alimento3.png"
+        },
+        {
+            "name": "Comida para Gatos",
+            "detail": "Alimento nutritivo para gatos.",
+            "image": "/alimento4.png"
+        },
+        {
+            "name": "Comida para Gatos",
+            "detail": "Alimento nutritivo para gatos.",
+            "image": "/alimento5.png"
+        },
+        {
+            "name": "Comida para Gatos",
+            "detail": "Alimento nutritivo para gatos.",
+            "image": "/alimento6.png"
+        }
+      ]
+    },
+    {
+      "category": "Accesorios",
+      "description": "Accesorios de calidad para el cuidado y diversión de tus mascotas.",
+      "items": [
+        {
+            "name": "Juguete para Mascotas",
+            "detail": "Juguete resistente y divertido para tu mascota.",
+            "image": "/accesorio1.png"
+        },
+        {
+          "name": "Juguete para Mascotas",
+          "detail": "Juguete resistente y divertido para tu mascota.",
+          "image": "/accesorio2.png"
+        },
+        {
+            "name": "Collar",
+            "detail": "Collar ajustable para mascotas.",
+            "image": "/accesorio3.png"
+        },
+          {
+            "name": "Collar",
+            "detail": "Collar ajustable para mascotas.",
+            "image": "/accesorio4.png"
+        },
+          {
+            "name": "Collar",
+            "detail": "Collar ajustable para mascotas.",
+            "image": "/accesorio5.png"
+        },
+          {
+            "name": "Collar",
+            "detail": "Collar ajustable para mascotas.",
+            "image": "/accesorio6.png"
+        }
+      ]
+    },
+    {
+      "category": "Productos de Higiene",
+      "description": "Productos para mantener la higiene y salud de tu mascota.",
+      "items": [
+        {
+          "name": "Champú para Mascotas",
+          "detail": "Champú suave para el cuidado del pelaje.",
+          "image": "/higiene1.png"
+        },
+        {
+            "name": "Pasta Dental",
+            "detail": "Pasta dental para una higiene bucal óptima.",
+            "image": "/higiene2.png"
+          },
+          {
+            "name": "Pasta Dental",
+            "detail": "Pasta dental para una higiene bucal óptima.",
+            "image": "/higiene3.png"
+          },
+          {
+            "name": "Pasta Dental",
+            "detail": "Pasta dental para una higiene bucal óptima.",
+            "image": "/higiene4.png"
+          },
+          {
+            "name": "Pasta Dental",
+            "detail": "Pasta dental para una higiene bucal óptima.",
+            "image": "/higiene5.png"
+          }
+
+      ]
+    }
+  ]  
