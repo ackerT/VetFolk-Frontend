@@ -16,6 +16,7 @@ import { useNavigate } from "react-router-dom"; // Importar useNavigate
 const theme = createTheme({
   typography: {
     fontFamily: 'Poppins, sans-serif',
+
   },
 }
 );
@@ -35,26 +36,26 @@ const textFieldStyles = {
     '&.Mui-focused fieldset': {
       borderColor: 'green', // Color del borde en estado enfocado
     },
-    },
+  },
 };
 
-const ButtonEstilo={
-    backgroundColor: "transparent", // Color de la etiqueta al enfocar
-    border: "2px solid #2c6b6b",
-    color: "#2c6b6b",
-    fontstyle: "bold",
+const ButtonEstilo = {
+  backgroundColor: "transparent", // Color de la etiqueta al enfocar
+  border: "2px solid #2c6b6b",
+  color: "#2c6b6b",
+  fontstyle: "bold",
 }
 
 export default function CambioPassword() {
-  const { control, handleSubmit, formState: { errors }, getValues } = useForm();
+  const { control, handleSubmit, formState: { errors }, getValues, trigger } = useForm();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [showNotification, setShowNotification] = useState(false);
   const [errorNotification, setErrorNotification] = useState('');
   const [formVisible, setFormVisible] = useState(true); // Nuevo estado para controlar la visibilidad del formulario
   const [showPassword, setShowPassword] = useState({ //Para Mostrrar icono de Password
-    current: false,
-    new: false,
-    confirm: false,
+    actual: false,
+    nuevo: false,
+    confirmar: false,
   });
 
   const navigate = useNavigate(); // Inicializar useNavigate
@@ -68,7 +69,7 @@ export default function CambioPassword() {
     setErrorNotification('');
 
     // Validación de las contraseñas
-    if (formData.NewPassword !== formData.ConfirmPassword) {
+    if (formData.NewPassword !== formData.ConfirmarPassword) {
       setErrorNotification('Las contraseñas no coinciden');
       setIsSubmitting(false);
       return;
@@ -98,7 +99,7 @@ export default function CambioPassword() {
             width: '100%',
           }}
         >
-          <Typography component="h1" variant="h5" >
+          <Typography variant="h5" >
             Cambiar Contraseña:
           </Typography>
           <Collapse in={showNotification}>
@@ -114,7 +115,7 @@ export default function CambioPassword() {
           {formVisible && ( // Condicional para mostrar el formulario
             <Box component="form" onSubmit={handleSubmit(onSubmit)} noValidate>
               <Controller
-                name="CurrentPassword"
+                name="PasswordActual"
                 control={control}
                 defaultValue=""
                 rules={{ required: "Este campo es requerido" }}
@@ -124,23 +125,24 @@ export default function CambioPassword() {
                     required
                     fullWidth
                     label="Contraseña Actual"
-                    type="password"
-                    /*                     type={showPassword.current ? "text" : "password"} //mostrar password */
-                    error={Boolean(errors.CurrentPassword)}
-                    helperText={errors.CurrentPassword?.message}
+                    // type="password"
+                    type={showPassword.actual ? "text" : "password"} //mostrar password 
+                    error={Boolean(errors.PasswordActual)}
+                    helperText={errors.PasswordActual?.message}
                     size="small"
-                    /*                     InputProps={{ //Inicio Icono Password
-                                          endAdornment: (
-                                            <InputAdornment position="end">
-                                              <IconButton
-                                                onClick={() => handleClickShowPassword('current')}
-                                                edge="end"
-                                              >
-                                                {showPassword.current ? <Visibility /> : <VisibilityOff />}
-                                              </IconButton>
-                                            </InputAdornment>
-                                          ),
-                                        }}               // fin Icono Password    */
+                    InputProps={{ //Inicio Icono Password
+                      endAdornment: (
+                        <InputAdornment position="end">
+                          <IconButton
+                            onMouseDown={() => handleClickShowPassword('actual')}
+                            onMouseUp={() => handleClickShowPassword('actual')}
+                            edge="end"
+                          >
+                            {showPassword.actual ? <Visibility sx={{ fontSize: 15 }} /> : <VisibilityOff sx={{ fontSize: 15 }} />}
+                          </IconButton>
+                        </InputAdornment>
+                      ),
+                    }}               // fin Icono Password    
                     sx={{ mb: 2, mt: textFieldStyles }}
                   />
                 )}
@@ -166,7 +168,7 @@ export default function CambioPassword() {
                     required
                     fullWidth
                     label="Nueva Contraseña"
-                    type={showPassword.current ? "text" : "password"}
+                    type={showPassword.nuevo ? "text" : "password"}
                     error={Boolean(errors.NewPassword)}
                     helperText={errors.NewPassword?.message}
                     size="small"
@@ -174,20 +176,24 @@ export default function CambioPassword() {
                       endAdornment: (
                         <InputAdornment position="end">
                           <IconButton
-                            onClick={() => handleClickShowPassword('new')}
+                            onMouseDown={() => handleClickShowPassword('nuevo')}
+                            onMouseUp={() => handleClickShowPassword('nuevo')}
                             edge="end"
                           >
-                            {showPassword.new ? <Visibility sx={{ fontSize: 15 }} /> : <VisibilityOff sx={{ fontSize: 15 }} />}
+                            {showPassword.nuevo ? <Visibility sx={{ fontSize: 15 }} /> : <VisibilityOff sx={{ fontSize: 15 }} />}
                           </IconButton>
                         </InputAdornment>
                       ),
                     }}
                     sx={{ mb: 2, mt: textFieldStyles }}
+                    onBlur={()=>{
+                      trigger("NewPassword")
+                    }}
                   />
                 )}
               />
               <Controller
-                name="ConfirmPassword"
+                name="ConfirmarPassword"
                 control={control}
                 defaultValue=""
                 rules={{
@@ -200,23 +206,27 @@ export default function CambioPassword() {
                     required
                     fullWidth
                     label="Confirmar Nueva Contraseña"
-                    type={showPassword.current ? "text" : "password"}
-                    error={Boolean(errors.ConfirmPassword)}
-                    helperText={errors.ConfirmPassword?.message}
+                    type={showPassword.confirmar ? "text" : "password"}
+                    error={Boolean(errors.ConfirmarPassword)}
+                    helperText={errors.ConfirmarPassword?.message}
                     size="small"
                     InputProps={{ //Inicio Icono Password
                       endAdornment: (
                         <InputAdornment position="end">
                           <IconButton
-                            onClick={() => handleClickShowPassword('current')}
+                            onMouseUp={() => handleClickShowPassword('confirmar')}
+                            onMouseDown={() => handleClickShowPassword('confirmar')}
                             edge="end"
                           >
-                            {showPassword.current ? <Visibility sx={{ fontSize: 15 }} /> : <VisibilityOff sx={{ fontSize: 15 }} />}
+                            {showPassword.confirmar ? <Visibility sx={{ fontSize: 15 }} /> : <VisibilityOff sx={{ fontSize: 15 }} />}
                           </IconButton>
                         </InputAdornment>
                       ),
                     }}               // fin Icono Password    
                     sx={{ mb: 2, mt: textFieldStyles }}
+                    onBlur={() => {
+                      trigger("ConfirmarPassword")
+                    }}
                   />
                 )}
               />
