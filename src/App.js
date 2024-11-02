@@ -9,7 +9,7 @@ import FormularioPage from './components/servicios/pages/FormularioPage';
 import {ProductoPage} from './components/servicios/pages/ProductoPage';
 import {HomePage} from './components/servicios/pages/HomePage';
 import CambioPasswordPage from './components/CambioPassword';
-import Mascotas from './components/Mascotas';
+import BuscarMascotas from './components/BuscarMascotas';
 
 function App() {
   return (
@@ -25,7 +25,7 @@ function App() {
       <Route path='/producto' element={<ProductoPage/>}></Route>
       <Route path='/home' element={<HomePage/>}></Route>
       <Route path='/cambio-password' element={<CambioPasswordPage/>}></Route>
-      <Route path='/Mascotas' element={<Mascotas/>}></Route>
+      <Route path='/buscar-mascotas' element={<BuscarMascotas/>}></Route>
        
     {/* 
     //Rutas de las url 
