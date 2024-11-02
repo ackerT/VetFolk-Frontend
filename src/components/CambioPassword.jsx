@@ -16,12 +16,16 @@ import { useNavigate } from "react-router-dom"; // Importar useNavigate
 const theme = createTheme({
   typography: {
     fontFamily: 'Poppins, sans-serif',
-
+    h5:{
+      color:'#2c6b6b',
+      margin: '20px',
+      fontWeight: '600',
+    },
   },
 }
 );
 
-const textFieldStyles = {
+const textFieldEstilo = {
   '& label.Mui-focused': {
     color: "darkgreen", // Color de la etiqueta al enfocar
   },
@@ -40,10 +44,10 @@ const textFieldStyles = {
 };
 
 const ButtonEstilo = {
-  backgroundColor: "transparent", // Color de la etiqueta al enfocar
+  backgroundColor: "rgba(44, 107, 107, 0.2)", // Color de la etiqueta al enfocar
   border: "2px solid #2c6b6b",
+  // color: "#2c6b6b",
   color: "#2c6b6b",
-  fontstyle: "bold",
 }
 
 export default function CambioPassword() {
@@ -103,7 +107,7 @@ export default function CambioPassword() {
             Cambiar Contraseña:
           </Typography>
           <Collapse in={showNotification}>
-            <Alert severity="success" sx={{ mt: 2, width: '100%' }}>
+            <Alert severity="success" sx={{ mb:2, mt: 2, width: '100%' }}>
               ¡Contraseña cambiada con éxito!
             </Alert>
           </Collapse>
@@ -143,7 +147,7 @@ export default function CambioPassword() {
                         </InputAdornment>
                       ),
                     }}               // fin Icono Password    
-                    sx={{ mb: 2, mt: textFieldStyles }}
+                    sx={{ mb: 2, mt: textFieldEstilo }}
                   />
                 )}
               />
@@ -185,7 +189,7 @@ export default function CambioPassword() {
                         </InputAdornment>
                       ),
                     }}
-                    sx={{ mb: 2, mt: textFieldStyles }}
+                    sx={{ mb: 2, mt: textFieldEstilo }}
                     onBlur={()=>{
                       trigger("NewPassword")
                     }}
@@ -223,7 +227,7 @@ export default function CambioPassword() {
                         </InputAdornment>
                       ),
                     }}               // fin Icono Password    
-                    sx={{ mb: 2, mt: textFieldStyles }}
+                    sx={{ mb: 2, mt: textFieldEstilo }}
                     onBlur={() => {
                       trigger("ConfirmarPassword")
                     }}
@@ -245,7 +249,7 @@ export default function CambioPassword() {
             <Button
               variant="outlined"
               onClick={() => navigate('/')} // Redirigir a la página de inicio  o Login
-              sx={{ mt: 2, mb: 2 }}
+              sx={{  mb: 2 ,mt: ButtonEstilo}}
             >
               Volver al Inicio
             </Button>
