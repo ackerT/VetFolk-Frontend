@@ -1,0 +1,96 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f8ff;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+  }
+  
+  .register-pet-container {
+    width: 600px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+.register-pet-header {
+  text-align: center;
+  background-color: #e0f7fa;
+  padding: 20px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-size: contain;
+  background-position: center top;
+  background-repeat: no-repeat;
+  padding-top: 180px; 
+}
+  
+  .register-pet-header .logo {
+    max-width: 100px;
+    height: auto;
+    margin-bottom: 10px;
+    object-fit: contain;
+    display: block;
+  }
+  
+  .register-pet-header h1 {
+    color: #00796b;
+    margin: 10px 0 5px 0;
+  }
+  
+  .register-pet-header p {
+    color: #004d40;
+    font-size: 1em;
+    margin-top: 5px;
+  }
+  
+  .register-pet-form {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 15px;
+  }
+  
+  .register-pet-form label {
+    color: #333;
+    font-weight: bold;
+  }
+  
+  .register-pet-form input,
+  .register-pet-form select,
+  .register-pet-form textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1em;
+  }
+  
+  .register-pet-form textarea {
+    resize: vertical;
+  }
+  
+  .register-button {
+    width: 100%;
+    padding: 10px;
+    background-color: #00796b;
+    color: #ffffff;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .register-button:hover {
+    background-color: #004d40;
+  }    
