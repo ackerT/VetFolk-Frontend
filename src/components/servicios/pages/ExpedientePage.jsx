@@ -1,5 +1,9 @@
 import React, { useState } from 'react';
 import Box from '@mui/material/Box';
+import AppBar from '@mui/material/AppBar';
+import Toolbar from '@mui/material/Toolbar';
+import Typography from '@mui/material/Typography';
+import Button from '@mui/material/Button'; // Importa el botón
 import { DataGrid } from '@mui/x-data-grid';
 import { expedientes as mascotasExpedientes } from '../data/ExpedienteData';
 
@@ -50,7 +54,7 @@ export function ExpedientePage() {
                 style={{
                   cursor: 'pointer',
                   fontWeight: 'bold',
-                  color: '#2c6b6b', // Cambia este color si deseas otro tono
+                  color: '#2c6b6b', // Color
                 }}
               >
                 {params.value}
@@ -113,16 +117,62 @@ export function ExpedientePage() {
     },
   ];
 
+  // Manejador para el clic del botón "Crear Expediente"
+  const handleCreateExpediente = () => {
+    // agregar la lógica para crear un nuevo expediente
+    alert('Crear nuevo expediente');
+  };
+
   return (
-    <Box sx={{ height: 520, width: '100%' }}>
-      <DataGrid
-        rows={rows}
-        columns={columns}
-        pageSize={5}
-        rowsPerPageOptions={[5]}
-        disableRowSelectionOnClick
-        getRowId={(row) => row.id}
-      />
+    <Box sx={{ height: '100%', width: '100%' }}>
+      {/* Barra de Navegación */}
+      <AppBar position="static" sx={{ backgroundColor: '#ffffff' }}>
+        <Toolbar>
+          <Typography variant="h6" sx={{ flexGrow: 1, color: '#00897b' }}>
+            VetlFolk
+          </Typography>
+          <Button sx={{ color: '#00897b', fontSize: '13px' }}>Inicio</Button>
+          <Button sx={{ color: '#00897b', fontSize: '13px' }}>Usuarios</Button>
+          <Button sx={{ color: '#00897b', fontSize: '13px' }}>Configuraciones</Button>
+        </Toolbar>
+      </AppBar>
+
+      {/* Agrega margen superior para espacio debajo de la navbar */}
+      <Box sx={{ height: 450, width: '100%', marginTop: '0px' }}>
+        <h2 style={{
+          textAlign: 'center',
+          width: '50%',
+          fontFamily: 'Poppins, sans-serif',
+          fontWeight: '600',
+          fontSize: '30px',
+          color: '#00897b',
+          padding: '30px',
+          margin: '0px'
+        }}>
+          Expediente
+        </h2>
+
+        <DataGrid
+          rows={rows}
+          columns={columns}
+          pageSize={5}
+          rowsPerPageOptions={[5]}
+          disableRowSelectionOnClick
+          getRowId={(row) => row.id}
+        />
+      </Box>
+
+      {/* Botón "Crear Expediente" al final */}
+      <Box sx={{ display: 'flex', justifyContent: 'center', padding: '20px' }}>
+        <Button
+          variant="contained"
+          color="primary"
+          onClick={handleCreateExpediente}
+          sx={{ backgroundColor: '#00897b', color: '#ffffff' }}
+        >
+          Crear Expediente
+        </Button>
+      </Box>
     </Box>
   );
 }

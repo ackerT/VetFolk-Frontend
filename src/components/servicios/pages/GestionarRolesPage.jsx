@@ -63,7 +63,7 @@ export const GestionarRolesPage = () => {
                         backgroundColor: '#00897b', 
                         width: '100%',  
                         fontFamily: 'Poppins, sans-serif',
-                        fontWeight: 'normal',  // Cambiado a 'normal' para peso de fuente estándar
+                        fontWeight: 'normal',  // Cambiado a 'normal'
                         fontSize: '14px'
                     }}
                     variant="contained"
