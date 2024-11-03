@@ -215,7 +215,7 @@ function LandingPage(){
                        <span className='f-text'>Contacto:</span> <br/>
                        <span className='f-text'><i class="fa-solid fa-phone"/> +504 9978-0338</span> <br/>
                        <span className='f-text'><i class="fa-brands fa-facebook"/> Centro Veterinario VetFolk</span> <br/>
-                       <span className='f-text'><i class="fa-brands fa-instagram"/> vetfolk</span> <br/>
+                       <span className='f-text'>< i  class="fa-brands fa-instagram" /> vetfolk</span> <br/>
                     </div>
                 </div>
             </section>

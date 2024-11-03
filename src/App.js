@@ -9,6 +9,12 @@ import FormularioPage from './components/servicios/pages/FormularioPage';
 import {ProductoPage} from './components/servicios/pages/ProductoPage';
 import {HomePage} from './components/servicios/pages/HomePage';
 
+ //   Que me muestros Roles  que tiene la veterinaria */}
+ import { GestionarRolesPage} from './components/servicios/pages/GestionarRolesPage';
+ import { ExpedientePage} from './components/servicios/pages/ExpedientePage';
+
+
+
 
 
 function App() {
@@ -24,17 +30,12 @@ function App() {
       <Route path='/agendar-cita' element={<FormularioPage/>}></Route>
       <Route path='/producto' element={<ProductoPage/>}></Route>
       <Route path='/home' element={<HomePage/>}></Route>
-       
-    {/* 
-    //Rutas de las url 
-  <Route path='/servicio/ConsultasVeterinarias' element={<Servicio/>}></Route>
-  <Route path='/servicio/Vacunación' element={<Servicio/>}></Route>
-  <Route path='/servicio/Desparasitación' element={<Servicio/>}></Route>
-  <Route path='/servicio/Cirugías' element={<Servicio/>}></Route>
-  <Route path='/servicio/BañoPeluquería' element={<Servicio/>}></Route>
-  <Route path='/servicio/VentaProductos' element={<Servicio/>}></Route>
 
-     */}
+         {/*   Que me muestros Roles  que tiene la veterinaria */}
+    <Route path='/admin/gestionar-roles' element={< GestionarRolesPage/>}></Route>
+    <Route path='/admin/expediente' element={< ExpedientePage/>}></Route>
+      
+    
     
 
     </Routes>
