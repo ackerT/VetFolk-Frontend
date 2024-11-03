@@ -5,7 +5,7 @@ function Footer() {
     const styles = {
         wrapper: {
             position: 'absolute',
-            top: '310%',
+            top: '155%',
             left: 0,
             width: '100%',
             background: '#f0ffff',
@@ -19,7 +19,7 @@ function Footer() {
         },
         text: {
             color: '#2c6b6b',
-            fontFamily: 'Nunito, sans-serif',
+            fontFamily: 'Nunito',
             fontSize: '1rem',
             fontWeight: 500,
         },
@@ -75,6 +75,9 @@ function Footer() {
                     <span style={styles.text}>Contacto:</span>
                     <span style={styles.text}>
                         <i className="fa-solid fa-phone" style={styles.icon} /> +504 9978-0338
+                    </span>
+                    <span style={styles.text}>
+                        <i class="fa-solid fa-envelope" style={styles.icon} /> cvetfolk@gmail.com
                     </span>
                     <span style={styles.text}>
                         <i className="fa-brands fa-facebook" style={styles.icon} /> Centro Veterinario VetFolk

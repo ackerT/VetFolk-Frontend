@@ -23,6 +23,12 @@
     padding: 1rem 15rem;
 }
 
+.text1{
+    font-family: 'Poppins';
+    font-weight: 600;
+    text-decoration: none;
+    color: white;
+}
 
 .hero-wrapper1 {
     color: white;
@@ -48,11 +54,12 @@
     position: absolute;
     z-index: 1;
     top: 15%;
+    left: 5%;
+    font-weight: 600;
 }
 
 .title>h1{
     font-family: 'Poppins';
-    font-weight: 600;
     font-size: 3.8rem;
     line-height: 4rem;
 }
@@ -61,6 +68,7 @@
     top: 30%;
     position: absolute;
     font-size: large;
+    left: 5%;
  }
  
  .h-button1{

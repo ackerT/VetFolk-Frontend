@@ -44,7 +44,7 @@ const Products = () => {
           {/* Barra de navegación */}
             <section className='h-wrapper3'>
                 <div className='h-container3 flexCenter paddings innerWidth'>
-                    <Link to='/'>
+                    <Link to='/home'>
                         <img src={vetImageB} alt='logo' width={60} className='logo' />
                     </Link>
                     <div className='h-menu3 flexCenter'>

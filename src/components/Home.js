@@ -5,6 +5,7 @@ import './Home.css';
 import { Swiper, SwiperSlide, useSwiper } from 'swiper/react';
 import "swiper/css";
 import { sliderSettings } from "../common.js"; 
+import UserMenu from './UserMenu';
 
 function Home() {
     const navigate = useNavigate();
@@ -60,9 +61,10 @@ function Home() {
             {/* Barra de Navegación */}
             <section className='h-wrapper1'>
                 <div className='h-container1 flexCenter paddings innerWidth'>
-                    <a href='/'>
+                    <a href='/home'>
                         <img src={vetImageB} alt='logo' width={60} className='logo' />
                     </a>
+                    <span className='text1'>Centro Veterinario VetFolk</span>
                     <div className='h-menu1 flexCenter'>
                         <a href='#servs' style={{ textDecoration: 'none', color: 'white' }}>Servicios</a>
                         <Link to='/about-us' style={{ textDecoration: 'none', color: 'white' }}>
@@ -72,6 +74,7 @@ function Home() {
                             Productos en Tienda Física
                         </Link>
                     </div>
+                    <UserMenu />
                 </div>
             </section>
 
@@ -82,8 +85,8 @@ function Home() {
                         <h1 className='title'>¡Bienvenido a VetFolk!</h1>
                         <br />
                         <p className='descripcion1'>Cuidamos de tus mascotas con atención personalizada y profesional.
-                            <br /> Ofrecemos servicios médicos y grooming para asegurar su bienestar en todo momento.
-                            <br /> ¡Tu mascota está en buenas manos!</p>
+                            <br /> Ofrecemos servicios médicos y grooming para asegurar su bienestar
+                            <br /> en todo momento. ¡Tu mascota está en buenas manos!</p>
                         <div className='h-button1'>
                             <button className='button' onClick={() => navigate('/login')}>
                                 Reservar cita

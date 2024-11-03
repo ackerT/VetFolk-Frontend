@@ -7,6 +7,7 @@ import Products from './components/Products';
 import AboutUs from './components/AboutUs';
 import FormularioPage from './components/FormularioPage'
 import Servicio from './components/Servicio'
+import EditProfile from './components/EditProfile';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
     <Route path="/about-us" element={<AboutUs />} />
     <Route path="/agendar" element={<FormularioPage />} />
     <Route path="/servicio" element={<Servicio />} />
+    <Route path="/edit-profile" element={<EditProfile />} />
 
    </Routes>
    </BrowserRouter> 

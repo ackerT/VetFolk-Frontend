@@ -23,7 +23,7 @@ const AboutUs = () => {
       {/* Barra de Navegación */}
       <section className='h-wrapper2'>
         <div className='h-container2 flexCenter paddings innerWidth'>
-          <a href='/'>
+          <a href='/home'>
             <img src={vetImageB} alt='logo' width={60} className='logo' />
           </a>
           <div className='h-menu2 flexCenter'>
