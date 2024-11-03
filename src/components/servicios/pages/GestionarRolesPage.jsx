@@ -48,7 +48,7 @@ export const GestionarRolesPage = () => {
             headerName: 'Rol',
             width: 200,
             renderCell: (params) => (
-                <span style={{ color: '#2c6b6b', fontFamily: 'Poppins, sans-serif' }}>
+                <span style={{ color: '#00897b', fontFamily: 'Poppins, sans-serif' }}>
                     {params.value}
                 </span>
             )
@@ -63,7 +63,7 @@ export const GestionarRolesPage = () => {
                         backgroundColor: '#00897b', 
                         width: '100%',  
                         fontFamily: 'Poppins, sans-serif',
-                        fontWeight: '20px',
+                        fontWeight: 'normal',  // Cambiado a 'normal' para peso de fuente estándar
                         fontSize: '14px'
                     }}
                     variant="contained"
@@ -157,6 +157,7 @@ export const GestionarRolesPage = () => {
                                     }
                                     label={rol.NombreRol}
                                     key={rol.IdRol}
+                                    style={{ color: '#00897b', fontFamily: 'Poppins, sans-serif' }} // Aplicando color y fuente
                                 />
                             ))}
                         </FormGroup>

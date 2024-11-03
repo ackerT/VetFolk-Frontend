@@ -3,7 +3,7 @@ import Box from '@mui/material/Box';
 import { DataGrid } from '@mui/x-data-grid';
 import { expedientes as mascotasExpedientes } from '../data/ExpedienteData';
 
-export  function ExpedientePage() {
+export function ExpedientePage() {
   const [expandedRows, setExpandedRows] = useState({});
 
   // Generar las filas de la tabla principal con expedientes como subfilas
@@ -40,33 +40,77 @@ export  function ExpedientePage() {
         if (params.row.tipo === 'mascota') {
           return (
             <strong>
-             <div
-  onClick={() =>
-    setExpandedRows((prev) => ({
-      ...prev,
-      [params.row.id.split('-')[1]]: !prev[params.row.id.split('-')[1]],
-    }))
-  }
-  style={{
-    cursor: 'pointer',
-    fontWeight: 'bold',
-    color: '#2c6b6b', // Cambia este color si deseas otro tono
-  }}
->
-  {params.value}
-</div>
-
+              <div
+                onClick={() =>
+                  setExpandedRows((prev) => ({
+                    ...prev,
+                    [params.row.id.split('-')[1]]: !prev[params.row.id.split('-')[1]],
+                  }))
+                }
+                style={{
+                  cursor: 'pointer',
+                  fontWeight: 'bold',
+                  color: '#2c6b6b', // Cambia este color si deseas otro tono
+                }}
+              >
+                {params.value}
+              </div>
             </strong>
           );
         }
         return null;
       },
     },
-    { field: 'IdExpediente', headerName: 'ID Expediente', width: 130 },
-    { field: 'FechaApertura', headerName: 'Fecha Apertura', width: 150 },
-    { field: 'Alergias', headerName: 'Alergias', width: 200 },
-    { field: 'CondicionCronicas', headerName: 'Condiciones Crónicas', width: 200 },
-    { field: 'Observaciones', headerName: 'Observaciones', width: 250 },
+    {
+      field: 'IdExpediente',
+      headerName: 'ID Expediente',
+      width: 130,
+      renderCell: (params) => (
+        <span style={{ color: '#00897b', fontFamily: 'Poppins, sans-serif', fontSize: '13px' }}>
+          {params.value}
+        </span>
+      ),
+    },
+    {
+      field: 'FechaApertura',
+      headerName: 'Fecha Apertura',
+      width: 150,
+      renderCell: (params) => (
+        <span style={{ color: '#00897b', fontFamily: 'Poppins, sans-serif', fontSize: '13px' }}>
+          {params.value}
+        </span>
+      ),
+    },
+    {
+      field: 'Alergias',
+      headerName: 'Alergias',
+      width: 200,
+      renderCell: (params) => (
+        <span style={{ color: '#00897b', fontFamily: 'Poppins, sans-serif', fontSize: '13px' }}>
+          {params.value}
+        </span>
+      ),
+    },
+    {
+      field: 'CondicionCronicas',
+      headerName: 'Condiciones Crónicas',
+      width: 200,
+      renderCell: (params) => (
+        <span style={{ color: '#00897b', fontFamily: 'Poppins, sans-serif', fontSize: '13px' }}>
+          {params.value}
+        </span>
+      ),
+    },
+    {
+      field: 'Observaciones',
+      headerName: 'Observaciones',
+      width: 250,
+      renderCell: (params) => (
+        <span style={{ color: '#00897b', fontFamily: 'Poppins, sans-serif', fontSize: '13px' }}>
+          {params.value}
+        </span>
+      ),
+    },
   ];
 
   return (
