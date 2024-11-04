@@ -46,3 +46,12 @@ code {
   justify-content: center;
   align-items: flex-start;
 }
+
+/* styles.css */
+.input-label {
+  color: #00897b; /* Color del texto */
+  font-family: 'Poppins, sans-serif'; /* Fuente */
+  font-size: 12px; /* Tamaño de la fuente */
+  font-weight: 400; /* Grosor de la fuente (normal) */
+  margin-bottom: 4px; /* Espacio entre la etiqueta y el select */
+}

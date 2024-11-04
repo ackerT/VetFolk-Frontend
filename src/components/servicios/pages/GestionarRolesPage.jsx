@@ -1,13 +1,15 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { AppBar, Toolbar, Typography, Button } from '@mui/material';
 import { DataGrid } from '@mui/x-data-grid';
 import { Checkbox, FormControlLabel, FormGroup, Dialog, DialogActions, DialogContent, DialogTitle } from '@mui/material';
 import { Usuarios, Personas, Roles } from '../data/RolesData';
+import { useNavigate } from 'react-router-dom'; // Importa useNavigate
 
 export const GestionarRolesPage = () => {
     const [rolesSeleccionados, setRolesSeleccionados] = useState([]);
     const [usuarioSeleccionado, setUsuarioSeleccionado] = useState(null);
     const [openDialog, setOpenDialog] = useState(false);
+    const navigate = useNavigate(); // Inicializa useNavigate
 
     const obtenerRoles = (rolesIds) => {
         return rolesIds.map(roleId => {
@@ -63,7 +65,7 @@ export const GestionarRolesPage = () => {
                         backgroundColor: '#00897b', 
                         width: '100%',  
                         fontFamily: 'Poppins, sans-serif',
-                        fontWeight: 'normal',  // Cambiado a 'normal'
+                        fontWeight: 'normal',
                         fontSize: '14px'
                     }}
                     variant="contained"
@@ -91,14 +93,18 @@ export const GestionarRolesPage = () => {
 
     return (
         <div style={{ height: '100%', width: '100%' }}>
-            {/* Barra de Navegación */}
             <AppBar position="static" sx={{ backgroundColor: '#ffffff' }}>
                 <Toolbar>
                     <Typography variant="h6" sx={{ flexGrow: 1, color: '#00897b' }}>
                         VetlFolk
                     </Typography>
                     <Button sx={{ color: '#00897b', fontSize: '13px' }}>Inicio</Button>
-                    <Button sx={{ color: '#00897b', fontSize: '13px' }}>Usuarios</Button>
+                    <Button sx={{ color: '#00897b', fontSize: '13px' }} onClick={() => navigate('/admin/usuariodatos')}>
+                        Registro de Usuarios
+                    </Button>
+                    <Button sx={{ color: '#00897b', fontSize: '13px' }} onClick={() => navigate('/admin/expediente')}>
+                        Expediente
+                    </Button>
                     <Button sx={{ color: '#00897b', fontSize: '13px' }}>Configuraciones</Button>
                 </Toolbar>
             </AppBar>
@@ -157,7 +163,7 @@ export const GestionarRolesPage = () => {
                                     }
                                     label={rol.NombreRol}
                                     key={rol.IdRol}
-                                    style={{ color: '#00897b', fontFamily: 'Poppins, sans-serif' }} // Aplicando color y fuente
+                                    style={{ color: '#00897b', fontFamily: 'Poppins, sans-serif' }}
                                 />
                             ))}
                         </FormGroup>
