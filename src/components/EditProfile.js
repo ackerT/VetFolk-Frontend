@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Accordion, AccordionSummary, AccordionDetails, TextField, Typography, Grid, Button, RadioGroup, FormControlLabel, Radio } from '@mui/material';
+import { Accordion, AccordionSummary, AccordionDetails, TextField, Typography, Grid, Button, RadioGroup, FormControlLabel, Radio, Select, MenuItem, FormControl, InputLabel } from '@mui/material';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import './EditProfile.css';
 import Navbar from './Navbar';
@@ -7,23 +7,25 @@ import Footer from './Footer';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faIdBadge } from '@fortawesome/free-solid-svg-icons';
 
-const EditProfileForm = () => {
+const EditProfile = () => {
     const [profileData, setProfileData] = useState({
-      firstName: 'Jessica',
-      secondName: 'Alejandra',
-      lastName: 'Hernández',
-      secondLastName: 'Raudales',
-      email: 'jessica.raudales@example.com',
-      phone: '88008445',
-      currentPassword: '',
-      newPassword: '',
-      genero: '', 
-      municipio: '', 
-      barrio: '', 
-      referencia: '',
+        firstName: 'Jessica',
+        secondName: 'Alejandra',
+        lastName: 'Hernández',
+        secondLastName: 'Raudales',
+        email: 'jessica.raudales@example.com',
+        phone: '88008445',
+        currentPassword: '',
+        newPassword: '',
+        genero: '',
+        departamento: '',
+        municipio: '',
+        barrio: '',
+        referencia: '',
     });
 
     const [errors, setErrors] = useState({});
+    const [municipios, setMunicipios] = useState([]);
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -67,6 +69,24 @@ const EditProfileForm = () => {
         }
     };
 
+    const handleDepartamentoChange = (e) => {
+        const { name, value } = e.target;
+
+        if (name === 'departamento') {
+            setMunicipios(municipiosPorDepartamento[value] || []);
+            setProfileData((prevData) => ({
+                ...prevData,
+                municipio: '', // Resetear el municipio al cambiar de departamento
+                [name]: value,
+            }));
+        } else {
+            setProfileData((prevData) => ({
+                ...prevData,
+                [name]: value,
+            }));
+        }
+    };
+
     const handleSubmit = () => {
         let isValid = true;
         const newErrors = {};
@@ -81,6 +101,24 @@ const EditProfileForm = () => {
             console.log("Datos guardados:", profileData);
             // Lógica para enviar el formulario
         }
+    };
+
+    const departamentos = [
+        { value: 'departamento1', label: 'Departamento 1' },
+        { value: 'departamento2', label: 'Departamento 2' },
+        // Agrega más departamentos según sea necesario
+    ];
+
+    const municipiosPorDepartamento = {
+        departamento1: [
+            { value: 'municipio1', label: 'Municipio 1' },
+            { value: 'municipio2', label: 'Municipio 2' },
+        ],
+        departamento2: [
+            { value: 'municipio3', label: 'Municipio 3' },
+            { value: 'municipio4', label: 'Municipio 4' },
+        ],
+        // Agrega más municipios según sea necesario
     };
 
     return (
@@ -230,66 +268,90 @@ const EditProfileForm = () => {
                     </AccordionDetails>
                 </Accordion>
 
-                <Accordion className="accordion-completar-cuenta" >
-                  <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-                    <Typography className="accordion-header">Completar cuenta</Typography>
-                  </AccordionSummary>
+                <Accordion className="accordion-completar-cuenta">
+                    <AccordionSummary expandIcon={<ExpandMoreIcon />}>
+                        <Typography className="accordion-header">Completar cuenta</Typography>
+                    </AccordionSummary>
                     <AccordionDetails>
-                      <Grid container spacing={2}>
-                          <Grid item xs={6}>
-                              <h5 className="section-title">Género</h5>
-                              <RadioGroup
-                                  name="genero"
-                                  value={profileData.genero}
-                                  onChange={handleChange}
-                                  row
-                              >
-                                  <FormControlLabel value="Femenino" control={<Radio className='custom-radio-button'/>} label="Femenino" className='radio-label-text'/>
-                                  <FormControlLabel value="Masculino" control={<Radio className='custom-radio-button'/>} label="Masculino" className='radio-label-text'/>
-                                  <FormControlLabel value="Otro" control={<Radio className='custom-radio-button'/>} label="Otro" className='radio-label-text'/>
-                              </RadioGroup>
-                          </Grid>
+                        <Grid container spacing={2}>
+                            <Grid item xs={6}>
+                                <h5 className="section-title">Género</h5>
+                                <RadioGroup
+                                    name="genero"
+                                    value={profileData.genero}
+                                    onChange={handleChange}
+                                    row
+                                >
+                                    <FormControlLabel value="Femenino" control={<Radio className='custom-radio-button' />} label="Femenino" className='radio-label-text' />
+                                    <FormControlLabel value="Masculino" control={<Radio className='custom-radio-button' />} label="Masculino" className='radio-label-text' />
+                                    <FormControlLabel value="Otro" control={<Radio className='custom-radio-button' />} label="Otro" className='radio-label-text' />
+                                </RadioGroup>
+                            </Grid>
 
-                          <Grid item xs={6}>
-                              <h5 className="section-title">Dirección</h5>
-                              <TextField
-                                  label="Municipio"
-                                  variant="outlined"
-                                  fullWidth
-                                  name="municipio"
-                                  value={profileData.municipio}
-                                  onChange={handleChange}
-                                  error={Boolean(errors.municipio)}
-                                  helperText={errors.municipio}
-                                  className="custom-text-field"
-                                  style={{ marginBottom: '16px' }}
-                              />
+                            <Grid item xs={6}>
+                                <h5 className="section-title">Dirección</h5>
+                                <FormControl variant="outlined" fullWidth className="custom-text-field" style={{ marginBottom: '16px' }}>
+                                <InputLabel id="departamento-label">Departamento</InputLabel>
+                            <Select
+                                labelId="departamento-label"
+                                label="Departamento"
+                                name="departamento"
+                                value={profileData.departamento}
+                                onChange={handleChange}
+                            >
+                        <MenuItem value=""><em>Seleccione un departamento</em></MenuItem>
+                        {departamentos.map(departamento => (
+                        <MenuItem key={departamento.value} value={departamento.value}>
+                            {departamento.label}
+                        </MenuItem>
+                    ))}
+                </Select>
+            </FormControl>
 
-                              <TextField
-                                  label="Barrio"
-                                  variant="outlined"
-                                  fullWidth
-                                  name="barrio"
-                                  value={profileData.barrio}
-                                  onChange={handleChange}
-                                  error={Boolean(errors.barrio)}
-                                  helperText={errors.barrio}
-                                  className="custom-text-field"
-                                  style={{ marginBottom: '16px' }}
-                              />
+            <FormControl variant="outlined" fullWidth className="custom-text-field" style={{ marginBottom: '16px' }}>
+                <InputLabel id="municipio-label">Municipio</InputLabel>
+                <Select
+                    labelId="municipio-label"
+                    label="Municipio"
+                    name="municipio"
+                    value={profileData.municipio}
+                    onChange={handleChange}
+                    error={Boolean(errors.municipio)}
+                >
+                    <MenuItem value=""><em>Seleccione un municipio</em></MenuItem>
+                    {municipios.map(municipio => (
+                        <MenuItem key={municipio.value} value={municipio.value}>
+                            {municipio.label}
+                        </MenuItem>
+                    ))}
+                </Select>
+            </FormControl>
 
-                              <TextField
-                                  label="Referencia"
-                                  variant="outlined"
-                                  fullWidth
-                                  name="referencia"
-                                  value={profileData.referencia}
-                                  onChange={handleChange}
-                                  className="custom-text-field"
-                                  style={{ marginBottom: '16px' }}
-                              />
-                          </Grid>
-                      </Grid>
+                                <TextField
+                                    label="Barrio"
+                                    variant="outlined"
+                                    fullWidth
+                                    name="barrio"
+                                    value={profileData.barrio}
+                                    onChange={handleChange}
+                                    error={Boolean(errors.barrio)}
+                                    helperText={errors.barrio}
+                                    className="custom-text-field"
+                                    style={{ marginBottom: '16px' }}
+                                />
+
+                                <TextField
+                                    label="Referencia"
+                                    variant="outlined"
+                                    fullWidth
+                                    name="referencia"
+                                    value={profileData.referencia}
+                                    onChange={handleChange}
+                                    className="custom-text-field"
+                                    style={{ marginBottom: '16px' }}
+                                />
+                            </Grid>
+                        </Grid>
                     </AccordionDetails>
                 </Accordion>
                 <Button variant="contained" onClick={handleSubmit} className="submit-button" style={{ marginTop: '16px' }}>
@@ -301,4 +363,4 @@ const EditProfileForm = () => {
     );
 };
 
-export default EditProfileForm;
+export default EditProfile;
