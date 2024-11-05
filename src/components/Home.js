@@ -6,6 +6,7 @@ import { Swiper, SwiperSlide, useSwiper } from 'swiper/react';
 import "swiper/css";
 import { sliderSettings } from "../common.js"; 
 import UserMenu from './UserMenu';
+import Footer from './Footer';
 
 function Home() {
     const navigate = useNavigate();
@@ -58,6 +59,7 @@ function Home() {
 
     return (
         <>
+            <div className='home-page'>
             {/* Barra de Navegación */}
             <section className='h-wrapper1'>
                 <div className='h-container1 flexCenter paddings innerWidth'>
@@ -146,6 +148,8 @@ function Home() {
                     </div>
                 </div>
             )}
+            <Footer/>
+            </div>
         </>
     );
 }
