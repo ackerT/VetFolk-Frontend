@@ -36,7 +36,7 @@ function App() {
          {/*   Que me muestros Roles  que tiene la veterinaria */}
     <Route path='/admin/gestionar-roles' element={< GestionarRolesPage/>}></Route>
     <Route path='/admin/expediente' element={< ExpedientePage/>}></Route>
-    <Route path='/admin/usuariodatos' element={< UsuarioDatosPage/>}></Route>
+    <Route path='/admin/usuario-datos' element={< UsuarioDatosPage/>}></Route>
 
       
     

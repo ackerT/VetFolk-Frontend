@@ -2,6 +2,7 @@ import React  from 'react';
 
 function create (){
     return (
+        //crea foemulario
         <form>
             <input type="text" name="nombre" placeholder="Nombre" required />
             <input type="text" name="apellido" placeholder="Apellido" required />

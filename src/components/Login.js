@@ -164,7 +164,7 @@ function Login() {
       {/*---Formulario de registro---*/}
       <div className={`col-md-6 d-flex justify-content-center ${!isLoginActive ? 'active' : 'inactive'}`}>
         <form onSubmit={handleRegisterSubmit}>
-          <div className='header-text mb-4 text-center'>
+          <div className='mb-4 text-center header-text'>
             <div className='icon-container'>
               <i className="fa-solid fa-user-plus" style={{ fontSize: '40px', color: '#fff' }}></i>
             </div>
@@ -176,12 +176,12 @@ function Login() {
               {errors.primerNombre}
             </div>
           )}
-          <div className='input-group mb-4'>
+          <div className='mb-4 input-group'>
             <input type='text' name='primerNombre' placeholder='Primer nombre' className='form-control form-control-lg bg-light fs-6' value={registerForm.primerNombre} onChange={handleRegisterChange} />
           </div>
 
 
-          <div className='input-group mb-4'>
+          <div className='mb-4 input-group'>
             <input type='text' name='segundoNombre' placeholder='Segundo nombre' className='form-control form-control-lg bg-light fs-6' value={registerForm.segundoNombre} onChange={handleRegisterChange} />
           </div>
 
@@ -191,12 +191,12 @@ function Login() {
             </div>
           )}
 
-          <div className='input-group mb-4'>
+          <div className='mb-4 input-group'>
             <input type='text' name='primerApellido' placeholder='Primer apellido' className='form-control form-control-lg bg-light fs-6' value={registerForm.primerApellido} onChange={handleRegisterChange} />
           </div>
 
 
-          <div className='input-group mb-4'>
+          <div className='mb-4 input-group'>
             <input type='text' name='segundoApellido' placeholder='Segundo apellido' className='form-control form-control-lg bg-light fs-6' value={registerForm.segundoApellido} onChange={handleRegisterChange} />
           </div>
 
@@ -207,7 +207,7 @@ function Login() {
             </div>
           )}
 
-          <div className='input-group mb-4'>
+          <div className='mb-4 input-group'>
             <input type='text' name='telefono' placeholder='Número de teléfono' className='form-control form-control-lg bg-light fs-6' value={registerForm.telefono} onChange={handleRegisterChange} />
           </div>
 
@@ -217,7 +217,7 @@ function Login() {
             </div>
           )}
 
-          <div className='input-group mb-4'>
+          <div className='mb-4 input-group'>
             <input type='email' name='correo' placeholder='Correo' className='form-control form-control-lg bg-light fs-6' value={registerForm.correo} onChange={handleRegisterChange} />
           </div>
 
@@ -227,11 +227,11 @@ function Login() {
             </div>
           )}
 
-          <div className='input-group mb-4'>
+          <div className='mb-4 input-group'>
             <input type='password' name='password' placeholder='Contraseña' className='form-control form-control-lg bg-light fs-6' value={registerForm.password} onChange={handleRegisterChange} />
           </div>
 
-          <div className='input-group mb-3 justify-content-center'>
+          <div className='mb-3 input-group justify-content-center'>
             <button className='btn border-#fff text-#2c6b6b w-55 fs-6' type='submit'>Regístrate</button>
           </div>
           {registerMessage && <p>{registerMessage}</p>}
@@ -241,7 +241,7 @@ function Login() {
       {/*---Formulario de inicio de sesión---*/}
       <div className={`col-md-6 right-box ${isLoginActive ? 'active' : 'inactive'}`}>
         <form onSubmit={handleLoginSubmit}>
-          <div className='header-text mb-4'>
+          <div className='mb-4 header-text'>
             <div className='icon-container'>
               <i className="fa-solid fa-right-to-bracket" style={{ fontSize: '40px', color: '#fff' }}></i>
             </div>
@@ -254,7 +254,7 @@ function Login() {
             </div>
           )}
 
-          <div className='input-group mb-3'>
+          <div className='mb-3 input-group'>
             <input type='email' name='correo' placeholder='Correo' className='form-control form-control-lg bg-light fs-6' value={loginForm.correo} onChange={handleLoginChange} />
           </div>
 
@@ -264,10 +264,10 @@ function Login() {
             </div>
           )}
 
-          <div className='input-group mb-3'>
+          <div className='mb-3 input-group'>
             <input type='password' name='password' placeholder='Contraseña' className='form-control form-control-lg bg-light fs-6' value={loginForm.password} onChange={handleLoginChange} />
           </div>
-          <div className='input-group mb-5 d-flex justify-content-between'>
+          <div className='mb-5 input-group d-flex justify-content-between'>
             <div className='form-check'>
               <input type='checkbox' className='form-check-input' />
               <label htmlFor='formcheck' className='form-check-label'>
@@ -278,7 +278,7 @@ function Login() {
               <small><a href='/'>¿Olvidaste tu contraseña?</a></small>
             </div>
           </div>
-          <div className='input-group mb-3 justify-content-center'>
+          <div className='mb-3 input-group justify-content-center'>
             <button className='btn border-#2c6b6b text-#2c6b6b w-50 fs-6' type='submit'>Iniciar Sesión</button>
           </div>
           {loginMessage && <p>{loginMessage}</p>}
