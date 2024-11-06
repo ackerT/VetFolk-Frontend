@@ -1,9 +1,8 @@
-// Aca estoy trabajando el registro
-import React, { useState } from 'react';
+import React, { useState } from 'react'; 
 import { useForm } from 'react-hook-form';
 import { usuarios } from '../data/UsuarioData';
-import { Modal, Box, Typography, Button, Select, MenuItem, FormControl, InputLabel } from '@mui/material';
-import { useNavigate } from 'react-router-dom';
+import { Modal, Box, Typography, Button, Select, MenuItem, FormControl, InputLabel, TextField } from '@mui/material';
+import { useNavigate } from 'react-router-dom'; 
 import Alert from '@mui/material/Alert';
 
 export const UsuarioDatosPage = () => {
@@ -40,137 +39,188 @@ export const UsuarioDatosPage = () => {
     navigate('/admin/gestionar-roles');
   };
 
+  // Estilos de los input
   const inputStyles = {
     color: '#00897b',
     fontFamily: 'Poppins, sans-serif',
-    fontSize: '10px',
-    marginBottom: '1px',
-    padding: '10px',
-    borderRadius: '5px',
+    fontSize: '14px',
+    marginBottom: '5px',  // Espaciado de 5px entre cada campo
+    padding: '12px',
+    borderRadius: '1px',
     border: '1px solid #ccc',
-    width: '100%'
-  };
-
-  const labelStyles = {
-    color: '#00897b',
-    fontFamily: 'Poppins, sans-serif',
-    fontSize: '15px',
-    fontWeight: 'bold',
-    marginBottom: '10px'
+    width: '90%',
   };
 
   const buttonStyles = {
     backgroundColor: '#00897b',
     color: '#fff',
     fontFamily: 'Poppins, sans-serif',
-    marginTop: '20px',
-    padding: '12px',
-    width: '100%',
-    cursor: 'pointer'
+    fontWeight: 'bold',
+    padding: '10px',
+    width: '96%',// ancho de los botones
+    marginTop:'25px',//separacion de los botones
+    spacing: '10px',
+    cursor: 'pointer',
   };
 
   return (
-    <div style={{ display: 'flex', justifyContent: 'center', padding: '10px' }}>
-      <div style={{ width: '100%', maxWidth: '500px' }}>
-        <h2 style={{ fontFamily: 'Poppins, sans-serif', color: '#00897b', fontWeight: 'bold', textAlign: 'center' }}>
-          Registro Roles
-        </h2>
+    <>
+      <div style={{
+        // estilo de la imagen 
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        padding: '10px',
+        position: 'relative',
+        minHeight: '100vh',
+      }}>
+        {/* Imagen de fondo con desenfoque */}
+        <img 
+          src={process.env.PUBLIC_URL + '/asset/imgServicios/sombreo3.png'} 
+          alt="Fondo"
+          style={{
+            position: 'absolute',
+            top: '50%',
+            left: '50%',
+            transform: 'translate(-50%, -50%)',
+            zIndex: -1,
+            maxWidth: '500%',
+            maxHeight: '500%',
+            WebkitMaskImage: 'linear-gradient(to bottom, rgba(255, 255, 255, 1) 80%, rgba(0, 0, 0, 0))',
+            maskImage: 'linear-gradient(to bottom, rgba(255, 255, 255, 1) 80%, rgba(0, 0, 0, 0))',
+          }} 
+        />
+        
+        <div style={{ width: '100%', maxWidth: '500px' }}>
+          <h2 style={{ fontFamily: 'Poppins, sans-serif', color: '#00897b'}}>
+            Registro Roles
+          </h2>
 
-        <Button onClick={() => setOpenModal(true)} style={buttonStyles}>
-          Registrar 
-        </Button>
+          <Button onClick={() => setOpenModal(true)} style={buttonStyles}>
+            Registrar 
+          </Button>
 
-        <Modal open={openModal} onClose={handleCloseModal}>
-          <Box sx={{ ...modalStyles }}>
-            <div style={{ padding: '30px', overflowY: 'auto', maxHeight: '400px' }}>
-              <form onSubmit={handleSubmit(onSubmit)} style={{ width: '80%' }}>
-                {/* Primer Nombre */}
-                <label style={labelStyles}>Primer Nombre</label>
-                <input
-                  type="text"
-                  {...register("PrimerNombre", { required: "Primer nombre es requerido", maxLength: 50 })}
-                  style={inputStyles}
-                />
-                {errors.PrimerNombre && <p style={{ color: 'red' }}>{errors.PrimerNombre.message}</p>}
+          {/* Modal de Registro */}
+          <Modal open={openModal} onClose={handleCloseModal}>
+            <Box sx={{
+              position: 'absolute',
+              top: '57%',
+              left: '50%',
+              transform: 'translate(-50%, -50%)',
+              maxWidth: '550px',
+              bgcolor: 'background.paper',
+              border: '1.5px solid #00897b',
+              spacing:'15px',
+              borderRadius: '10px',
+              boxShadow: 24,
+              padding: '28px',
+            }}>
+              <Typography variant="h6" sx={{ textAlign: 'center', color: '#00897b', marginBottom: '20px', fontWeight: 'bold'  }}>
+                Completa el registro
+              </Typography>
+              <form onSubmit={handleSubmit(onSubmit)} className="">
+                {/* Primer y Segundo Nombre */}
+                <div className="">
+                  <div>
+                    <TextField
+                      label="Primer Nombre"
+                      variant="outlined"
+                      {...register("PrimerNombre", { required: "Primer nombre es requerido", maxLength: 50 })}
+                      error={!!errors.PrimerNombre}
+                      helperText={errors.PrimerNombre?.message}
+                      sx={{ marginBottom: '5px', input: { color: '#00897b' }}}
+                    />
+                  </div>
+                
+                  <div>
+                    <TextField
+                      label="Segundo Nombre"
+                      variant="outlined"
+                      {...register("SegundoNombre", { maxLength: 50 })}
+                      sx={{ marginBottom: '5px', input: { color: '#00897b' }}}
+                    />
+                  </div>
+                </div>
+                
+                {/* Primer y Segundo Apellido */}
+                <div className="grid grid-cols-2 ">
+                  <div>
+                    <TextField
+                      label="Primer Apellido"
+                      variant="outlined"
+                      {...register("PrimerApellido", { required: "Primer apellido es requerido", maxLength: 50 })}
+                      error={!!errors.PrimerApellido}
+                      helperText={errors.PrimerApellido?.message}
+                      sx={{ marginBottom: '5px', input: { color: '#00897b' }}}
+                    />
+                  </div>
 
-                {/* Segundo Nombre */}
-                <label style={labelStyles}>Segundo Nombre</label>
-                <input
-                  type="text"
-                  {...register("SegundoNombre", { maxLength: 50 })}
-                  style={inputStyles}
-                />
-
-                {/* Primer Apellido */}
-                <label style={labelStyles}>Primer Apellido</label>
-                <input
-                  type="text"
-                  {...register("PrimerApellido", { required: "Primer apellido es requerido", maxLength: 50 })}
-                  style={inputStyles}
-                />
-                {errors.PrimerApellido && <p style={{ color: 'red' }}>{errors.PrimerApellido.message}</p>}
-
-                {/* Segundo Apellido */}
-                <label style={labelStyles}>Segundo Apellido</label>
-                <input
-                  type="text"
-                  {...register("SegundoApellido", { maxLength: 50 })}
-                  style={inputStyles}
-                />
+                  <div>
+                    <TextField
+                      label="Segundo Apellido"
+                      variant="outlined"
+                      {...register("SegundoApellido", { maxLength: 50 })}
+                      sx={{ marginBottom: '5px', input: { color: '#00897b' }}}
+                    />
+                  </div>
+                </div>
 
                 {/* Correo */}
-                <label style={labelStyles}>Correo</label>
-                <input
+                <TextField
+                  label="Correo"
+                  variant="outlined"
                   type="email"
                   {...register("Correo", {
                     required: "Correo es requerido",
                     pattern: { value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/, message: "Formato de correo inválido" }
                   })}
-                  style={inputStyles}
+                  error={!!errors.Correo}
+                  helperText={errors.Correo?.message}
+                  sx={{ marginBottom: '5px', input: { color: '#00897b' }}}
                 />
-                {errors.Correo && <p style={{ color: 'red' }}>{errors.Correo.message}</p>}
 
                 {/* Contraseña */}
-                <label style={labelStyles}>Contraseña</label>
-                <input
+                <TextField
+                  label="Contraseña"
+                  variant="outlined"
                   type="password"
                   {...register("Contraseña", {
                     required: "La contraseña es requerida",
                     pattern: {
                       value: /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[A-Za-z\d]{6,}$/,
-                      message: "Debe tener 6 caracteres, una mayúscula y un dígito"
+                      message: "Debe tener 6 caracteres, al menos un dígito"
                     }
                   })}
-                  style={inputStyles}
+                  error={!!errors.Contraseña}
+                  helperText={errors.Contraseña?.message}
+                  sx={{ marginBottom: '5px', input: { color: '#00897b' }}}
                 />
-                {errors.Contraseña && <p style={{ color: 'red' }}>{errors.Contraseña.message}</p>}
 
                 {/* Teléfono */}
-                <label style={labelStyles}>Teléfono</label>
-                <input
+                <TextField
+                  label="Teléfono"
+                  variant="outlined"
                   type="text"
                   {...register("Telefono", { required: true, pattern: /^[0-9]{8}$/ })}
-                  style={inputStyles}
+                  error={!!errors.Telefono}
+                  helperText={errors.Telefono?.message}
+                  sx={{ marginBottom: '5px', input: { color: '#00897b' }}}
                 />
-                {errors.Telefono && <p style={{ color: 'red' }}>El teléfono es obligatorio y debe tener 8 dígitos.</p>}
 
-                {/* ROL */}
+                {/* Asignar Rol */}
                 <FormControl fullWidth sx={{ marginBottom: '5px' }}>
-                  <InputLabel id="select-role-label" style={labelStyles}>Asignar Rol</InputLabel>
+                  <InputLabel 
+                  style={{ color: '#00897b',
+                   fontFamily: 'Poppins, sans-serif ' }}>  Rol
+                 </InputLabel>
                   <Select
-                    labelId="select-role-label"
                     value={role}
+                     type=" Asignar Rol"
                     onChange={(e) => setRole(e.target.value)}
-                    sx={{
-                      color: '#00897b',
-                      height: '30px',
-                      fontFamily: 'Poppins, sans-serif',
-                      fontSize: '15px',
-                      border: '1px solid #00897b',
-                      borderRadius: '10px',
-                      margin: '10px 0',
-                      padding: '10px 0'
-                    }}
+                    label="Asignar Rol"
+                    sx={{ color: '#00897b', border: '0px solid #00897b', 
+                      fontFamily: 'Poppins, sans-serif', fontSize: '15px'
+                       , marginTop:'12px' }}
                   >
                     <MenuItem value="Cliente">Cliente</MenuItem>
                     <MenuItem value="Administrador">Administrador</MenuItem>
@@ -179,52 +229,22 @@ export const UsuarioDatosPage = () => {
                   </Select>
                 </FormControl>
 
-                <input type="submit" value="Registrar" 
-                  style={{
-                    ...inputStyles, 
-                    backgroundColor: '#fff',
-                    fontStyle: 'bold',
-                    fontSize: '14px',
-                    width: '235px',
-                    height: '45px',
-                    color: '#00897b',
-                    cursor: 'pointer'
-                  }}
-                />
+                {/* Botón para registrar */}
+                <Button type="submit" style={buttonStyles}>Registrar</Button>
               </form>
-            </div>
-          </Box>
-        </Modal>
+            </Box>
+          </Modal>
 
-        <Button onClick={goToGestionarRoles} style={buttonStyles}>
-          Gestionar Roles
-        </Button>
+          <Button onClick={goToGestionarRoles} style={buttonStyles}>Gestionar Roles</Button>
 
-        {showSuccessAlert && (
-          <Alert severity="success" onClose={() => setShowSuccessAlert(false)} 
-          style={{ marginTop: '10px', fontFamily: 'Poppins, sans-serif' }}>
-            ¡Registro exitoso! Redireccionando...
-          </Alert>
-        )}
+          {showSuccessAlert && (
+            <Alert severity="success" onClose={() => setShowSuccessAlert(false)}
+             style={{ marginTop: '20px' }}>
+              Usuario registrado con éxito.
+            </Alert>
+          )}
+        </div>
       </div>
-    </div>
+    </>
   );
-};
-
-// Estilos de la modal
-const modalStyles = {
-  position: 'absolute',
-  fontSize: '18px',
-  textAlign: 'left',
-  top: '15%',
-  marginTop: '130px',
-  left: '50%',
-  transform: 'translate(-50%, -50%)',
-  width: '100%',
-  maxWidth: '300px',
-  bgcolor: 'background.paper',
-  border: '3px solid #00897b',
-  borderRadius: '10px',
-  boxShadow: 30,
-  outline: 'none'
 };
