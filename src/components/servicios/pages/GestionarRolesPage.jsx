@@ -1,16 +1,16 @@
-// solo veo los Roles que tenemos y visalizan las tabla 
 import React, { useState } from 'react';
-import { AppBar, Toolbar, Typography, Button } from '@mui/material';
+import { AppBar, Toolbar, Typography, Button, Dialog, DialogActions, DialogContent, DialogTitle } from '@mui/material';
 import { DataGrid } from '@mui/x-data-grid';
-import { Checkbox, FormControlLabel, FormGroup, Dialog, DialogActions, DialogContent, DialogTitle } from '@mui/material';
+import { Checkbox, FormControlLabel, FormGroup, IconButton } from '@mui/material';
+import { Menu as MenuIcon } from '@mui/icons-material';
 import { Usuarios, Personas, Roles } from '../data/RolesData';
-import { useNavigate } from 'react-router-dom'; // Importa useNavigate
+import { useNavigate } from 'react-router-dom';
 
 export const GestionarRolesPage = () => {
     const [rolesSeleccionados, setRolesSeleccionados] = useState([]);
     const [usuarioSeleccionado, setUsuarioSeleccionado] = useState(null);
     const [openDialog, setOpenDialog] = useState(false);
-    const navigate = useNavigate(); // Inicializa useNavigate
+    const navigate = useNavigate();
 
     const obtenerRoles = (rolesIds) => {
         return rolesIds.map(roleId => {
@@ -94,28 +94,67 @@ export const GestionarRolesPage = () => {
 
     return (
         <div style={{ height: '100%', width: '100%' }}>
-            <AppBar position="static" sx={{ backgroundColor: '#ffffff' }}>
+            <AppBar position="static" 
+            sx={{ backgroundColor: '#ffffff' ,         
+                               width: '100%', 
+                             height:'10%',
+                             margin:'17px'
+
+            }}>
                 <Toolbar>
-                    <Typography variant="h6" sx={{ flexGrow: 1, color: '#00897b' }}>
-                        VetlFolk
+                    <Typography 
+                        variant="h6" 
+                        sx={{ 
+                            flexGrow: 1, 
+                            color: '#00897b',
+                            fontFamily: 'Poppins, sans-serif', 
+                            fontWeight: 'bold',
+                            fontSize: '24px',
+                            padding: '25px',
+                            margin: '0px'
+                        }}
+                    >
+                        VetFolk
                     </Typography>
-                    <Button sx={{ color: '#00897b', fontSize: '13px' }}>Inicio</Button>
-                    <Button sx={{ color: '#00897b', fontSize: '13px' }} onClick={() => navigate('/admin/usuariodatos')}>
+                    <Button 
+                        color="inherit"
+                        sx={{ 
+                            color: '#00897b', 
+                            fontFamily: 'Poppins, sans-serif',
+                            fontweight:'bold',
+                         }}
+                    >
+                        Inicio
+                    </Button>
+                    <Button 
+                        color="inherit" 
+                        onClick={() => navigate('/admin/usuario-datos')}
+                        sx={{ color: '#00897b', 
+                            fontFamily: 'Poppins, sans-serif',
+                            fontweight:'bold',
+                         }}
+                    >
                         Registro de Usuarios
                     </Button>
-                    <Button sx={{ color: '#00897b', fontSize: '13px' }} onClick={() => navigate('/admin/expediente')}>
+                    <Button 
+                        color="inherit" 
+                        onClick={() => navigate('/admin/expediente')}
+                        sx={{ color: '#00897b', 
+                            fontFamily: 'Poppins, sans-serif',
+                            fontweight:'bold',
+                         }}
+                    >
                         Expediente
                     </Button>
-                    <Button sx={{ color: '#00897b', fontSize: '13px' }}>Configuraciones</Button>
+                    
                 </Toolbar>
             </AppBar>
 
-            <div style={{ height: 500, width: '100%' }}>
-                <h2 style={{ 
+            <div style={{ height: 500, width: '100%', padding: '20px' }}>
+                <h2 style={{
                     textAlign: 'center', 
-                    width: '50%', 
                     fontFamily: 'Poppins, sans-serif', 
-                    fontWeight: '600',
+                    fontWeight: 'bold',
                     fontSize: '30px',
                     color: '#00897b',
                     padding: '30px',
@@ -131,16 +170,10 @@ export const GestionarRolesPage = () => {
                     disableSelectionOnClick
                     sx={{
                         backgroundColor: '#ffffff',
-                        '& .MuiDataGrid-selectedRowCount': {
-                            color: 'yellow',
-                        },
-                        '& .MuiDataGrid-root .MuiDataGrid-cell': {
+                        '& .MuiDataGrid-cell': {
                             color: 'black',
                         },
-                        '& .MuiDataGrid-footerCell': {
-                            backgroundColor: '#ffffff',
-                        },
-                        '& .MuiDataGrid-columnHeader': {
+                        '& .MuiDataGrid-footerCell, .MuiDataGrid-columnHeader': {
                             backgroundColor: '#ffffff',
                         }
                     }}
@@ -180,5 +213,5 @@ export const GestionarRolesPage = () => {
                 </Dialog>
             </div>
         </div>
-    );
+    );  
 };
