@@ -87,7 +87,8 @@ export function ExpedientePage() {
           <Button 
             color="inherit" 
             onClick={() => navigate('/admin/expediente')}
-            sx={{ color: '#00897b', fontFamily: 'Poppins, sans-serif',
+            sx={{ color: '#00897b', 
+              fontFamily: 'Poppins, sans-serif',
                fontWeight: 'bold' }}
           >
             Expediente
@@ -95,16 +96,16 @@ export function ExpedientePage() {
         </Toolbar>
       </AppBar>
 
-      <Box sx={{ height: 450, width: '100%', marginTop: '0px' }}>
+      <Box sx={{ height: 450, width: '100%', marginTop: '15px' }}>
         <h2 style={{
           textAlign: 'center',
           width: '50%',
           fontFamily: 'Poppins, sans-serif',
-          fontWeight: '600',
-          fontSize: '30px',
+          fontWeight: 'bold',
+          fontSize: '37px',
           color: '#00897b',
-          padding: '30px',
-          margin: '0px'
+          paddingleft: '6px',
+          margin: '8px'
         }}>
           Expediente
         </h2>
