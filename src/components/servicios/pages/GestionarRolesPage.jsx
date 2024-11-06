@@ -118,6 +118,7 @@ export const GestionarRolesPage = () => {
                     </Typography>
                     <Button 
                         color="inherit"
+                        onClick={() => navigate('/Landing')}
                         sx={{ 
                             color: '#00897b', 
                             fontFamily: 'Poppins, sans-serif',
