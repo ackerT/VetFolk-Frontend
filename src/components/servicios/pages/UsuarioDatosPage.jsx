@@ -97,8 +97,9 @@ export const UsuarioDatosPage = () => {
           <h2 style={{ fontFamily: 'Poppins, sans-serif',
             fontWeight: 'bold', 
             fontSize: '30px',
+            textAlign :'center',
             color: '#00897b'}}>
-            Registro Roles
+            Registro  Roles
           </h2>
           <Button onClick={() => setOpenModal(true)} style={buttonStyles}>
             Registrar 
@@ -273,9 +274,6 @@ export const UsuarioDatosPage = () => {
               </form>
             </Box>
           </Modal>
-
-          <Button onClick={goToGestionarRoles} style={buttonStyles}>Gestionar Roles</Button>
-
           {showSuccessAlert && (
             <Alert severity="success" onClose={() => setShowSuccessAlert(false)}
              style={{ marginTop: '20px' }}>
