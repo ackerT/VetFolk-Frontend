@@ -25,7 +25,7 @@ function AdminDashboard() {
   return (
     <div className="admin-dashboard">
 <div className="sidebar">
-  <a href="/" className="logo-link">
+  <a href="/admin" className="logo-link">
     <img src={logo} alt="VetFolk Logo" />
   </a>
 
