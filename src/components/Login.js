@@ -26,7 +26,7 @@ function Login() {
   
   const navigate = useNavigate(); // Inicializa useNavigate
 
-  function SwitchContent() {
+  function SwitchBack() {
     setIsLoginActive(!isLoginActive);
   }
 
@@ -160,12 +160,12 @@ function Login() {
 
   
   return (
-    <div className={`content justify-content-center align-items-center d-flex shadow-lg ${isLoginActive ? "" : "active"}`} id="content">
+    <div className={`back justify-content-center align-items-center d-flex shadow-lg ${isLoginActive ? "" : "active"}`} id="back">
       {/*---Formulario de registro---*/}
       <div className={`col-md-6 d-flex justify-content-center ${!isLoginActive ? 'active' : 'inactive'}`}>
         <form onSubmit={handleRegisterSubmit}>
           <div className='header-text mb-4 text-center'>
-            <div className='icon-container'>
+            <div className='icon-container1'>
               <i className="fa-solid fa-user-plus" style={{ fontSize: '40px', color: '#fff' }}></i>
             </div>
             <h1>Crear Cuenta</h1>
@@ -242,7 +242,7 @@ function Login() {
       <div className={`col-md-6 right-box ${isLoginActive ? 'active' : 'inactive'}`}>
         <form onSubmit={handleLoginSubmit}>
           <div className='header-text mb-4'>
-            <div className='icon-container'>
+            <div className='icon-container1'>
               <i className="fa-solid fa-right-to-bracket" style={{ fontSize: '40px', color: '#fff' }}></i>
             </div>
             <h1>Iniciar Sesión</h1>
@@ -286,13 +286,13 @@ function Login() {
       </div>
 
       {/*--switch--*/}
-      <div className='switch-content'>
+      <div className='switch-back'>
         <div className='switch'>
           <div className='switch-panel switch-left'>
             <img src={vetImage} alt="Imagen de Bienvenida" className="welcome-img" />
             <h1>¡Hola de nuevo!</h1>
             <p>Inicia sesión ahora. ¡El bienestar de tu mejor amigo comienza aquí!</p>
-            <button className='hidden btn border-#2c6b6b text-#2c6b6b w-50 fs-6' id='login' onClick={SwitchContent}>
+            <button className='hidden btn border-#2c6b6b text-#2c6b6b w-50 fs-6' id='login' onClick={SwitchBack}>
               Iniciar Sesión
             </button>
             <div className='location'>
@@ -304,7 +304,7 @@ function Login() {
             <img src={vetImage} alt="Imagen de Bienvenida" className="welcome-img" />
             <h1>¡Bienvenido!</h1>
             <p>Regístrate ahora y accede a todos nuestros servicios para el cuidado de tus mascotas.</p>
-            <button className='hidden btn border-#2c6b6b text-#2c6b6b w-50 fs-6' id='register' onClick={SwitchContent}>
+            <button className='hidden btn border-#2c6b6b text-#2c6b6b w-50 fs-6' id='register' onClick={SwitchBack}>
               Crear Cuenta
             </button>
             <div className='location'>

@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './AboutUs.css';
-import { Link } from 'react-router-dom';
 import vetImage from '../img/vet.png';
-import vetImageB from '../img/VetBlanco.png';
+import Navbar from './Navbar';
 
 const AboutUs = () => {
   const [equipo, setEquipo] = useState([]);
@@ -21,23 +20,7 @@ const AboutUs = () => {
 
     <>
       {/* Barra de Navegación */}
-      <section className='h-wrapper2'>
-        <div className='h-container2 flexCenter paddings innerWidth'>
-          <a href='/home'>
-            <img src={vetImageB} alt='logo' width={60} className='logo' />
-          </a>
-          <div className='h-menu2 flexCenter'>
-            {/* Enlace modificado para redirigir a Home y hacer scroll a la sección de servicios */}
-            <Link to="/home#servs" style={{ textDecoration: 'none', color: 'white' }}>Servicios</Link>
-            <Link to='/about-us' style={{ textDecoration: 'none', color: 'white' }}>
-              Sobre Nosotros
-            </Link>
-            <Link to='/products' style={{ textDecoration: 'none', color: 'white' }}>
-              Productos en Tienda Física
-            </Link>
-          </div>
-        </div>
-      </section>
+      <Navbar />
     
       <br /><br /><br /><br /><br /><br />
       

@@ -25,6 +25,7 @@ import {
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { DateCalendar } from '@mui/x-date-pickers/DateCalendar';
+import Navbar from './Navbar';
 
 // Horas disponibles de 8:00 a.m. a 5:00 p.m.
 const availableHours = [
@@ -49,10 +50,10 @@ const theme = createTheme({
   },
   palette: {
     primary: {
-      main: '#00897b', // Color principal para botones
+      main: '#2c6b6b', // Color principal para botones
     },
     text: {
-      primary: '#000', // Color del texto en botones y modal
+      primary: '#f0ffff'  // Color del texto en botones y modal
     },
   },
   components: {
@@ -62,7 +63,8 @@ const theme = createTheme({
           borderRadius: '20px', // Bordes redondeados
           padding: '8px 16px', // Espaciado para botones
           '&:hover': {
-            backgroundColor: '#00796b', // Color del fondo al hacer hover
+            backgroundColor: '#f0ffff',
+            color: '#2c6b6b', 
           },
           transition: 'background-color 0.3s', // Suavizar la transición del hover
         },
@@ -176,11 +178,12 @@ export default function Component() {
 
   return (
     <ThemeProvider theme={theme}>
+        <Navbar />
       <LocalizationProvider dateAdapter={AdapterDayjs}>
         <Container component="main" maxWidth="sm">
           <Box 
             sx={{ 
-              marginTop: 25, 
+              marginTop: 50, 
               display: "flex", 
               flexDirection: "column", 
               alignItems: "center", 
@@ -274,7 +277,7 @@ export default function Component() {
                           error={Boolean(errors["Tipo de Servicio"])}
                         >
                           <MenuItem value="Consulta">Consulta</MenuItem>
-                          <MenuItem value="Peluqueria">Baño y Perruquerío</MenuItem>
+                          <MenuItem value="Peluqueria">Baño y Perruquería</MenuItem>
                         </Select>
                       )}
                     />
@@ -322,7 +325,7 @@ export default function Component() {
                 {isSubmitting ? 'Agendando...' : 'Agendar Cita'}
               </Button>
             </Box>
-            <Button onClick={handleGoBack} fullWidth color="secondary" sx={{ mt: 1 }}>
+            <Button onClick={handleGoBack} fullWidth color="primary" sx={{ mt: 1 }}>
               Regresar
             </Button>
           </Box>

@@ -9,6 +9,13 @@ import FormularioPage from './components/FormularioPage'
 import Servicio from './components/Servicio'
 import EditProfile from './components/EditProfile';
 import ExpedientesForm from './components/ExpedientesForm';
+import ChangePasswordPage from './components/ChangePassword';
+import AdminDashboard from './components/AdminDashboard';
+import RegisterPet from './components/RegisterPet';
+import GestionarRolesPage from './components/GestionarRolesPage';
+import ExpedientePage from './components/ExpedientePage';
+import UsuarioDatosPage from './components/UsuarioDatosPage';
+import BuscarMascotas from './components/BuscarMascotas';
 
 function App() {
   return (
@@ -22,8 +29,15 @@ function App() {
     <Route path="/agendar" element={<FormularioPage />} />
     <Route path="/servicio" element={<Servicio />} />
     <Route path="/edit-profile" element={<EditProfile />} />
-    <Route path='/expedientes' element={<ExpedientesForm />} />
+    <Route path='/admin/expedientes' element={<ExpedientesForm />} />
+    <Route path='/change-password' element={<ChangePasswordPage/>}></Route>
 
+    <Route path="/admin" element={<AdminDashboard />} />
+    <Route path="/admin/mascotas" element={<RegisterPet />} />
+    <Route path='/admin/gestionar-roles' element={< GestionarRolesPage/>}></Route>
+    <Route path='/admin/buscar-expediente' element={< ExpedientePage/>}></Route>
+    <Route path='/admin/usuario-datos' element={< UsuarioDatosPage/>}></Route>
+    <Route path='/admin/buscar-mascotas' element={< BuscarMascotas/>}></Route>
    </Routes>
    </BrowserRouter> 
   );

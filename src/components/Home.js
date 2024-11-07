@@ -1,12 +1,10 @@
 import { useState, useEffect } from 'react';
-import { useNavigate, Link } from 'react-router-dom'; 
-import vetImageB from '../img/VetBlanco.png';
+import { useNavigate } from 'react-router-dom'; 
 import './Home.css'; 
 import { Swiper, SwiperSlide, useSwiper } from 'swiper/react';
 import "swiper/css";
 import { sliderSettings } from "../common.js"; 
-import UserMenu from './UserMenu';
-import Footer from './Footer';
+import Navbar from './Navbar.jsx';
 
 function Home() {
     const navigate = useNavigate();
@@ -61,24 +59,7 @@ function Home() {
         <>
             <div className='home-page'>
             {/* Barra de Navegación */}
-            <section className='h-wrapper1'>
-                <div className='h-container1 flexCenter paddings innerWidth'>
-                    <a href='/home'>
-                        <img src={vetImageB} alt='logo' width={60} className='logo' />
-                    </a>
-                    <span className='text1'>Centro Veterinario VetFolk</span>
-                    <div className='h-menu1 flexCenter'>
-                        <a href='#servs' style={{ textDecoration: 'none', color: 'white' }}>Servicios</a>
-                        <Link to='/about-us' style={{ textDecoration: 'none', color: 'white' }}>
-                            Sobre Nosotros
-                        </Link>
-                        <Link to='/products' style={{ textDecoration: 'none', color: 'white' }}>
-                            Productos en Tienda Física
-                        </Link>
-                    </div>
-                    <UserMenu />
-                </div>
-            </section>
+                    <Navbar/>
 
             {/* Encabezado */}
             <section className='hero-wrapper1'>
@@ -90,7 +71,7 @@ function Home() {
                             <br /> Ofrecemos servicios médicos y grooming para asegurar su bienestar
                             <br /> en todo momento. ¡Tu mascota está en buenas manos!</p>
                         <div className='h-button1'>
-                            <button className='button' onClick={() => navigate('/login')}>
+                            <button className='button' onClick={() => navigate('/agendar')}>
                                 Reservar cita
                             </button>
                         </div>
@@ -98,7 +79,7 @@ function Home() {
 
                     <div className='flexCenter hero-right1'>
                         <div className='image-container1'>
-                            <img src="/vet4.png" alt="Vet Image" />
+                            <img src="/vet4.png" alt="pets" />
                         </div>
                     </div>
                 </div>
@@ -148,7 +129,6 @@ function Home() {
                     </div>
                 </div>
             )}
-            <Footer/>
             </div>
         </>
     );

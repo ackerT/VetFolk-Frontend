@@ -1,33 +1,9 @@
-
-/*Barra de navegación*/
-.h-wrapper3 {
-    background: linear-gradient(to right, #2c6b6b, #3f8e8e);
- /*    position: absolute; */
-    top: 0;
-    left: 0;
-    width: 100%;
-    color: white;
-}
-
-.h-menu3 {
-    gap: 2rem;
-}
-
-.h-menu3>*:hover {
-    cursor: pointer;
-}
-
-.h-container3 {
-    justify-content: space-between;
-    padding: 1rem 15rem;
-}
-
 /*Productos*/
 .s-wrapper2{
     background: #f0ffff;
     width: 100%;
     position: absolute;
-    top: 0;
+    top: 15%;
     left: 0;
 }
 

@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
-import { Accordion, AccordionSummary, AccordionDetails, TextField, Typography, Grid, Button, RadioGroup, FormControlLabel, Radio, Autocomplete, MenuItem, FormControl, InputLabel } from '@mui/material';
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import { TextField, Grid, Button, RadioGroup, FormControlLabel, Radio, Autocomplete } from '@mui/material';
 import './EditProfile.css';
 import Navbar from './Navbar';
-import Footer from './Footer';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faIdBadge } from '@fortawesome/free-solid-svg-icons';
+import { faCircleUser } from '@fortawesome/free-solid-svg-icons';
+import vetImage from '../img/vet.png';
 
 const EditProfile = () => {
     const [profileData, setProfileData] = useState({
@@ -140,9 +139,9 @@ const EditProfile = () => {
             <Navbar />
             <div className="current-data">
                 <div className='icon-container'>
-                    <FontAwesomeIcon icon={faIdBadge} className="icon" />
+                <FontAwesomeIcon icon={faCircleUser} />
                 </div>
-                <div className="text-container">
+                <div className="text-container1">
                     <h3>¡Hola, {profileData.firstName}!</h3>
                     <div className="data-item">
                         <strong>Nombre Completo:</strong> {`${profileData.firstName} ${profileData.secondName} ${profileData.lastName} ${profileData.secondLastName}`}
@@ -155,12 +154,9 @@ const EditProfile = () => {
                     </div>
                 </div>
             </div>
-            <div className="accordion-container">
-                <Accordion className='accordion-info' >
-                    <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-                        <Typography className="accordion-header">Información personal</Typography>
-                    </AccordionSummary>
-                    <AccordionDetails>
+
+            <div className="personal-info-container">
+                <h1>Información Personal</h1>
                         <Grid container spacing={2}>
                             <Grid item xs={6}>
                                 <TextField
@@ -241,55 +237,14 @@ const EditProfile = () => {
                                 />
                             </Grid>
                         </Grid>
-                    </AccordionDetails>
-                </Accordion>
+            </div>
 
-                <Accordion className='accordion-pass' >
-                    <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-                        <Typography className="accordion-header">Configuraciones de cuenta</Typography>
-                    </AccordionSummary>
-                    <AccordionDetails>
-                        <Grid container spacing={2}>
-                            <Grid item xs={6}>
-                                <TextField
-                                    label="Contraseña Actual"
-                                    type="password"
-                                    variant="outlined"
-                                    fullWidth
-                                    name="currentPassword"
-                                    value={profileData.currentPassword}
-                                    onChange={handleChange}
-                                    error={Boolean(errors.currentPassword)}
-                                    helperText={errors.currentPassword}
-                                    className="text-field"
-                                />
-                            </Grid>
-                            <Grid item xs={6}>
-                                <TextField
-                                    label="Nueva Contraseña"
-                                    type="password"
-                                    variant="outlined"
-                                    fullWidth
-                                    name="newPassword"
-                                    value={profileData.newPassword}
-                                    onChange={handleChange}
-                                    error={Boolean(errors.newPassword)}
-                                    helperText={errors.newPassword}
-                                    className="text-field"
-                                />
-                            </Grid>
-                        </Grid>
-                    </AccordionDetails>
-                </Accordion>
+            <div className='complete-profile-container'>
+                <h1>Completar Perfil</h1>
 
-                <Accordion className="accordion-completar-cuenta">
-    <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-        <Typography className="accordion-header">Completar cuenta</Typography>
-    </AccordionSummary>
-    <AccordionDetails>
-        <Grid container spacing={2}>
-            {/* Sección de Género */}
-            <Grid item xs={12}>
+                <Grid container spacing={2}>
+                {/* Sección de Género */}
+                <Grid item xs={12}>
                 <h5 className="section-title">Género</h5>
                 <RadioGroup
                     name="genero"
@@ -321,6 +276,7 @@ const EditProfile = () => {
                                 variant="outlined"
                                 error={Boolean(errors.departamento)}
                                 helperText={errors.departamento}
+                                
                                 className='custom-text-field'
                             />
                         )}
@@ -338,6 +294,7 @@ const EditProfile = () => {
                                 variant="outlined"
                                 error={Boolean(errors.municipio)}
                                 helperText={errors.municipio}
+                                sx={{ marginBottom: '16px' }}
                                 className='custom-text-field'
                             />
                         )}
@@ -354,7 +311,7 @@ const EditProfile = () => {
                         error={Boolean(errors.barrio)}
                         helperText={errors.barrio}
                         className="custom-text-field"
-                        style={{ marginBottom: '16px' }}
+                        
                     />
                 </Grid>
                 <Grid item xs={6}>
@@ -371,14 +328,56 @@ const EditProfile = () => {
                 </Grid>
             </Grid>
         </Grid>
-    </AccordionDetails>
-</Accordion>
+        </div>
+        <div className='button'>
                 <Button variant="contained" onClick={handleSubmit} className="submit-button" style={{ marginTop: '16px' }}>
                     Guardar Cambios
-                </Button>
-            </div>
-            <Footer />
+                </Button>  
         </div>
+
+<section className="footer-wrapper-e" id="contacto">
+<div className="footer-container-e">
+
+    {/* Izquierda */}
+    <div className="footer-left-e">
+        <img src={vetImage} alt="logo-e" width={180} />
+    </div>
+
+    {/* Mitad */}
+    <div className="footer-middle-e">
+        <span className="footer-text-e">
+            <i className="fa-solid fa-location-dot footer-icon-e" /> 
+            Barrio San Antonio, dos cuadras abajo de la estación de policía.
+            <br />
+            Las Lajas, Comayagua.
+        </span> 
+        <span className="footer-text-e">
+            <i className="fa-solid fa-clock footer-icon-e" /> 
+            Horario de Atención:
+        </span>
+        <span className="footer-text-e">Lunes a Viernes 8:00 am - 5:00 pm</span>   
+        <span className="footer-text-e">Sábados 9:00 am - 5:00 pm</span>
+    </div>
+
+    {/* Derecha */}
+    <div className="footer-right-e">
+        <span className="footer-text-e">Contacto:</span>
+        <span className="footer-text-e">
+            <i className="fa-solid fa-phone footer-icon-e" /> +504 9978-0338
+        </span>
+        <span className="footer-text-e">
+            <i className="fa-solid fa-envelope footer-icon-e" /> cvetfolk@gmail.com
+        </span>
+        <span className="footer-text-e">
+            <i className="fa-brands fa-facebook footer-icon-e" /> Centro Veterinario VetFolk
+        </span>
+        <span className="footer-text-e">
+            <i className="fa-brands fa-instagram footer-icon-e" /> vetfolk
+        </span>
+    </div>
+</div>
+</section>
+</div>
     );
 };
 

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { TextField, Grid, Autocomplete, FormControl, Button } from '@mui/material';
-import Footer from './Footer';
+import vetImage from '../img/vet.png';
+import AdminSideBar from './AdminSideBar';
 import './ExpedientesForm.css';
 
 function ExpedientesForm() {
@@ -37,9 +38,14 @@ function ExpedientesForm() {
 
     return (
         <>
-        <div className='title'>
-            <h1>Crear Expediente</h1> 
+        <AdminSideBar />
+        <div className='expediente-container'>
+        <div className="expediente-header">
+        <img src={vetImage} alt="Vet Folk Logo" className="logo" />
+        <h1 className='title-header'>Creación de Expedientes</h1>
+        <p className='description-header'>Completa la información para agregar un nuevo expediente al sistema.</p>
         </div>
+
         <div className='expedientes-form'>
         <form onSubmit={handleSubmit}>
                 <Grid container spacing={2}>
@@ -117,9 +123,10 @@ function ExpedientesForm() {
                         </Button>
                     </Grid>
                 </Grid>
-                <Footer />
             </form>
-            </div></>
+            </div>
+            </div>
+            </>
     );
 }
 

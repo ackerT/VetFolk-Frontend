@@ -5,7 +5,7 @@ function Footer() {
     const styles = {
         wrapper: {
             position: 'absolute',
-            top: '155%',
+            top: '95%',
             left: 0,
             width: '100%',
             background: '#f0ffff',

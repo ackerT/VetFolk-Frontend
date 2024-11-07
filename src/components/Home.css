@@ -69,6 +69,7 @@
     position: absolute;
     font-size: large;
     left: 5%;
+    color: white !important;
  }
  
  .h-button1{
