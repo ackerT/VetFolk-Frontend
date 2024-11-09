@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { DataGrid,GRID_DEFAULT_LOCALE_TEXT } from '@mui/x-data-grid';
+import { DataGrid, GRID_DEFAULT_LOCALE_TEXT } from '@mui/x-data-grid';
 import Dialog from '@mui/material/Dialog';
-import {DialogTitle,DialogActions,DialogContent} from '@mui/material';
+import { DialogTitle, DialogActions, DialogContent } from '@mui/material';
 import Button from '@mui/material/Button';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Typography from '@mui/material/Typography';
-
+import { useNavigate } from 'react-router-dom';  // Importa useNavigate
 
 const theme = createTheme({
   typography: {
@@ -32,9 +32,9 @@ const ButtonEstilo = {
 };
 
 const Mascotas = () => {
+  const navigate = useNavigate();  // Instancia de useNavigate
   const [ownerQuery, setOwnerQuery] = useState('');
   const [pets, setPets] = useState([]);
-  //const [searchResults, setSearchResults] = useState([]);
   const [ownerInfo, setOwnerInfo] = useState({ IdUsuario: '', Nombre: '' });
   const [matchingOwners, setMatchingOwners] = useState([]);
   const [dialogOpen, setDialogOpen] = useState(false);
@@ -56,7 +56,6 @@ const Mascotas = () => {
         pet.IdUsuario.includes(ownerQuery) ||
         pet.Nombre.toLowerCase().includes(ownerQuery.toLowerCase())
     );
-    /*setSearchResults(results);*/
 
     const uniqueOwners = Array.from(
       new Set(results.map((pet) => JSON.stringify({ IdUsuario: pet.IdUsuario, Nombre: pet.Nombre })))
@@ -90,6 +89,10 @@ const Mascotas = () => {
 
   const handleViewDetails = (petId) => {
     alert(`Detalles de la mascota con ID: ${petId}`);
+  };
+
+  const handleNavigateHome = () => {
+    navigate('/');  // Redirige a la página de inicio
   };
 
   const columns = [
@@ -126,6 +129,7 @@ const Mascotas = () => {
           />
           <Button onClick={handleSearch} sx={ButtonEstilo}>Buscar</Button>
           <Button onClick={handleAddPet} sx={ButtonEstilo}>Agregar Nueva Mascota</Button>
+          <Button onClick={handleNavigateHome} sx={ButtonEstilo}>Inicio</Button> {/* Botón de Inicio */}
         </div>
 
         {selectedOwnerPets.length > 0 && (
