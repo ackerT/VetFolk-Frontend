@@ -1,0 +1,122 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600&display=swap');
+
+body {
+    font-family: 'Poppins';
+    background-color: #f0f8ff;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+  }
+
+  .expediente-container {
+    width: 600px;
+    background-color: #f0ffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    display: flex;
+flex-direction: column;
+align-items: center;
+}
+
+.expediente-header {
+text-align: center;
+background-color: #f0ffff;
+padding: 20px;
+width: 100%;
+display: flex;
+flex-direction: column;
+align-items: center;
+background-size: contain;
+background-position: center top;
+background-repeat: no-repeat; 
+}
+
+.expediente-header .logo {
+max-width: 100px;
+height: auto;
+margin-bottom: 10px;
+object-fit: contain;
+display: block;
+}
+
+.expediente-header h1 {
+font-family: 'Nunito';
+color: #2c6b6b;
+margin: 10px 0 5px 0;
+font-weight: 600;
+}
+
+.expediente-header p {
+color: #2c6b6b;
+font-size: 1em;
+margin-top: 5px;
+}
+
+.expedientes-form {
+border: 1px solid #2c6b6b; 
+border-radius: 8px; 
+padding: 16px; 
+background-color: #f9f9f9; 
+width: 600px;
+}
+
+#fecha-apertura {
+width: 100%;
+padding: 12px;
+border: 1px solid #f0ffff;
+border-radius: 4px;
+font-size: 16px;
+color: #343434;
+background-color: #f8f9fa;
+outline: none;
+box-sizing: border-box;
+}
+
+#fecha-apertura::-webkit-calendar-picker-indicator {
+background-color: #f8f9fa;
+padding: 5px;
+border-radius: 4px;
+cursor: pointer;
+}
+
+.custom-text-field input[type="date"] {
+color: #495057;
+padding: 12px;
+border-radius: 4px;
+}
+
+.custom-text-field input[type="date"]::-webkit-calendar-picker-indicator {
+background-color: #f8f9fa;
+padding: 5px;
+border-radius: 4px;
+cursor: pointer;
+}
+
+.custom-text-field input[type="date"]:focus {
+border-color: #2c6b6b;
+}
+
+.css-1c2i806-MuiPickersDay-root.Mui-selected {
+background-color: #ea3c3c !important;
+}
+
+.css-1uz4p7e-MuiButtonBase-root-MuiButton-root {
+color: #f0ffff !important;
+border-color: #2c6b6b !important;
+}
+
+.submit-button {
+background-color: #2c6b6b !important;
+color: #f0ffff;
+font-family: 'Poppins' !important;
+text-transform: capitalize !important;
+}
+
+.submit-button:hover {
+background-color: #f0ffff !important;
+color: #2c6b6b;
+}

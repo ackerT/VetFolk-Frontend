@@ -6,6 +6,8 @@ import Button from '@mui/material/Button';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Typography from '@mui/material/Typography';
 import { useNavigate } from 'react-router-dom';  // Importa useNavigate
+import Box from '@mui/material/Box';
+import AdminSideBar from './AdminSideBar';
 
 const theme = createTheme({
   typography: {
@@ -88,7 +90,7 @@ const Mascotas = () => {
   };
 
   const handleViewDetails = (petId) => {
-    alert(`Detalles de la mascota con ID: ${petId}`);
+    navigate(`/admin/buscar-expediente/${petId}`);
   };
 
   const handleNavigateHome = () => {
@@ -116,11 +118,14 @@ const Mascotas = () => {
   ];
 
   return (
+    
     <ThemeProvider theme={theme}>
-      <div>
+    <Box sx={{ display: 'flex',flexDirection: 'column', marginLeft: '200px'  }}>
+      <AdminSideBar />
+      <Box sx={{ flexGrow: 1, padding: 2 }}>
         <Typography variant="h5">Buscar Mascotas</Typography>
         <div>
-          <label htmlFor="ownerQuery"style={{ marginRight: '10px' }}>Buscar por ID o Nombre del Propietario:</label>
+          <label htmlFor="ownerQuery" style={{ marginRight: '10px' }}>Buscar por ID o Nombre del Propietario:</label>
           <input
             type="text"
             id="ownerQuery"
@@ -129,7 +134,7 @@ const Mascotas = () => {
           />
           <Button onClick={handleSearch} sx={ButtonEstilo}>Buscar</Button>
           <Button onClick={handleAddPet} sx={ButtonEstilo}>Agregar Nueva Mascota</Button>
-          <Button onClick={handleNavigateHome} sx={ButtonEstilo}>Inicio</Button> {/* Botón de Inicio */}
+          <Button onClick={handleNavigateHome} sx={ButtonEstilo}>Inicio</Button>
         </div>
 
         {selectedOwnerPets.length > 0 && (
@@ -169,9 +174,10 @@ const Mascotas = () => {
             <Button onClick={() => setDialogOpen(false)} sx={ButtonEstilo}>Cancelar</Button>
           </DialogActions>
         </Dialog>
-      </div>
-    </ThemeProvider>
-  );
+      </Box>
+    </Box>
+  </ThemeProvider>
+);
 };
 
 export default Mascotas;

@@ -10,6 +10,8 @@ import {ProductoPage} from './components/servicios/pages/ProductoPage';
 import {HomePage} from './components/servicios/pages/HomePage';
 import CambioPasswordPage from './components/CambioPassword';
 import BuscarMascotas from './components/BuscarMascotas';
+import ExpedientePage from './components/ExpedientePage';
+import ExpedientesForm from './components/ExpedientesForm';
 
 function App() {
   return (
@@ -25,8 +27,10 @@ function App() {
       <Route path='/producto' element={<ProductoPage/>}></Route>
       <Route path='/home' element={<HomePage/>}></Route>
       <Route path='/cambio-password' element={<CambioPasswordPage/>}></Route>
-      <Route path='/buscar-mascotas' element={<BuscarMascotas/>}></Route>
-       
+      <Route path='/admin/buscar-mascotas' element={<BuscarMascotas/>}></Route>
+
+      <Route path='/admin/expedientes' element={<ExpedientesForm />} /> 
+      <Route path='/admin/buscar-expediente' element={< ExpedientePage/>}></Route>
     {/* 
     //Rutas de las url 
   <Route path='/servicio/ConsultasVeterinarias' element={<Servicio/>}></Route>
