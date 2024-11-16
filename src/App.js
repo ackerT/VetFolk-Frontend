@@ -16,6 +16,7 @@ import GestionarRolesPage from './components/GestionarRolesPage';
 import ExpedientePage from './components/ExpedientePage';
 import UsuarioDatosPage from './components/UsuarioDatosPage';
 import BuscarMascotas from './components/BuscarMascotas';
+import Inventory from './components/Inventory';
 
 function App() {
   return (
@@ -33,11 +34,12 @@ function App() {
     <Route path='/change-password' element={<ChangePasswordPage/>}></Route>
 
     <Route path="/admin" element={<AdminDashboard />} />
-    <Route path="/admin/mascotas" element={<RegisterPet />} />
     <Route path='/admin/gestionar-roles' element={< GestionarRolesPage/>}></Route>
+    <Route path="/admin/mascotas" element={<RegisterPet />} />
+    <Route path='/admin/buscar-mascotas' element={< BuscarMascotas/>}></Route>
     <Route path='/admin/buscar-expediente' element={< ExpedientePage/>}></Route>
     <Route path='/admin/usuario-datos' element={< UsuarioDatosPage/>}></Route>
-    <Route path='/admin/buscar-mascotas' element={< BuscarMascotas/>}></Route>
+    <Route path='/admin/inventario' element={< Inventory/>}></Route>
    </Routes>
    </BrowserRouter> 
   );
