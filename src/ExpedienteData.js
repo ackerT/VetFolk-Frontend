@@ -10,7 +10,7 @@ export const expedientes = [
           CondicionCronicas: "Artritis",
           Observaciones: "Mantenerse en ambiente controlado, evitar jardines."
         },
-        {
+/*         {
           IdExpediente: 2,
           FechaApertura: "2024-02-15",
           Alergias: "Ciertos alimentos",
@@ -23,7 +23,7 @@ export const expedientes = [
           Alergias: "Pulgas",
           CondicionCronicas: "Asma",
           Observaciones: "Evitar alfombras, usar purificador de aire."
-        }
+        } */
       ]
     },
     {
@@ -37,13 +37,13 @@ export const expedientes = [
           CondicionCronicas: "Insuficiencia renal",
           Observaciones: "Requiere hidratación continua y revisiones frecuentes."
         },
-        {
+/*         {
           IdExpediente: 5,
           FechaApertura: "2024-04-12",
           Alergias: "Látex",
           CondicionCronicas: "Epilepsia",
           Observaciones: "Medicación regular y evitar juguetes de látex."
-        }
+        } */
       ]
     },
     {

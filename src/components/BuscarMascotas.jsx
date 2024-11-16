@@ -44,9 +44,9 @@ const Mascotas = () => {
 
   useEffect(() => {
     const initialPets = [
-      { id_mascota: 1, nombre_especie: 'Perro', nombre_raza: 'Labrador', genero: 'Macho', nombre_mascota: 'Rex', edad: 5, peso: 30, agresiva: false, esterilizada: true, IdUsuario: '123', Nombre: 'Juan Pérez' },
-      { id_mascota: 2, nombre_especie: 'Gato', nombre_raza: 'Siames', genero: 'Hembra', nombre_mascota: 'Mia', edad: 3, peso: 4, agresiva: false, esterilizada: true, IdUsuario: '456', Nombre: 'Ana Gómez' },
-      { id_mascota: 3, nombre_especie: 'Perro', nombre_raza: 'Labrador', genero: 'Macho', nombre_mascota: 'Yuki', edad: 3, peso: 4, agresiva: false, esterilizada: true, IdUsuario: '456', Nombre: 'Ana Gómez' },
+      { id_mascota: 1, nombre_especie: 'Perro', nombre_raza: 'Labrador', genero: 'Macho', nombre_mascota: 'Firulais', edad: 5, peso: 30, agresiva: false, esterilizada: true, IdUsuario: '123', Nombre: 'Juan Pérez' },
+      { id_mascota: 2, nombre_especie: 'Gato', nombre_raza: 'Siames', genero: 'Macho', nombre_mascota: 'Max', edad: 3, peso: 4, agresiva: false, esterilizada: true, IdUsuario: '456', Nombre: 'Ana Gómez' },
+      { id_mascota: 3, nombre_especie: 'Perro', nombre_raza: 'Labrador', genero: 'Hembra', nombre_mascota: 'Luna', edad: 3, peso: 4, agresiva: false, esterilizada: true, IdUsuario: '456', Nombre: 'Ana Gómez' },
       { id_mascota: 4, nombre_especie: 'Tortuga', nombre_raza: 'Desconocida', genero: 'Macho', nombre_mascota: 'Tito', edad: 7, peso: 1, agresiva: false, esterilizada: false, IdUsuario: '789', Nombre: 'Juan Henriquez' },
     ];
     setPets(initialPets);

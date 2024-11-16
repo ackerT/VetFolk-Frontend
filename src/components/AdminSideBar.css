@@ -64,3 +64,14 @@
         margin-top: auto;
         padding-bottom: 20px;
       }
+
+/* Ajuste Responsivos */
+@media screen and (max-width: 768px) {
+  .side-menu {
+    transform: translateX(-100%);
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+}

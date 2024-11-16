@@ -11,7 +11,9 @@ import {HomePage} from './components/servicios/pages/HomePage';
 import CambioPasswordPage from './components/CambioPassword';
 import BuscarMascotas from './components/BuscarMascotas';
 import ExpedientePage from './components/ExpedientePage';
+import RegisterPet from './components/RegisterPet';
 import ExpedientesForm from './components/ExpedientesForm';
+import ConsultaMedica from './components/ConsultaMedica';
 
 function App() {
   return (
@@ -27,10 +29,12 @@ function App() {
       <Route path='/producto' element={<ProductoPage/>}></Route>
       <Route path='/home' element={<HomePage/>}></Route>
       <Route path='/cambio-password' element={<CambioPasswordPage/>}></Route>
+      
+      <Route path="/admin/mascotas" element={<RegisterPet />} />
       <Route path='/admin/buscar-mascotas' element={<BuscarMascotas/>}></Route>
-
-      <Route path='/admin/expedientes' element={<ExpedientesForm />} /> 
+      <Route path="/admin/buscar-expediente/:IdMascota" element={<ExpedientePage />} />
       <Route path='/admin/buscar-expediente' element={< ExpedientePage/>}></Route>
+      <Route path="/admin/consulta-medica/:IdExpediente" element={<ConsultaMedica/>} />
     {/* 
     //Rutas de las url 
   <Route path='/servicio/ConsultasVeterinarias' element={<Servicio/>}></Route>

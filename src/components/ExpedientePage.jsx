@@ -1,19 +1,26 @@
 import React, { useState } from 'react';
+import { useParams } from 'react-router-dom';
 import Box from '@mui/material/Box';
-import AppBar from '@mui/material/AppBar';
-import Toolbar from '@mui/material/Toolbar';
-import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import { DataGrid } from '@mui/x-data-grid';
 import { expedientes as mascotasExpedientes } from '../ExpedienteData';
-import { useNavigate } from 'react-router-dom'; 
 import AdminSideBar from './AdminSideBar';
 
 export function ExpedientePage() {
+  const { IdMascota } = useParams(); // Obtén el parámetro de la URL
   const [expandedRows, setExpandedRows] = useState({});
-  const navigate = useNavigate();
 
-  const rows = mascotasExpedientes.flatMap((mascota) => {
+  // Filtra los datos para mostrar solo el IdMascota especificado
+  const filteredExpedientes = mascotasExpedientes.filter(
+    (mascota) => mascota.IdMascota === parseInt(IdMascota, 10)
+  );
+
+  // Verifica si hay al menos un expediente
+  const hasExpedientes = filteredExpedientes.some(
+    (mascota) => mascota.Expedientes && mascota.Expedientes.length > 0
+  );
+
+  const rows = filteredExpedientes.flatMap((mascota) => {
     const mainRow = {
       id: `mascota-${mascota.IdMascota}`,
       NombreMascota: mascota.NombreMascota,
@@ -37,12 +44,18 @@ export function ExpedientePage() {
 
   const columns = [
     { field: 'NombreMascota', headerName: 'Mascota', width: 150, renderCell: (params) => (params.row.tipo === 'mascota' ? <strong onClick={() => setExpandedRows((prev) => ({ ...prev, [params.row.id.split('-')[1]]: !prev[params.row.id.split('-')[1]] }))} style={{ cursor: 'pointer', fontWeight: 'bold', color: '#2c6b6b' }}>{params.value}</strong> : null) },
-    { field: 'IdExpediente', headerName: 'ID Expediente', width: 130, renderCell: (params) => <span style={{ color: '#2c6b6b', fontFamily: 'Poppins, sans-serif', fontSize: '13px' }}>{params.value}</span> },
-    { field: 'FechaApertura', headerName: 'Fecha Apertura', width: 150, renderCell: (params) => <span style={{ color: '#2c6b6b', fontFamily: 'Poppins, sans-serif', fontSize: '13px' }}>{params.value}</span> },
-    { field: 'Alergias', headerName: 'Alergias', width: 200, renderCell: (params) => <span style={{ color: '#2c6b6b', fontFamily: 'Poppins, sans-serif', fontSize: '13px' }}>{params.value}</span> },
-    { field: 'CondicionCronicas', headerName: 'Condiciones Crónicas', width: 200, renderCell: (params) => <span style={{ color: '#2c6b6b', fontFamily: 'Poppins, sans-serif', fontSize: '13px' }}>{params.value}</span> },
-    { field: 'Observaciones', headerName: 'Observaciones', width: 250, renderCell: (params) => <span style={{ color: '#2c6b6b', fontFamily: 'Poppins, sans-serif', fontSize: '13px' }}>{params.value}</span> },
+    { field: 'IdExpediente', headerName: 'ID Expediente', width: 130 },
+    { field: 'FechaApertura', headerName: 'Fecha Apertura', width: 150 },
+    { field: 'Alergias', headerName: 'Alergias', width: 200 },
+    { field: 'CondicionCronicas', headerName: 'Condiciones Crónicas', width: 200 },
+    { field: 'Observaciones', headerName: 'Observaciones', width: 250 },
   ];
+
+  // Maneja la acción del botón "Nueva Consulta"
+  const handleNuevaConsulta = () => {
+    console.log('Nueva consulta creada');
+    // Aquí puedes agregar la lógica para navegar o mostrar un formulario de nueva consulta
+  };
 
   return (
     <>
@@ -59,7 +72,28 @@ export function ExpedientePage() {
         }}>
           Expediente
         </h2>
-  
+
+        {/* Botón Nueva Consulta */}
+        <Box sx={{ display: 'flex', justifyContent: 'flex-end', padding: '20px' }}>
+          <Button
+            variant="contained"
+            color="primary"
+            onClick={handleNuevaConsulta}
+            disabled={!hasExpedientes} // Deshabilitado si no hay expedientes
+            sx={{
+              backgroundColor: '#2c6b6b',
+              '&:hover': { backgroundColor: '#1e4e4e' },
+              fontFamily: 'Poppins, sans-serif',
+              fontWeight: '500',
+              fontSize: '14px',
+              textTransform: 'none',
+            }}
+          >
+            Nueva Consulta
+          </Button>
+        </Box>
+
+        {/* Tabla de expedientes */}
         <Box sx={{ height: 450, width: '100%' }}>
           <DataGrid
             rows={rows}
@@ -67,10 +101,12 @@ export function ExpedientePage() {
             pageSize={5}
             rowsPerPageOptions={[5]}
             disableRowSelectionOnClick
-            getRowId={(row) => row.id} />
+            getRowId={(row) => row.id}
+          />
         </Box>
       </Box>
     </>
   );
 }
+
 export default ExpedientePage;
