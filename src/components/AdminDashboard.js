@@ -9,7 +9,7 @@ function AdminDashboard() {
     <AdminSideBar />
       <div className="welcome-section">
         <div className="text-section">
-          <h1>¡Bienvenido!</h1>
+          <h1 className="title-w-admin">¡Bienvenido!</h1>
           <p>Elige un módulo y empieza a administrar VetFolk.</p>
         </div>
         <div className="image-section">
