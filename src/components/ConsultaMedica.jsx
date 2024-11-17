@@ -13,16 +13,18 @@ const Citasdata = [
 ];
 
 export default function CrearConsultaMedica({ citas = Citasdata, idVeterinarioPredeterminado }) {
-  const { IdExpediente } = useParams(); // Obtiene el IdExpediente desde la URL
+  const { IdExpediente, IdMascota } = useParams(); // Obtiene IdExpediente y IdMascota desde la URL
   const navigate = useNavigate(); // Para redireccionar
   const [formData, setFormData] = useState({
     IdExpediente: IdExpediente || '', // Asigna el IdExpediente desde la URL
+    IdMascota: IdMascota || '', // Asigna el IdMascota desde la URL
     IdVeterinario: idVeterinarioPredeterminado || '',
     IdCita: '',
     FechaConsulta: new Date().toISOString().split('T')[0], // Fecha actual
     MotivoConsulta: '',
     Diagnostico: '',
     Tratamiento: '',
+    Imagenes: [] // Estado para manejar las imágenes
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false); // Estado para manejar el mensaje temporal
@@ -30,6 +32,11 @@ export default function CrearConsultaMedica({ citas = Citasdata, idVeterinarioPr
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
+  };
+
+  const handleFileChange = (e) => {
+    const files = Array.from(e.target.files);
+    setFormData({ ...formData, Imagenes: files }); // Actualiza el estado con las imágenes seleccionadas
   };
 
   const handleSubmit = (e) => {
@@ -40,7 +47,7 @@ export default function CrearConsultaMedica({ citas = Citasdata, idVeterinarioPr
     // Simula el envío al backend y la redirección
     setTimeout(() => {
       setIsSubmitting(false);
-      navigate(`/admin/buscar-expediente/${IdExpediente}`);
+      navigate(`/admin/buscar-expediente/${IdMascota}`);
     }, 2000); // 2 segundos de retraso para simular una llamada al backend
   };
 
@@ -67,11 +74,19 @@ export default function CrearConsultaMedica({ citas = Citasdata, idVeterinarioPr
         </h2>
 
         {/* Fila de los primeros campos */}
-        <Box sx={{ display: 'grid', gap: 2, gridTemplateColumns: 'repeat(4, 1fr)' }}>
+        <Box sx={{ display: 'grid', gap: 2, gridTemplateColumns: 'repeat(5, 1fr)' }}>
           <TextField
             label="ID Expediente"
             name="IdExpediente"
             value={formData.IdExpediente}
+            disabled // ID obtenido de la URL, no editable
+            fullWidth
+          />
+
+          <TextField
+            label="ID Mascota"
+            name="IdMascota"
+            value={formData.IdMascota}
             disabled // ID obtenido de la URL, no editable
             fullWidth
           />
@@ -144,6 +159,28 @@ export default function CrearConsultaMedica({ citas = Citasdata, idVeterinarioPr
             rows={3}
             fullWidth
           />
+        </Box>
+
+        {/* Campo para adjuntar imágenes */}
+        <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
+          <input
+            type="file"
+            name="Imagenes"
+            multiple
+            accept="image/*"
+            onChange={handleFileChange}
+            style={{ padding: '10px' }}
+          />
+          {formData.Imagenes.length > 0 && (
+            <div>
+              <h4>Imágenes seleccionadas:</h4>
+              <ul>
+                {formData.Imagenes.map((img, index) => (
+                  <li key={index}>{img.name}</li>
+                ))}
+              </ul>
+            </div>
+          )}
         </Box>
 
         {/* Botón de Enviar */}

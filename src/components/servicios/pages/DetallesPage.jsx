@@ -34,7 +34,6 @@ export const DetallesPage = () => {
             color: '#2c6b6b', // Color personalizado
             marginTop: '30px',
             marginBottom: '0px', // Separación con las cards
-            fontWeight: 'bold',
         },
         cardDescription: {
             padding: '20px 0',
@@ -78,8 +77,7 @@ export const DetallesPage = () => {
             borderRadius: '10px',
             marginTop: '20px',
             height: 'auto',
-            borderRadius: '10px',
-            marginTop: '20px',
+            
         },
     };
 
