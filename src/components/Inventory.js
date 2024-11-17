@@ -11,6 +11,34 @@ const Inventory = () => {
   const [filterCategory, setFilterCategory] = useState('');
   const [editIndex, setEditIndex] = useState(null);
   const [errorMessage, setErrorMessage] = useState('');
+  const [currentPage, setCurrentPage] = useState(1);
+  const productsPerPage = 4;
+
+  // filtrar productos
+  const filteredProducts = products.filter(
+    (product) =>
+      product.name.toLowerCase().includes(searchTerm.toLowerCase()) &&
+      (!filterCategory || product.category === filterCategory)
+  );
+
+  // calcular índices para productos paginados
+  const indexOfLastProduct = currentPage * productsPerPage;
+  const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
+  const currentProducts = filteredProducts.slice(indexOfFirstProduct, indexOfLastProduct);
+  const totalPages = Math.ceil(filteredProducts.length / productsPerPage);
+
+  // cambio de página
+  const handlePrevPage = () => {
+    if (currentPage > 1) {
+      setCurrentPage(currentPage - 1);
+    }
+  };
+
+  const handleNextPage = () => {
+    if (currentPage < totalPages) {
+      setCurrentPage(currentPage + 1);
+    }
+  };
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -53,12 +81,6 @@ const Inventory = () => {
   const handleCategoryChange = (e) => {
     setFilterCategory(e.target.value);
   };
-
-  const filteredProducts = products.filter(
-    (product) =>
-      product.name.toLowerCase().includes(searchTerm.toLowerCase()) &&
-      (!filterCategory || product.category === filterCategory)
-  );
 
   return (
     <><AdminSideBar />
@@ -158,7 +180,7 @@ const Inventory = () => {
           </tr>
         </thead>
         <tbody>
-          {filteredProducts.map((product, index) => (
+          {currentProducts.map((product, index) => (
             <tr key={index}>
               <td>{product.name}</td>
               <td>{product.category}</td>
@@ -179,6 +201,13 @@ const Inventory = () => {
           ))}
         </tbody>
       </table>
+
+      {/* Controles de Paginación */}
+      <div className="pagination-controls">
+        <button onClick={handlePrevPage} disabled={currentPage === 1}>Anterior</button>
+        <span>Página {currentPage} de {totalPages}</span>
+        <button onClick={handleNextPage} disabled={currentPage === totalPages}>Siguiente</button>
+      </div>
     </div></>
   );
 };
