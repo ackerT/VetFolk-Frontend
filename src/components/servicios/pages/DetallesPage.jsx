@@ -6,6 +6,7 @@ export const DetallesPage = () => {
     const { id } = useParams();
     const servicioEncontrado = serviData.find(servicio => servicio.id === parseInt(id));
 
+    
     // Estilos
     const styles = {
         detallesPage: {
