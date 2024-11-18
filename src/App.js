@@ -12,9 +12,10 @@ import CambioPasswordPage from './components/CambioPassword';
 import BuscarMascotas from './components/BuscarMascotas';
 import ExpedientePage from './components/ExpedientePage';
 import RegisterPet from './components/RegisterPet';
-//import ExpedientesForm from './components/ExpedientesForm';
 import ConsultaMedica from './components/ConsultaMedica';
 import ConsultaMedicaUpdate from './components/ConsultaMedicaUpdate';
+import {CitaPage}  from './components/CitaPage';
+import { HistoriaCitaPage } from './components/HistoriaCitaPage';
 
 function App() {
   return (
@@ -37,6 +38,9 @@ function App() {
       <Route path='/admin/buscar-expediente' element={< ExpedientePage/>}></Route>
       <Route path="/admin/consulta-medica/:IdMascota/:IdExpediente" element={<ConsultaMedica />} />
       <Route path="/admin/consulta-medica-update/:IdConsulta" element={<ConsultaMedicaUpdate />} />
+      <Route path="/admin/mascotas" element={<RegisterPet />} />
+      <Route path='/admin/cita' element={< CitaPage/>}></Route>
+      <Route path='/admin/historiacita' element={< HistoriaCitaPage/>}></Route>
 
     {/* 
     //Rutas de las url 
