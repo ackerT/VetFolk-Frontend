@@ -1,0 +1,27 @@
+/* Estilo para el label en estado enfocado */
+.Mui-focused label {
+  color: darkgreen; /* Color de la etiqueta al enfocar */
+}
+
+/* Margen superior para los campos de texto */
+.custom-textfield {
+  margin-top: 16px; /* Equivale a mt: 2 */
+  max-height: 444px;
+}
+
+.custom-textfield .Mui-focused label {
+  color: darkgreen;
+}
+
+/* Estilo para el borde en diferentes estados */
+.custom-textfield .MuiOutlinedInput-root fieldset {
+  border-color: #2c6b6b; /* Color del borde en estado normal */
+}
+
+.custom-textfield .MuiOutlinedInput-root:hover fieldset {
+  border-color: darkgreen; /* Color del borde al hacer hover */
+}
+
+.custom-textfield .MuiOutlinedInput-root.Mui-focused fieldset {
+  border-color: green; /* Color del borde en estado enfocado */
+}

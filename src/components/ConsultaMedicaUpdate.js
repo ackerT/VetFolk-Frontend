@@ -10,6 +10,7 @@ import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogTitle from '@mui/material/DialogTitle';
+import './ConsultaMedica.css';
 
 export default function CrearConsultaMedica({ citas = [], idVeterinarioPredeterminado }) {
   const { IdConsulta } = useParams(); // Obtiene el parámetro de la URL
@@ -132,6 +133,8 @@ export default function CrearConsultaMedica({ citas = [], idVeterinarioPredeterm
           backgroundColor: '#f9f9f9',
           borderRadius: '8px',
           boxShadow: '0 2px 4px rgba(0,0,0,0.1)',
+          minHeight: '100vh', // Esto asegura que el formulario ocupe al menos toda la altura de la pantalla
+          overflowY: 'auto', // Permite el desplazamiento si el contenido es más grande que la pantalla
         }}
       >
         <h2 style={{ textAlign: 'center', fontFamily: 'Poppins, sans-serif', color: '#2c6b6b' }}>
@@ -172,6 +175,12 @@ export default function CrearConsultaMedica({ citas = [], idVeterinarioPredeterm
             onChange={handleChange}
             required
             fullWidth
+            className="custom-textfield"
+            sx={{
+              '& .MuiInputLabel-root.Mui-focused': {
+                color: 'darkgreen',
+              },
+            }}
           >
             <MenuItem value="">Seleccionar cita</MenuItem>
             {citas && citas.length > 0 ? (
@@ -205,6 +214,12 @@ export default function CrearConsultaMedica({ citas = [], idVeterinarioPredeterm
             multiline
             rows={3}
             fullWidth
+            className="custom-textfield"
+            sx={{
+              '& .MuiInputLabel-root.Mui-focused': {
+                color: 'darkgreen',
+              },
+            }}
           />
 
           <TextField
@@ -216,6 +231,12 @@ export default function CrearConsultaMedica({ citas = [], idVeterinarioPredeterm
             multiline
             rows={3}
             fullWidth
+            className="custom-textfield"
+            sx={{
+              '& .MuiInputLabel-root.Mui-focused': {
+                color: 'darkgreen',
+              },
+            }}
           />
 
           <TextField
@@ -227,6 +248,12 @@ export default function CrearConsultaMedica({ citas = [], idVeterinarioPredeterm
             multiline
             rows={3}
             fullWidth
+            className="custom-textfield"
+            sx={{
+              '& .MuiInputLabel-root.Mui-focused': {
+                color: 'darkgreen',
+              },
+            }}
           />
         </Box>
 
@@ -236,12 +263,12 @@ export default function CrearConsultaMedica({ citas = [], idVeterinarioPredeterm
             variant="contained"
             color="secondary"
             onClick={handleOpenDialog}
-            sx={{ marginTop: 2 }}
+            sx={{ backgroundColor: '#2c6b6b', marginTop: 2 }}
           >
             Agregar Imagen
           </Button>
 
-          <Box>
+          <Box sx={{ maxHeight: '200px', overflowY: 'auto' }}>
             {formData.ImgdeExamenes.length > 0 ? (
               <ul>
                 {formData.ImgdeExamenes.map((image, index) => (
@@ -251,7 +278,7 @@ export default function CrearConsultaMedica({ citas = [], idVeterinarioPredeterm
                       variant="contained"
                       color="error"
                       onClick={() => handleRemoveImage(image)}
-                      sx={{ marginLeft: 2 }}
+                      sx={{ marginLeft: 2, maxHeight: '15px', fontSize: '10px' }}
                     >
                       Eliminar
                     </Button>
@@ -302,3 +329,4 @@ export default function CrearConsultaMedica({ citas = [], idVeterinarioPredeterm
     </>
   );
 }
+

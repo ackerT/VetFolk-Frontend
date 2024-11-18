@@ -5,29 +5,29 @@ import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import MenuItem from '@mui/material/MenuItem';
 import AdminSideBar from './AdminSideBar';
+import './ConsultaMedica.css'; 
 
-// Datos de las citas consulta desde el Backend sobre las citas agendadas previas
 const Citasdata = [
   { IdCita: 1, FechaCita: '2024-11-16 10:00' },
   { IdCita: 2, FechaCita: '2024-11-16 11:00' }
 ];
 
 export default function CrearConsultaMedica({ citas = Citasdata, idVeterinarioPredeterminado }) {
-  const { IdExpediente, IdMascota } = useParams(); // Obtiene IdExpediente y IdMascota desde la URL
-  const navigate = useNavigate(); // Para redireccionar
+  const { IdExpediente, IdMascota } = useParams();
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
-    IdExpediente: IdExpediente || '', // Asigna el IdExpediente desde la URL
-    IdMascota: IdMascota || '', // Asigna el IdMascota desde la URL
+    IdExpediente: IdExpediente || '',
+    IdMascota: IdMascota || '',
     IdVeterinario: idVeterinarioPredeterminado || '',
     IdCita: '',
-    FechaConsulta: new Date().toISOString().split('T')[0], // Fecha actual
+    FechaConsulta: new Date().toISOString().split('T')[0],
     MotivoConsulta: '',
     Diagnostico: '',
     Tratamiento: '',
-    Imagenes: [] // Estado para manejar las imágenes
+    Imagenes: []
   });
 
-  const [isSubmitting, setIsSubmitting] = useState(false); // Estado para manejar el mensaje temporal
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -36,19 +36,18 @@ export default function CrearConsultaMedica({ citas = Citasdata, idVeterinarioPr
 
   const handleFileChange = (e) => {
     const files = Array.from(e.target.files);
-    setFormData({ ...formData, Imagenes: files }); // Actualiza el estado con las imágenes seleccionadas
+    setFormData({ ...formData, Imagenes: files });
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setIsSubmitting(true); // Muestra el mensaje de guardando
+    setIsSubmitting(true);
     console.log('Datos de la consulta médica:', formData);
 
-    // Simula el envío al backend y la redirección
     setTimeout(() => {
       setIsSubmitting(false);
       navigate(`/admin/buscar-expediente/${IdMascota}`);
-    }, 2000); // 2 segundos de retraso para simular una llamada al backend
+    }, 2000);
   };
 
   return (
@@ -73,30 +72,32 @@ export default function CrearConsultaMedica({ citas = Citasdata, idVeterinarioPr
           Nueva Consulta Médica
         </h2>
 
-        {/* Fila de los primeros campos */}
         <Box sx={{ display: 'grid', gap: 2, gridTemplateColumns: 'repeat(5, 1fr)' }}>
           <TextField
             label="ID Expediente"
             name="IdExpediente"
             value={formData.IdExpediente}
-            disabled // ID obtenido de la URL, no editable
+            disabled
             fullWidth
+            className="custom-textfield"
           />
 
           <TextField
             label="ID Mascota"
             name="IdMascota"
             value={formData.IdMascota}
-            disabled // ID obtenido de la URL, no editable
+            disabled
             fullWidth
+            className="custom-textfield"
           />
 
           <TextField
             label="ID Veterinario"
             name="IdVeterinario"
             value={formData.IdVeterinario}
-            disabled // Predeterminado
+            disabled
             fullWidth
+            className="custom-textfield" 
           />
 
           <TextField
@@ -107,6 +108,12 @@ export default function CrearConsultaMedica({ citas = Citasdata, idVeterinarioPr
             onChange={handleChange}
             required
             fullWidth
+            className="custom-textfield"
+            sx={{
+              '& .MuiInputLabel-root.Mui-focused': {
+                color: 'darkgreen',
+              },
+            }}
           >
             <MenuItem value="">Seleccionar cita</MenuItem>
             {citas.map((cita) => (
@@ -120,12 +127,12 @@ export default function CrearConsultaMedica({ citas = Citasdata, idVeterinarioPr
             label="Fecha de Consulta"
             name="FechaConsulta"
             value={formData.FechaConsulta}
-            disabled // Fecha actual
+            disabled
             fullWidth
+            className="custom-textfield"
           />
         </Box>
 
-        {/* Fila de los campos largos */}
         <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
           <TextField
             label="Motivo de Consulta"
@@ -136,6 +143,12 @@ export default function CrearConsultaMedica({ citas = Citasdata, idVeterinarioPr
             multiline
             rows={3}
             fullWidth
+            className="custom-textfield"
+            sx={{
+              '& .MuiInputLabel-root.Mui-focused': {
+                color: 'darkgreen',
+              },
+            }}
           />
 
           <TextField
@@ -147,6 +160,12 @@ export default function CrearConsultaMedica({ citas = Citasdata, idVeterinarioPr
             multiline
             rows={3}
             fullWidth
+            className="custom-textfield"
+            sx={{
+              '& .MuiInputLabel-root.Mui-focused': {
+                color: 'darkgreen',
+              },
+            }}
           />
 
           <TextField
@@ -158,10 +177,15 @@ export default function CrearConsultaMedica({ citas = Citasdata, idVeterinarioPr
             multiline
             rows={3}
             fullWidth
+            className="custom-textfield"
+            sx={{
+              '& .MuiInputLabel-root.Mui-focused': {
+                color: 'darkgreen',
+              },
+            }}
           />
         </Box>
 
-        {/* Campo para adjuntar imágenes */}
         <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
           <input
             type="file"
@@ -183,12 +207,11 @@ export default function CrearConsultaMedica({ citas = Citasdata, idVeterinarioPr
           )}
         </Box>
 
-        {/* Botón de Enviar */}
         <Button
           type="submit"
           variant="contained"
           color="primary"
-          disabled={isSubmitting} // Desactiva el botón mientras se guarda
+          disabled={isSubmitting}
           sx={{
             backgroundColor: '#2c6b6b',
             '&:hover': { backgroundColor: '#1e4e4e' },
