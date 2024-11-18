@@ -64,53 +64,60 @@ function SalesModule() {
     const roundToTwoDecimals = (number) => parseFloat(number.toFixed(2));
 
     const generateInvoicePDF = () => {
-        const doc = new jsPDF('p', 'mm', [80, 150]); 
-        const logoUrl = '/vet.png'; 
-    
-        const imgWidth = 15; 
-        const imgHeight = 15; 
-    
+        const doc = new jsPDF({
+            orientation: 'p',
+            unit: 'mm',
+            format: [80, 120],
+            compress: true,
+        });
         
-        const pageWidth = 80; 
-        const centerX = (pageWidth - imgWidth) / 2;
-        const centerY = 10; 
-    
-       
-        doc.addImage(logoUrl, 'PNG', centerX, centerY, imgWidth, imgHeight);
+        const logoUrl = '/vet_compressed.png';
+        const imgWidth = 10; 
+        const imgHeight = 10; 
+        const centerX = (80 - imgWidth) / 2; 
+        
+        doc.addImage(logoUrl, 'PNG', centerX, 5, imgWidth, imgHeight);
 
-    // Información del encabezado
-    doc.setFontSize(10);
-    doc.setFont("Helvetica", "bold");
-    doc.text("Clínica Veterinaria VetFolk", 40, 30, null, null, 'center'); 
+        doc.setFontSize(10);
+        doc.setFont("Helvetica", "bold");
+        doc.text("Clínica Veterinaria VetFolk", 40, 20, null, null, 'center'); 
+        
+        doc.setFontSize(8);
+        doc.setFont("Helvetica", "normal");
+        const fechaFormateada = selectedDate ? selectedDate.toLocaleDateString('es-ES', { 
+            year: 'numeric', month: 'long', day: 'numeric' 
+        }) : "No seleccionada";
 
-    doc.setFontSize(8);
-    doc.setFont("Helvetica", "normal");
-    const fechaFormateada = selectedDate ? selectedDate.toLocaleDateString('es-ES', { 
-        year: 'numeric', month: 'long', day: 'numeric' 
-    }) : "No seleccionada";
-    
-    doc.text(`Número de factura: ${series}`, 10, 40);
-    doc.text(`Fecha: ${fechaFormateada}`, 10, 50);
-    doc.text(`Las Lajas, Comayagua`, 10, 60);
-    doc.text(`Teléfono: 9978-0338`, 10, 70);
-
-    const headers = [["Descripción", "Cantidad", "Precio", "Subtotal"]];
-    const data = Sale.map((item) => [
-        item.name,
-        item.quantity.toString(),
-        item.price.toString(),
-        roundToTwoDecimals(item.price * item.quantity).toString()
-    ]);
-
-    doc.autoTable({
-        head: headers,
-        body: data,
-        startY: 80,
-        styles: { font: "Helvetica", fontSize: 7 },
-        headStyles: { fillColor: [44, 107, 107], textColor: [255, 255, 255] },
-        bodyStyles: { fillColor: [255, 255, 255], textColor: [0, 0, 0] },
-        alternateRowStyles: { fillColor: [240, 255, 255] },
-    });
+        doc.text(`Número de factura: ${series}`, 10, 25);
+        doc.text(`Fecha: ${fechaFormateada}`, 10, 30);
+        doc.text(`Las Lajas, Comayagua`, 10, 35);
+        
+        doc.autoTable({
+            head: [["Descripción", "Cantidad", "Precio", "Subtotal"]],
+            body: Sale.map(item => [
+                item.name,
+                item.quantity.toString(),
+                item.price.toString(),
+                roundToTwoDecimals(item.price * item.quantity).toString()
+            ]),
+            startY: 40,
+            styles: { 
+                font: "Helvetica", 
+                fontSize: 7, 
+                fillColor: [255, 255, 255], // Fondo blanco (sin color)
+                textColor: [0, 0, 0],       // Texto negro
+                lineColor: [0, 0, 0],       // Líneas negras
+                lineWidth: 0.1              // Grosor de las líneas
+            },
+            headStyles: {
+                fillColor: [255, 255, 255], // Sin color de fondo en el encabezado
+                textColor: [0, 0, 0],       // Texto negro
+                lineColor: [0, 0, 0]        // Líneas negras
+            },
+            alternateRowStyles: {
+                fillColor: [255, 255, 255] // Sin color alterno en las filas
+            }
+        });
 
     const subtotal = roundToTwoDecimals(calculateTotal() - calculateTotal() * 0.15);
     const isv = roundToTwoDecimals(calculateTotal() * 0.15);
