@@ -10,17 +10,19 @@ import FormularioPage from './components/servicios/pages/FormularioPage';
 import {ProductoPage} from './components/servicios/pages/ProductoPage';
 import {HomePage} from './components/servicios/pages/HomePage';
 
+
  //  Ruth  Que me muestros Roles  que tiene la veterinaria */}
  import { GestionarRolesPage} from './components/servicios/pages/GestionarRolesPage';
  import { ExpedientePage} from './components/servicios/pages/ExpedientePage';
  import { UsuarioDatosPage } from './components/servicios/pages/UsuarioDatosPage';
+ import { CitaPage } from './components/servicios/pages/CitaPage';
+ import { HistoriaCitaPage } from './components/servicios/pages/HistoriaCitaPage';
 
 //Gaby   rutas 
 import AdminDashboard from "./components/AdminDashboard"; 
 import RegisterPet from './components/RegisterPet';
 
 //David rutas
-import BuscarMascotas from './components/BuscarMascotas';
 import CambioPasswordPage from './components/CambioPassword';
 
 
@@ -42,13 +44,15 @@ function App() {
         <Route path='/admin/gestionar-roles' element={< GestionarRolesPage/>}></Route>
         <Route path='/admin/expediente' element={< ExpedientePage/>}></Route>
         <Route path='/admin/usuario-datos' element={< UsuarioDatosPage/>}></Route>
+        <Route path='/admin/cita' element={< CitaPage/>}></Route>
+        <Route path='/admin/historiacita' element={< HistoriaCitaPage/>}></Route>
+
 
         {/* Gaby*/}
         <Route path="/admin" element={<AdminDashboard />} />
         <Route path="/mascotas" element={<RegisterPet />} />
 
         {/* David*/}
-        <Route path='/buscar-mascotas' element={<BuscarMascotas/>}></Route>
         <Route path='/cambio-password' element={<CambioPasswordPage/>}></Route>
        
     
