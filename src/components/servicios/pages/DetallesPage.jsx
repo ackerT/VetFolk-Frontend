@@ -7,6 +7,7 @@ export const DetallesPage = () => {
     const servicioEncontrado = serviData.find(servicio => servicio.id === parseInt(id));
 
     
+    
     // Estilos
     const styles = {
         detallesPage: {
