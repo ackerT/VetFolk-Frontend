@@ -14,6 +14,8 @@ import {HomePage} from './components/servicios/pages/HomePage';
  import { GestionarRolesPage} from './components/servicios/pages/GestionarRolesPage';
  import { ExpedientePage} from './components/servicios/pages/ExpedientePage';
  import { UsuarioDatosPage } from './components/servicios/pages/UsuarioDatosPage';
+ import { CitaPage} from './components/servicios/pages/CitaPage';
+ import { HistoriaCitaPage} from './components/servicios/pages/HistoriaCitaPage';
 
 //Gaby   rutas 
 import AdminDashboard from "./components/AdminDashboard"; 
@@ -42,6 +44,12 @@ function App() {
         <Route path='/admin/gestionar-roles' element={< GestionarRolesPage/>}></Route>
         <Route path='/admin/expediente' element={< ExpedientePage/>}></Route>
         <Route path='/admin/usuario-datos' element={< UsuarioDatosPage/>}></Route>
+        <Route path='/admin/cita' element={< CitaPage/>}></Route>
+        <Route path='/admin/historia' element={< HistoriaCitaPage/>}></Route>
+
+
+
+
 
         {/* Gaby*/}
         <Route path="/admin" element={<AdminDashboard />} />

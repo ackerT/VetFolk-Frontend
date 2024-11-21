@@ -1,0 +1,121 @@
+.side-menu {
+    width: 250px;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    color: #f0ffff;
+    overflow: hidden;
+  }
+  
+  .sidebar {
+    padding-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 220px;
+    height: 100%;
+    background: linear-gradient(135deg, #3d8585, #2c6b6b);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 2px 0px 10px rgba(0, 0, 0, 0.15); 
+    position: sticky;
+    border-radius: 0 10px 10px 0;
+  }
+  
+  .logo-link img {
+    width: 100px;
+    margin-bottom: 20px;
+  }
+  
+  #mainMenu, .lastMenu {
+    width: 100%;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  #mainMenu li, .lastMenu li {
+    width: 90%;
+    margin-bottom: 10px; 
+  }
+  
+  #mainMenu li a, .lastMenu li a {
+    display: flex;
+    align-items: center;
+    padding: 8px 20px;
+    font-size: 16px;
+    color: #f0ffff; 
+    text-decoration: none;
+    transition: color 0.3s ease, background-color 0.3s ease;
+  }
+  
+  #mainMenu li a svg, .lastMenu li a svg {
+    margin-right: 10px;
+    color: #f0ffff; 
+    transition: transform 0.3s ease, color 0.3s ease, filter 0.3s ease;
+  }
+  
+  #mainMenu li a:hover, .lastMenu li a:hover {
+    color: #ea3c3c;
+  }
+  
+  #mainMenu li a:hover svg, .lastMenu li a:hover svg {
+    transform: scale(1.2);
+    color: #ea3c3c;
+    filter: drop-shadow(2px 2px 5px rgba(0, 0, 0, 0.5));
+  }
+  
+  .submenu {
+    list-style: none;
+    padding: 0;
+    padding-left: 20px;
+  }
+  
+  .submenu li {
+    margin: 5px 0;
+  }
+  
+  .submenu li a {
+    font-size: 14px;
+    color: #f0ffff;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    padding-left: 5px;
+    transition: color 0.3s ease, transform 0.3s ease;
+  }
+  
+  .submenu li a:hover {
+    color: #ea3c3c;
+  }
+  
+  .submenu li a:hover svg {
+    transform: scale(1.2);
+    color: #ea3c3c;
+    filter: drop-shadow(2px 2px 5px rgba(0, 0, 0, 0.5));
+  }
+  
+  .side-menu .active {
+    background-color: #1a4f4f;
+  }
+  
+  .side-menu .active a {
+    color: #ea3c3c;
+  }
+  
+  .side-menu .active a svg {
+    color: #ea3c3c;
+  }
+  
+  li a .fa-chevron-down {
+    transition: transform 0.3s ease;
+  }
+  
+  .lastMenu {
+    margin-top: auto;
+    padding-bottom: 20px;
+  }
