@@ -1,10 +1,9 @@
 import React, { useState } from "react";
-import { citas, estados, usuarios } from '../data/CitaData';
+import { citas, estados, usuarios, servicios, especies } from '../data/CitaData';
 import { Box, Typography, MenuItem, Select, TextField, Button } from '@mui/material';
 import { format, isSameDay, isSameWeek, isSameMonth } from 'date-fns';
 import { useNavigate } from 'react-router-dom';
 import AdminSideBar from '../../AdminSideBar';
-import { padding, width } from "@mui/system";
 
 export const CitaPage = () => {
     const navigate = useNavigate();
@@ -58,10 +57,9 @@ export const CitaPage = () => {
             color: '#fff', 
             marginTop: '1px', 
             fontFamily: 'Poppins, sans-serif', 
-            fontSize: '15px',  // Reducir el tamaño de la fuente
+            fontSize: '15px',  
             borderRadius: '6px', 
-            Indent:' 4em',
-            padding: '10px ', // Reducir el padding
+            padding: '10px', 
             '&:hover': { backgroundColor: '#006f5f' } 
         },
     };
@@ -76,18 +74,15 @@ export const CitaPage = () => {
     });
 
     const handleEditarEstado = (citaId) => {
-        // Aquí puedes abrir un cuadro de diálogo o mostrar un select para cambiar el estado
         setEstadoEdicion(citaId);
     };
 
     const handleCambiarEstado = (citaId) => {
-        // Actualiza la cita seleccionada con el nuevo estado
         const nuevaCita = citas.map(cita => 
             cita.idCita === citaId ? { ...cita, IdEstado: selectedEstado } : cita
         );
-        // Aquí puedes hacer una actualización en el backend si es necesario
         console.log("Estado actualizado:", nuevaCita);
-        setEstadoEdicion(null);  // Cerrar el select después de actualizar
+        setEstadoEdicion(null);  
     };
 
     return (
@@ -164,11 +159,21 @@ export const CitaPage = () => {
                             Fecha: {format(new Date(cita.Fecha), 'dd/MM/yyyy')}
                         </Typography>
                         <Typography variant="body1">
-                            Cliente: {usuarios.find(u => u.IdUsuario === cita.IdUsuario)?.nombre}
+                            Cliente: {usuarios.find(u => u.IdUsuario === cita.IdUsuario)?.nombre || 'Cliente no encontrado'}
                         </Typography>
                         <Typography variant="body1">
-                            Estado: {estados.find(e => e.IdEstado === cita.IdEstado)?.Estado}
+                            Mascota: {especies.find(e => e.IdEspecie === cita.IdEspecie)?.nombre || 'Especie no encontrada'}
                         </Typography>
+                        <Typography variant="body1">
+                            Servicio: {servicios.find(s => s.IdServicio === cita.IdServicio)?.nombre || 'Servicio no encontrado'}
+                        </Typography>
+                        <Typography variant="body1">
+                            Estado: {estados.find(e => e.IdEstado === cita.IdEstado)?.Estado || 'Estado no encontrado'}
+                        </Typography>
+                        <Typography variant="body1">
+                            Comentario: {cita.comentario || 'Sin comentario'}
+                        </Typography>
+
                         <Button 
                             sx={styles.button} 
                             onClick={() => handleEditarEstado(cita.idCita)}
