@@ -1,0 +1,211 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600&display=swap');
+
+.sales-container {
+    display: flex;
+    gap: 20px;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid #2c6b6b;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+    margin: 0 auto;
+    margin-left: 250px;
+    flex-grow: 1;
+    overflow-y: auto; 
+}
+
+
+.sales-details, .general-info {
+    flex: 1; 
+}
+
+.sales-details {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.general-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.title-sales {
+    font-size: 25px;
+    font-family: 'Poppins';
+    color: #2c6b6b;
+    margin-bottom: 16px;
+    font-weight: 600;
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 16px;
+}
+
+.search-input {
+    margin-bottom: 16px;
+    width: 100%;  
+    max-width: 500px;
+  }
+  
+  .search-input .MuiOutlinedInput-root {
+    border-radius: 15px;
+  }
+  
+  .search-input .MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline {
+    border-color: #2c6b6b;
+  }
+  
+  .search-input .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
+    border-color: #2c6b6b;
+  }
+  
+  .search-input .MuiInputLabel-root.Mui-focused {
+    color: #2c6b6b;
+  }
+
+.sales-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 16px;
+}
+
+.sales-table th, .sales-table td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #f0ffff;
+}
+
+.th-title{
+    color: #ea3c3c;
+    font-family: 'Nunito';
+}
+
+.totals-text {
+    margin: 4px 0;
+    color: #2c6b6b;
+    font-family: 'Nunito';
+    font-size: 16px;
+}
+
+.form-sales {
+    margin-bottom: 11px;
+}
+
+.form-sales label {
+    display: block;
+    margin-bottom: 4px;
+}
+
+.form-sales input, .form-sales select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #2c6b6b;
+    border-radius: 4px;
+}
+
+.buttons {
+    align-items: right !important;
+    margin-top: 20px !important;
+}
+
+.create-button {
+    font-family: 'Poppins' !important;
+    padding: 10px 20px !important;
+    background-color: #ea3c3c !important;
+    color: #f0ffff !important;
+    border: none !important;
+    border-radius: 4px !important;
+    cursor: pointer !important;
+    text-transform: capitalize !important;
+}
+
+.create-button:hover {
+    background-color: #f0ffff !important;
+    color: #ea3c3c !important;
+    border-radius: 4px !important;
+    border: 1px solid #ea3c3c !;
+  }
+
+.form-sales .MuiTextField-root {
+    margin-bottom: 11px;
+}
+
+.MuiInputLabel-outlined.Mui-focused {
+    color: #2c6b6b !important;
+}
+
+.MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline {
+    border-width: 1px;
+}
+
+.MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
+    border-width: 2px; 
+    border-color: #2c6b6b;
+}
+
+.textfield-input .MuiOutlinedInput-root {
+    border-radius: 4px;
+    position: relative;
+}
+
+.textfield-input .MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline {
+    border-color: #2c6b6b;
+}
+
+.textfield-input .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
+    border-color: #2c6b6b;
+    border-width: 2px;
+}
+
+.textfield-input .MuiInputLabel-root {
+    color: #2c6b6b;
+}
+
+.textfield-input .MuiInputLabel-root.Mui-focused {
+    color: #2c6b6b;
+}
+
+.textfield-input .MuiInputLabel-outlined.MuiInputLabel-shrink {
+    transform: translate(14px, -6px) scale(0.75); 
+    background-color: #ffffff; 
+    padding: 0 4px; 
+}
+
+.textfield-input label.MuiInputLabel-root {
+    position: absolute;
+    top: -8px; 
+    left: 8px;
+    background-color: #ffffff; 
+    color: #2c6b6b; 
+}
+
+.delete-button {
+    color: #ea3c3c;
+    padding: 8px;
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    border: none; 
+    cursor: pointer; 
+}
+
+.delete-button:focus {
+    outline: none; 
+}
+
+.delete-button:active {
+    color: #d14b3c;
+    transform: scale(0.95); 
+}
+
+.delete-button svg {
+    font-size: 1.2rem; 
+    color: #ea3c3c; 
+} 

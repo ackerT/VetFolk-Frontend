@@ -1,0 +1,233 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600&display=swap');
+
+.edit-profile{
+  min-height: 100vh
+}
+
+.current-data {
+  margin-bottom: 20px;
+  padding: 15px;
+  background-color: #f0ffff !important;
+  border-radius: 10px;
+  width: 600px;
+  height: 320px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  position: absolute;
+  top: 20%;
+  left: 30%;
+}
+
+.current-data {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: 'Poppins';
+}
+
+.icon-container {
+  padding: 40px;
+  height: 1.1em;
+  width: auto;
+  font-size: 8em;
+  color: #2c6b6b;
+  transform: translateY(-65px); 
+}
+
+.text-container1 h3{
+  font-weight: 600;
+  font-family: 'Nunito';
+  color: #2c6b6b;
+}
+
+.data-item {
+  font-size: 1em;
+  font-family: 'Poppins';
+  color: #2c6b6b;
+  margin: 5px 0;
+}
+
+.personal-info-container{
+  position: absolute;
+  top: 68%;
+  border-radius: 10px;
+  border: 1px solid #2c6b6b; 
+  width: 600px;
+  left: 30%;
+  width: 600px;
+  padding: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  margin-top: 15px;
+  background-color: white !important;
+}
+
+.personal-info-container h1{
+  color: #2c6b6b;
+  font-family: 'Nunito';
+  font-weight: 600;
+}
+
+.complete-profile-container {
+  font-size: 1em;
+  position: absolute;
+  top: 124%;
+  left: 30%;
+  width: 600px;
+  border-radius: 10px;
+  border: 1px solid #2c6b6b; 
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  margin-top: 15px;
+  background-color: white !important;
+}
+
+.complete-profile-container h1{
+  font-weight: 600;
+  font-family: 'Nunito';
+  color: #2c6b6b;
+}
+
+.radio-button{
+  color: #2c6b6b;
+}
+
+.radio-button-checked{
+  color: #2c6b6b;
+}
+
+.text-field {
+  margin: 10px 0;
+  color: #456e6e;
+}
+
+.button{
+  top: 176%;
+  position: absolute;
+  box-shadow: none;
+  left: 29%;
+  background-color: transparent;
+  margin-top: 15px;
+}
+
+.submit-button {
+  background-color: #2c6b6b !important;
+  color: #f0ffff;
+  font-family: 'Poppins' !important;
+  text-transform: capitalize !important;
+  width: 220px;
+}
+
+.submit-button:hover {
+  background-color: #f0ffff !important;
+  color: #2c6b6b;
+}
+
+.text-field .MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline {
+  border-color: #2c6b6b;
+}
+
+.text-field .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
+  border-color: #2c6b6b !important;
+}
+
+.text-field .MuiInputLabel-root.Mui-focused {
+  color: #2c6b6b !important;
+}
+
+.accordion-completar-cuenta .accordion-header {
+  font-size: 1em;
+  color: #2c6b6b;
+  font-weight: bold;
+  font-family: 'Nunito';
+}
+
+.section-title {
+  font-family: 'Poppins';
+  font-size: 1em;
+  font-weight: light;
+  color: #2c6b6b;
+  margin-bottom: 10px;
+}
+
+.custom-radio-button {
+  color: #2c6b6b !important;
+}
+
+.custom-radio-button.Mui-checked {
+  color: #ea3c3c !important;
+}
+
+.radio-label-text .MuiFormControlLabel-label {
+  color: #2c6b6b; 
+  font-size: 0.9em;
+  font-family: 'Poppins';
+}
+
+.custom-text-field {
+  margin-left: 15px;
+  margin-bottom: 16px;
+}
+
+.custom-text-field .MuiOutlinedInput-root {
+  border-radius: 4px;
+}
+
+.custom-text-field .MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline {
+  border-color: #2c6b6b;
+}
+
+.custom-text-field .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
+  border-color: #2c6b6b;
+}
+
+.custom-text-field .MuiInputLabel-root.Mui-focused {
+  color: #2c6b6b;
+}
+
+
+.footer-wrapper-e {
+  position: absolute;
+  top: 190%;
+  left: 0;
+  width: 100%;
+  background: #f0ffff;
+}
+
+.footer-container-e {
+  display: flex;
+  justify-content: space-between;
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-text-e {
+  color: #2c6b6b;
+  font-family: 'Nunito', sans-serif;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.footer-left-e {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.footer-middle-e {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+
+.footer-right-e {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+
+.footer-icon-e {
+  margin-right: 0.5rem;
+}
