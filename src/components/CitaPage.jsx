@@ -99,14 +99,14 @@ export default function EditarCitaPage() {
           padding: 3,
           maxWidth: '800px',
           margin: 'auto',
-          backgroundColor: '#f9f9f9',
+          backgroundColor: '#fff',
           borderRadius: '8px',
           boxShadow: '0 2px 4px rgba(0,0,0,0.1)',
           minHeight: '100vh',
           overflowY: 'auto',
         }}
       >
-        <h2 style={{ textAlign: 'center', fontFamily: 'Poppins, sans-serif', color: '#2c6b6b' }}>
+        <h2 style={{ textAlign: 'center', fontFamily: 'Poppins', color: '#ea3c3c', fontWeight: 600 }}>
           Editar Cita
         </h2>
 
@@ -149,7 +149,7 @@ export default function EditarCitaPage() {
           variant="contained"
           color="primary"
           disabled={isSubmitting}
-          sx={{ backgroundColor: '#2c6b6b' }}
+          sx={{ backgroundColor: '#2c6b6b', textTransform: 'capitalize'}}
         >
           {isSubmitting ? 'Guardando...' : 'Guardar Cambios'}
         </Button>

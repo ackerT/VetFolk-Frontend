@@ -1,6 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600&display=swap');
+
 /* General */
 body {
-  font-family: 'Nunito', sans-serif;
+  font-family: 'Nunito';
   margin: 0;
   padding: 0;
   padding-left: 5.85cm;
@@ -24,8 +27,9 @@ body {
 }
 
 .inventory-title {
-  font-family: 'Poppins', sans-serif;
-  color: #2c6b6b;
+  font-family: 'Poppins';
+  color: #ea3c3c;
+  font-weight: 600;
   font-size: 28px;
   margin-bottom: 20px;
   text-align: center;
@@ -57,12 +61,16 @@ table th, table td {
   margin-top: 15px;
 }
 
-.pagination-controls button {
+.pagination-invoice-buttons {
   padding: 5px 10px;
   margin: 0 5px;
+  color: #fff;
+  background-color: #ea3c3c;
+  border: none;
+  border-radius: 5px;
 }
 
-.pagination-controls button:disabled {
+.pagination-invoice-buttons:disabled {
   background-color: #ccc;
   cursor: not-allowed;
 }
@@ -87,18 +95,18 @@ table th, table td {
   box-shadow: 0 0 5px rgba(234, 60, 60, 0.5);
 }
 
-button {
+.guardar-invoice-button {
   padding: 5px 5px;
   background-color: #ea3c3c;
   color: white;
   border: none;
-  border-radius: 5px !important;
+  border-radius: 5px;
   cursor: pointer;
-  font-family: 'Baloo 2', cursive;
+  font-family: 'Poppins';
   height: 35px;
 }
 
-button:hover {
+.guardar-invoice-button:hover {
   background-color: #c03232;
 }
 
@@ -244,7 +252,7 @@ button:hover {
   min-width: 200px;
 }
 
-button {
+.edit-invoice-button {
   flex: none;
   padding: 10px 15px;
   background-color: #ea3c3c;

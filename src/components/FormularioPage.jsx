@@ -37,23 +37,24 @@ const availableHours = [
 // Estilo personalizado para los botones
 const theme = createTheme({
   typography: {
-    fontFamily: 'Poppins, sans-serif',
+    fontFamily: 'Poppins',
     h5: {
-      color: '#2c6b6b', // Cambiar el color del título "Agendar Cita"
-      fontSize: '1.6rem', // Ajustar tamaño de letra del título
-      fontWeight: 'bold', // En negrita el h5
+      color: '#ea3c3c', 
+      fontSize: '1.6rem', 
+      fontWeight: 'bold', 
+      marginBottom: '20px',
     },
     button: {
       fontSize: '1rem', // Aumentar tamaño de letra para botones
-      fontFamily: 'Poppins, sans-serif',
+      fontFamily: 'Poppins',
     },
   },
   palette: {
     primary: {
-      main: '#2c6b6b', // Color principal para botones
+      main: '#2c6b6b',
     },
     text: {
-      primary: '#2c6b6b'  // Color del texto en botones y modal
+      primary: '#2c6b6b' 
     },
   },
   components: {
@@ -73,7 +74,7 @@ const theme = createTheme({
     MuiDialog: {
       styleOverrides: {
         paper: {
-          fontFamily: 'Poppins, sans-serif',
+          fontFamily: 'Poppins',
           backgroundColor: '#e8f0fe', // Color de fondo de la modal
           borderRadius: '8px', // Esquinas redondeadas
           padding: '20px', // Espaciado interno
@@ -188,7 +189,8 @@ export default function Component() {
         <Container component="main" maxWidth="sm">
           <Box 
             sx={{ 
-              marginTop: 50, 
+              marginTop: 40, 
+              marginLeft: '-100px',
               display: "flex", 
               flexDirection: "column", 
               alignItems: "center", 
@@ -198,7 +200,7 @@ export default function Component() {
             }}
           >
             <Typography component="h1" variant="h5">
-              Agendar una Cita
+              Agendar una cita
             </Typography>
             <Collapse in={showNotification}>
               <Alert severity="success" sx={{ mt: 2, width: '100%' }}>
@@ -210,7 +212,7 @@ export default function Component() {
               <Grid container spacing={2}>
                 <Grid item xs={12}>
                   <Controller
-                    name="Nombre de su Mascota"
+                    name="Nombre de su mascota"
                     control={control}
                     defaultValue=""
                     rules={{ required: "Este campo es requerido" }}
@@ -220,7 +222,7 @@ export default function Component() {
                         required
                         fullWidth
                         id="petName"
-                        label="Nombre de su Mascota"
+                        label="Nombre de su mascota"
                         error={Boolean(errors["Nombre de la Mascota"])}
                         helperText={errors["Nombre de la Mascota"]?.message}
                       />
@@ -229,9 +231,9 @@ export default function Component() {
                 </Grid>
                 <Grid item xs={12}>
                 <FormControl fullWidth>
-                  <InputLabel id="service-type-label">Tipo de Servicio</InputLabel>
+                  <InputLabel id="service-type-label">Tipo de servicio</InputLabel>
                   <Controller
-                    name="Tipo de Servicio"
+                    name="Tipo de servicio"
                     control={control}
                     defaultValue="" // Valor inicial
                     rules={{ required: "Este campo es requerido" }}
@@ -244,7 +246,7 @@ export default function Component() {
                         error={Boolean(errors["Tipo de Servicio"])}
                       >
                         <MenuItem value="Consulta Veterinaria">Consulta Veterinaria</MenuItem>
-                        <MenuItem value="Baño y Peluqueria">Baño y Peluqueria</MenuItem>
+                        <MenuItem value="Baño y Peluquería">Baño y Perruquería</MenuItem>
                       </Select>
                     )}
                   />

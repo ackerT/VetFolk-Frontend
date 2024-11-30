@@ -1,9 +1,22 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom'; 
 import { Link } from 'react-router-dom';
 import vetImageB from '../img/VetBlanco.png';
 import UserMenu from './UserMenu';
 
 function Navbar() {
+    const navigate = useNavigate();
+
+    const goToServices = () => {
+        navigate('/home'); 
+
+        setTimeout(() => {
+            const servicesSection = document.getElementById('servs');
+            if (servicesSection) {
+                servicesSection.scrollIntoView({ behavior: 'smooth' });
+            }
+        }, 100);
+    };
     return (
         <section className='h-wrapper1'>
                 <div className='h-container1 flexCenter paddings innerWidth'>
@@ -12,7 +25,9 @@ function Navbar() {
                     </a>
                     <span className='text1'>Centro Veterinario VetFolk</span>
                     <div className='h-menu1 flexCenter'>
-                        <a href='#servs' style={{ textDecoration: 'none', color: 'white' }}>Servicios</a>
+                    <a href="#servicios" onClick={goToServices} style={{ textDecoration: 'none', color: 'white' }}>
+                        Servicios
+                    </a>
                         <Link to='/about-us' style={{ textDecoration: 'none', color: 'white' }}>
                             Sobre Nosotros
                         </Link>

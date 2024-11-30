@@ -12,23 +12,21 @@ import axios from 'axios';
 
 const theme = createTheme({
   typography: {
-    fontFamily: 'Poppins, sans-serif',
-    fontSize: '13px',
+    fontFamily: 'Poppins',
     h5: {
-      color: '#00897b',
-      margin: '20px',
+      color: '#ea3c3c',
       fontWeight: '600',
+      fontSize: '30px',
     },
     h6: {
-      color: '#00897b',
-      margin: '20px',
+      color: '#ea3c3c',
     },
   },
 });
 
 const ButtonEstilo = {
-  backgroundColor: "#00897b",
-  border: "1px solid #2c6b6b",
+  backgroundColor: "#2c6b6b",
+  border: "none",
   color: "white",
   margin: "10px",
   fontSize: '13px',
@@ -37,7 +35,6 @@ const ButtonEstilo = {
 const Mascotas = () => {
   const navigate = useNavigate();
   const [ownerQuery, setOwnerQuery] = useState('');
-  const [pets, setPets] = useState([]);
   const [ownerInfo, setOwnerInfo] = useState({ IdUsuario: '', Nombre: '' });
   const [matchingOwners, setMatchingOwners] = useState([]);
   const [dialogOpen, setDialogOpen] = useState(false);
@@ -89,16 +86,8 @@ const Mascotas = () => {
     setDialogOpen(false);
   };
 
-  const handleAddPet = () => {
-    alert("Agregar nueva mascota");
-  };
-
   const handleViewDetails = (petId) => {
     navigate(`/admin/buscar-expediente/${petId}`);
-  };
-
-  const handleNavigateHome = () => {
-    navigate('/'); // Redirige a la página de inicio
   };
 
   const columns = [
@@ -117,12 +106,12 @@ const Mascotas = () => {
 
   return (
     <ThemeProvider theme={theme}>
-      <Box sx={{ display: 'flex', flexDirection: 'column', marginLeft: '200px' }}>
+      <Box sx={{ display: 'flex', flexDirection: 'column'}}>
         <AdminSideBar />
         <Box sx={{ flexGrow: 1, padding: 2 }}>
           <Typography variant="h5">Buscar Mascotas</Typography>
           <div>
-            <label htmlFor="ownerQuery" style={{ marginRight: '10px' }}>Buscar por ID o Nombre del Propietario:</label>
+            <label htmlFor="ownerQuery" style={{ marginRight: '10px' }}>Buscar por ID o nombre del propietario:</label>
             <input
               type="text"
               id="ownerQuery"
@@ -130,8 +119,6 @@ const Mascotas = () => {
               onChange={handleOwnerChange}
             />
             <Button onClick={handleSearch} sx={ButtonEstilo}>Buscar</Button>
-            <Button onClick={handleAddPet} sx={ButtonEstilo}>Agregar Nueva Mascota</Button>
-            <Button onClick={handleNavigateHome} sx={ButtonEstilo}>Inicio</Button>
           </div>
 
           {selectedOwnerPets.length > 0 && (

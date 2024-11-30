@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import './UserMenu.css';
+import { FaUserEdit } from "react-icons/fa";
+import { TbPasswordUser, TbLogout } from "react-icons/tb";
 import { useNavigate } from 'react-router-dom';
 
 function UserMenu() {
@@ -37,9 +39,9 @@ function UserMenu() {
       </div>
       {isOpen && (
         <div className="menu-options">
-          <button onClick={handleEditProfile}>Editar perfil</button>
-          <button onClick={handleChangePassword}>Cambiar contraseña</button>
-          <button onClick={handleLogout}>Cerrar sesión</button>
+          <button onClick={handleEditProfile}> <FaUserEdit /> Editar perfil</button>
+          <button onClick={handleChangePassword}><TbPasswordUser /> Cambiar contraseña</button>
+          <button onClick={handleLogout}><TbLogout /> Cerrar sesión</button>
         </div>
       )}
     </div>

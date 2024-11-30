@@ -20,9 +20,9 @@ export const HistoriaCitaPage = () => {
 
     const styles = {
         container: { width: '100vw', height: '100vh', backgroundColor: '#f9f9f9', padding: '20px', display: 'flex', flexDirection: 'column', alignItems: 'center' },
-        header: { color: '#00897b', fontFamily: 'Poppins, sans-serif', fontSize: '30px', fontWeight: 'bold', textAlign: 'center', marginBottom: '20px' },
-        tableHeader: { backgroundColor: '#00897b', color: '#fff', fontWeight: 'bold' },
-        button: { backgroundColor: '#2c6b6b', color: 'white' }, // Color personalizado para los botones
+        header: { color: '#ea3c3c', fontFamily: 'Poppins, sans', fontSize: '30px', fontWeight: 'bold', textAlign: 'center', marginBottom: '20px' },
+        tableHeader: { backgroundColor: '#2c6b6b', color: '#fff', fontWeight: 'bold' },
+        button: { backgroundColor: '#ea3c3c', color: 'white', textTransform: 'capitalize' }, 
     };
 
     useEffect(() => {
@@ -132,7 +132,7 @@ export const HistoriaCitaPage = () => {
     }
 
     return (
-        <Box style={styles.container} sx={{ marginLeft: '200px' }}>
+        <Box style={styles.container}>
             <AdminSideBar />
             <Typography variant="h4" style={{ ...styles.header, marginTop: '40px' }}>
                 Historial de Citas

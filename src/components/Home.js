@@ -4,6 +4,7 @@ import './Home.css';
 import { Swiper, SwiperSlide, useSwiper } from 'swiper/react';
 import "swiper/css";
 import { sliderSettings } from "../common.js"; 
+import vetImage from '../img/vet.png';
 import Navbar from './Navbar.jsx';
 
 function Home() {
@@ -62,22 +63,22 @@ function Home() {
                     <Navbar/>
 
             {/* Encabezado */}
-            <section className='hero-wrapper1'>
+            <section className='hero-wrapper-home'>
                 <div className='paddings innerWidth flexCenter hero-container1'>
-                    <div className='hero-left1'>
-                        <h1 className='title'>¡Bienvenido a VetFolk!</h1>
+                    <div className='hero-left-home'>
+                        <h1 className='title-home'>¡Bienvenido a VetFolk!</h1>
                         <br />
-                        <p className='descripcion1'>Cuidamos de tus mascotas con atención personalizada y profesional.
+                        <p className='descripcion-home'>Cuidamos de tus mascotas con atención personalizada y profesional.
                             <br /> Ofrecemos servicios médicos y grooming para asegurar su bienestar
                             <br /> en todo momento. ¡Tu mascota está en buenas manos!</p>
-                        <div className='h-button1'>
-                            <button className='button' onClick={() => navigate('/agendar')}>
+                        <div className='hero-home-button-container'>
+                            <button className='hero-home-button' onClick={() => navigate('/agendar')}>
                                 Reservar cita
                             </button>
                         </div>
                     </div>
 
-                    <div className='flexCenter hero-right1'>
+                    <div className='flexCenter hero-rigth-home'>
                         <div className='image-container1'>
                             <img src="/vet4.png" alt="pets" />
                         </div>
@@ -86,7 +87,7 @@ function Home() {
             </section>
 
             {/* Sección de Servicios */}
-            <section className='s-wrapper1' id='servs'>
+            <section className='s-wrapper-home' id='servicios'>
                 <div className='paddings innerWidth s-container1'>
                     <div className='s-head1 flexColStart'>
                         <h1>Nuestros Servicios</h1>
@@ -97,7 +98,7 @@ function Home() {
                         {
                             services.map((card, i) => (
                                 <SwiperSlide key={i}>
-                                    <div className='flexColStart s-card1'>
+                                    <div className='flexColStart s-card-home'>
                                         <img src={card.imagenUrl} alt='servicios' />
                                         <span className='primaryText1'>{card.tipoServicio}</span>
                                         <span className='secondaryText1'>{card.descripcion}</span>
@@ -110,11 +111,6 @@ function Home() {
                         }
                     </Swiper>
                     <br />
-                    <div className='sc-button1'>
-                        <button className='c-button1' onClick={() => navigate('/agendar')}>
-                            ¡Agendar Cita!
-                        </button>
-                    </div>
                 </div>
             </section>
 
@@ -130,6 +126,34 @@ function Home() {
                 </div>
             )}
             </div>
+
+            {/*FOOTER*/}
+            <section className='f-home-wrapper' id='contacto'>
+                <div className='paddings innerWidth flexCenter f-home-container'>
+
+                    {/*Izquierda*/}
+                    <div className='flexColStart f-home-left'>
+                       <img src={vetImage} alt='logo' width={180}></img> 
+                    </div>
+
+                    {/*Mitad*/}
+                    <div className='flexColStart f-home-middle'>
+                       <span className='f-home-text'><i className="fa-solid fa-location-dot f-icon"/> Barrio San Antonio, dos cuadras abajo de la estación de policía. <br/>Las Lajas, Comayagua.</span> <br/>
+                       <span className='f-home-text'><i class="fa-solid fa-clock f-icon"/> Horario de Atención:</span> <br/> 
+                       <span className='f-home-text'>   Lunes a Viernes 8:00 am - 5:00 pm</span> <br/>   
+                       <span className='f-home-text'>   Sábados 9:00 am - 5:00 pm</span>
+                    </div>
+
+                    {/*Derecha*/}
+                    <div className='flexColStart f-home-right'>
+                       <span className='f-home-text'>Contacto:</span> <br/>
+                       <span className='f-home-text'><i class="fa-solid fa-phone"/> +504 9978-0338</span> <br/>
+                       <span className='f-home-text'><i class="fa-solid fa-envelope"/> cvetfolk@gmail.com</span> <br/>
+                       <span className='f-home-text'><i class="fa-brands fa-facebook"/> Centro Veterinario VetFolk</span> <br/>
+                       <span className='f-home-text'><i class="fa-brands fa-instagram"/> vetfolk</span> <br/>
+                    </div>
+                </div>
+            </section>
         </>
     );
 }

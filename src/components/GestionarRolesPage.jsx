@@ -140,13 +140,13 @@ export const GestionarRolesPage = () => {
     return (
         <div style={{ display: 'flex' }}>
             <AdminSideBar />
-            <div style={{ marginLeft: '220px', padding: '20px', width: '100%' }}>
+            <div style={{ padding: '20px', width: '100%' }}>
                 <h2 style={{
                     textAlign: 'center',
-                    fontFamily: 'Poppins, sans-serif',
+                    fontFamily: 'Poppins',
                     fontWeight: 'bold',
                     fontSize: '30px',
-                    color: '#2c6b6b',
+                    color: '#ea3c3c',
                     padding: '30px',
                     margin: '0px',
                 }}>
@@ -161,7 +161,7 @@ export const GestionarRolesPage = () => {
                     sx={{
                         backgroundColor: '#ffffff',
                         '& .MuiDataGrid-cell': {
-                            color: 'black',
+                            color: '#2c6b6b',
                         },
                         '& .MuiDataGrid-footerCell, .MuiDataGrid-columnHeader': {
                             backgroundColor: '#ffffff',
@@ -172,12 +172,12 @@ export const GestionarRolesPage = () => {
                 <Dialog 
                     open={openDialog} 
                     onClose={() => setOpenDialog(false)}
-                    maxWidth="md" // Aumentamos el tamaño del modal
-                    fullWidth={true} // Hace que el modal sea de ancho completo
+                    maxWidth="md" 
+                    fullWidth={true} 
                 >
                     <DialogTitle sx={{
                         textAlign: 'center',
-                        fontFamily: 'Poppins, sans-serif',
+                        fontFamily: 'Poppins',
                         fontWeight: 'bold',
                         fontSize: '30px',
                         color: '#2c6b6b',
@@ -225,7 +225,7 @@ export const GestionarRolesPage = () => {
                                 color:'#ffffff'
                             }}
                         >
-                            Cambiar Rol
+                            Cambiar rol
                         </Button>
                     </DialogActions>
                 </Dialog>

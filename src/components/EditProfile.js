@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios'; // Asegúrate de instalar axios
+import axios from 'axios';
 import { TextField, Grid, Button } from '@mui/material';
 import './EditProfile.css';
+import vetImage from '../img/vet.png';
 import Navbar from './Navbar';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircleUser } from '@fortawesome/free-solid-svg-icons';
@@ -24,8 +25,7 @@ const EditProfile = () => {
     });
 
     const [errors, setErrors] = useState({});
-    const [municipios, setMunicipios] = useState([]);
-    
+    const [isModalOpen, setIsModalOpen] = useState(false);
     const userId = sessionStorage.getItem('userId'); // Obtener el ID del usuario desde el almacenamiento local
 
     // Función para obtener los datos de la persona por ID
@@ -116,23 +116,26 @@ const EditProfile = () => {
             try {
                 const response = await axios.put(`http://18.221.225.5/personas/actualizar/${userId}`, profileData);
                 console.log("Datos actualizados:", response.data);
-                // Aquí podrías redirigir o mostrar un mensaje de éxito
+                setIsModalOpen(true);
             } catch (error) {
                 console.error("Error actualizando los datos:", error);
-                // Mostrar un mensaje de error si la actualización falla
             }
         }
     };
 
+    const handleCloseModal = () => {
+        setIsModalOpen(false); // Cierra la modal
+    };
+
     return (
-        <div className='edit-profile'>
+        <><div className='edit-profile'>
             <Navbar />
-            <div className="current-data">
-                <div className='icon-container'>
+            <div className="current-data-container">
+                <div className='edit-icon-container'>
                     <FontAwesomeIcon icon={faCircleUser} />
                 </div>
                 <div className="text-container1">
-                    <h3>¡Hola, {profileData.nombre1}!</h3>
+                    <h3 className='edit-profile-welcome'>¡Hola, {profileData.nombre1}!</h3>
                     <div className="data-item">
                         <strong>Nombre Completo:</strong> {`${profileData.nombre1} ${profileData.nombre2} ${profileData.apellido1} ${profileData.apellido2}`}
                     </div>
@@ -146,7 +149,7 @@ const EditProfile = () => {
             </div>
 
             <div className="personal-info-container">
-                <h1>Información Personal</h1>
+                <h1 className='edit-profile-title'>Información Personal</h1>
                 <Grid container spacing={2}>
                     <Grid item xs={6}>
                         <TextField
@@ -158,8 +161,7 @@ const EditProfile = () => {
                             onChange={handleChange}
                             error={Boolean(errors.nombre1)}
                             helperText={errors.nombre1}
-                            className="text-field"
-                        />
+                            className="text-field" />
                     </Grid>
                     <Grid item xs={6}>
                         <TextField
@@ -171,8 +173,7 @@ const EditProfile = () => {
                             onChange={handleChange}
                             error={Boolean(errors.nombre2)}
                             helperText={errors.nombre2}
-                            className="text-field"
-                        />
+                            className="text-field" />
                     </Grid>
                     <Grid item xs={6}>
                         <TextField
@@ -184,8 +185,7 @@ const EditProfile = () => {
                             onChange={handleChange}
                             error={Boolean(errors.apellido1)}
                             helperText={errors.apellido1}
-                            className="text-field"
-                        />
+                            className="text-field" />
                     </Grid>
                     <Grid item xs={6}>
                         <TextField
@@ -197,8 +197,7 @@ const EditProfile = () => {
                             onChange={handleChange}
                             error={Boolean(errors.apellido2)}
                             helperText={errors.apellido2}
-                            className="text-field"
-                        />
+                            className="text-field" />
                     </Grid>
                     <Grid item xs={12}>
                         <TextField
@@ -210,8 +209,7 @@ const EditProfile = () => {
                             onChange={handleChange}
                             error={Boolean(errors.correo)}
                             helperText={errors.correo}
-                            className="text-field"
-                        />
+                            className="text-field" />
                     </Grid>
                     <Grid item xs={12}>
                         <TextField
@@ -223,8 +221,7 @@ const EditProfile = () => {
                             onChange={handleChange}
                             error={Boolean(errors.telefono)}
                             helperText={errors.telefono}
-                            className="text-field"
-                        />
+                            className="text-field" />
                     </Grid>
                     <Grid item xs={12}>
                         <TextField
@@ -236,8 +233,7 @@ const EditProfile = () => {
                             onChange={handleChange}
                             error={Boolean(errors.referencia)}
                             helperText={errors.referencia}
-                            className="text-field"
-                        />
+                            className="text-field" />
                     </Grid>
                     <Grid item xs={12}>
                         <Button
@@ -252,6 +248,45 @@ const EditProfile = () => {
                 </Grid>
             </div>
         </div>
+        
+        {isModalOpen && (
+    <div className="modal-edit-overlay">
+        <div className="modal-edit">
+            <h2 className='modal-edit-title'>¡Éxito!</h2>
+            <p className='modal-edit-text'>Tus cambios han sido guardados correctamente.</p>
+            <button onClick={handleCloseModal} className="modal-close-button">
+                Cerrar
+            </button>
+        </div>
+    </div>
+)}
+
+        <section className='f-edit-wrapper' id='contacto'>
+                <div className='paddings innerWidth flexCenter f-edit-container'>
+
+                    {/*Izquierda*/}
+                    <div className='flexColStart f-edit-left'>
+                        <img src={vetImage} alt='logo' width={180}></img>
+                    </div>
+
+                    {/*Mitad*/}
+                    <div className='flexColStart f-edit-middle'>
+                        <span className='f-edit-text'><i className="fa-solid fa-location-dot f-icon" /> Barrio San Antonio, dos cuadras abajo de la estación de policía. <br />Las Lajas, Comayagua.</span> <br />
+                        <span className='f-edit-text'><i class="fa-solid fa-clock f-icon" /> Horario de Atención:</span> <br />
+                        <span className='f-edit-text'>   Lunes a Viernes 8:00 am - 5:00 pm</span> <br />
+                        <span className='f-edit-text'>   Sábados 9:00 am - 5:00 pm</span>
+                    </div>
+
+                    {/*Derecha*/}
+                    <div className='flexColStart f-edit-right'>
+                        <span className='f-edit-text'>Contacto:</span> <br />
+                        <span className='f-edit-text'><i class="fa-solid fa-phone" /> +504 9978-0338</span> <br />
+                        <span className='f-edit-text'><i class="fa-solid fa-envelope" /> cvetfolk@gmail.com</span> <br />
+                        <span className='f-edit-text'><i class="fa-brands fa-facebook" /> Centro Veterinario VetFolk</span> <br />
+                        <span className='f-edit-text'><i class="fa-brands fa-instagram" /> vetfolk</span> <br />
+                    </div>
+                </div>
+            </section></>
     );
 };
 

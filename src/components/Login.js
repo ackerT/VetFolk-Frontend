@@ -180,10 +180,10 @@ function Login() {
       <div className={`col-md-6 d-flex justify-content-center ${!isLoginActive ? 'active' : 'inactive'}`}>
         <form onSubmit={handleRegisterSubmit}>
           <div className='header-text mb-4 text-center'>
-            <div className='icon-container1'>
+            <div className='icon-container-login'>
               <i className="fa-solid fa-user-plus" style={{ fontSize: '40px', color: '#fff' }}></i>
             </div>
-            <h1>Crear Cuenta</h1>
+            <h1 className='title-login'>Crear Cuenta</h1>
           </div>
 
           {errors.nombre1 && (
@@ -247,9 +247,9 @@ function Login() {
           </div>
 
           <div className='input-group mb-3 justify-content-center'>
-            <button className='btn border-#fff text-#2c6b6b w-55 fs-6' type='submit'>Regístrate</button>
+            <button className='button-back-login w-55 fs-6' type='submit'>Regístrate</button>
           </div>
-          {registerMessage && <p>{registerMessage}</p>}
+          {registerMessage && <p className='text-login'>{registerMessage}</p>}
         </form>
       </div>
 
@@ -257,10 +257,10 @@ function Login() {
       <div className={`col-md-6 right-box ${isLoginActive ? 'active' : 'inactive'}`}>
         <form onSubmit={handleLoginSubmit}>
           <div className='header-text mb-4'>
-            <div className='icon-container1'>
+            <div className='icon-container-login'>
               <i className="fa-solid fa-right-to-bracket" style={{ fontSize: '40px', color: '#fff' }}></i>
             </div>
-            <h1>Iniciar Sesión</h1>
+            <h1 className='title-login'>Iniciar Sesión</h1>
           </div>
 
           {loginErrors.correo && (
@@ -286,7 +286,7 @@ function Login() {
             <div className='form-check'>
               <input type='checkbox' className='form-check-input' />
               <label htmlFor='formcheck' className='form-check-label'>
-                <small>Recuérdame</small>
+                <small className='recuerdame-login'>Recuérdame</small>
               </label>
             </div>
             <div className='forgot'>
@@ -294,9 +294,9 @@ function Login() {
             </div>
           </div>
           <div className='input-group mb-3 justify-content-center'>
-            <button className='btn border-#2c6b6b text-#2c6b6b w-50 fs-6' type='submit'>Iniciar Sesión</button>
+            <button className='button-back-login w-50 fs-6' type='submit'>Iniciar Sesión</button>
           </div>
-          {loginMessage && <p>{loginMessage}</p>}
+          {loginMessage && <p className='text-login'>{loginMessage}</p>}
         </form>
       </div>
 
@@ -305,9 +305,9 @@ function Login() {
         <div className='switch'>
           <div className='switch-panel switch-left'>
             <img src={vetImage} alt="Imagen de Bienvenida" className="welcome-img" />
-            <h1>¡Hola de nuevo!</h1>
-            <p>Inicia sesión ahora. ¡El bienestar de tu mejor amigo comienza aquí!</p>
-            <button className='hidden btn border-#2c6b6b text-#2c6b6b w-50 fs-6' id='login' onClick={SwitchBack}>
+            <h1 className='title-login-switch'>¡Hola de nuevo!</h1>
+            <p className='text-login'>Inicia sesión ahora. ¡El bienestar de tu mejor amigo comienza aquí!</p>
+            <button className='hidden button-switch-login border-#2c6b6b text-#2c6b6b w-50 fs-6' id='login' onClick={SwitchBack}>
               Iniciar Sesión
             </button>
             <div className='location'>
@@ -317,9 +317,9 @@ function Login() {
           </div>
           <div className='switch-panel switch-right'>
             <img src={vetImage} alt="Imagen de Bienvenida" className="welcome-img" />
-            <h1>¡Bienvenido!</h1>
-            <p>Regístrate ahora y accede a todos nuestros servicios para el cuidado de tus mascotas.</p>
-            <button className='hidden btn border-#2c6b6b text-#2c6b6b w-50 fs-6' id='register' onClick={SwitchBack}>
+            <h1 className='title-login-switch'>¡Bienvenido!</h1>
+            <p className='text-login'>Regístrate ahora y accede a todos nuestros servicios para el cuidado de tus mascotas.</p>
+            <button className='hidden button-switch-login border-#2c6b6b text-#2c6b6b w-50 fs-6' id='register' onClick={SwitchBack}>
               Crear Cuenta
             </button>
             <div className='location'>

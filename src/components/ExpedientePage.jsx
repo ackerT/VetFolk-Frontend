@@ -47,17 +47,17 @@ export function ExpedientePage() {
   return (
     <>
       <AdminSideBar />
-      <Box sx={{ display: 'flex', flexDirection: 'column', marginLeft: '200px' }}>
+      <Box sx={{ display: 'flex', flexDirection: 'column'}}>
         <h2 style={{
           textAlign: 'center',
-          fontFamily: 'Poppins, sans-serif',
+          fontFamily: 'Poppins',
           fontWeight: '600',
           fontSize: '30px',
-          color: '#2c6b6b',
+          color: '#ea3c3c',
           padding: '30px',
           margin: '0px'
         }}>
-          Expediente
+          Expedientes
         </h2>
   
         <Box sx={{ height: 450, width: '100%' }}>

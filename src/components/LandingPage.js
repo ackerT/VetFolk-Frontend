@@ -84,8 +84,8 @@ function LandingPage() {
                         <a href='/' style={{ textDecoration: 'none', color: 'white' }}>Inicio</a>
                         <a href='#serv' style={{ textDecoration: 'none', color: 'white' }}>Servicios</a>
                         <a href='#contacto' style={{ textDecoration: 'none', color: 'white' }}>Contacto</a>
-                        <button className='button' onClick={() => navigate('/login')}>
-                            Comencemos
+                        <button className='h-landing-button' onClick={() => navigate('/login')}>
+                            ¡Comencemos!
                         </button>
                     </div>
                 </div>
@@ -98,18 +98,18 @@ function LandingPage() {
                     <div className='flexColStart hero-left'>
                         <div className='hero-title'>
                             <div className='red-circle' />
-                            <h1>
+                            <h1 className='hero-landing-title'>
                                 Tu mascota <br /> en las mejores <br /> manos
                             </h1>
                         </div>
 
                         <div className='hero-description'>
-                            <span>Servicios veterinarios, estéticos y farmacia para asegurar la felicidad de tu amigo peludo.</span> <br />
-                            <span>En VetFolk, tu mascota recibe el mejor cuidado y atención.</span>
+                            <span className='hero-landing-text'>Servicios veterinarios, estéticos y farmacia para asegurar la felicidad de tu amigo peludo.</span> <br />
+                            <span className='hero-landing-text'>En VetFolk, tu mascota recibe el mejor cuidado y atención.</span>
                         </div>
-                        <div className='h-button'>
-                            <button className='button' onClick={() => navigate('/login')}>
-                                Iniciar Ahora
+                        <div className='hero-button'>
+                            <button className='hero-landing-button' onClick={() => navigate('/login')}>
+                                ¡Iniciar Ahora!
                             </button>
                         </div>
                     </div>
@@ -208,8 +208,8 @@ function LandingPage() {
                     <span className='g-text'>Agenda una cita con nuestros profesionales expertos y descubre todos los servicios que ofrecemos para garantizar la salud y bienestar de tu compañero peludo. 
                         <br/>
                         ¡Estamos aquí para ayudarte!</span> <br/> <br/>
-                        <button className='button' onClick={() => navigate('/login')}>
-                                Comienza Aquí
+                        <button className='g-landing-button' onClick={() => navigate('/login')}>
+                                ¡Comienza Aquí!
                         </button>
                     </div> 
                 </div>

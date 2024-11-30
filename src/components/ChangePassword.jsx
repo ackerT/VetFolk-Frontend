@@ -12,11 +12,14 @@ import axios from "axios";
 
 const theme = createTheme({
   typography: {
-    fontFamily: 'Nunito, sans-serif',
+    fontFamily: 'Poppins',
     h5: {
-      color: '#2c6b6b',
-      margin: '20px',
+      position: 'absolute',
+      top: 180,
+      left: 550,
+      color: '#ea3c3c',
       fontWeight: '600',
+      fontSize: '35px',
     },
   },
 });
@@ -42,9 +45,10 @@ const textFieldEstilo = {
 const ButtonEstilo = {
   backgroundColor: "#2c6b6b", 
   color: "#f0ffff",
+  textTransform: 'capitalize',
   '&:hover': {
     backgroundColor: "#f0ffff", 
-    color: "#2c6b6b", 
+    color: "#2c6b6b",
   },
 };
 
@@ -111,21 +115,25 @@ export default function ChangePassword() {
     <><ThemeProvider theme={theme}>
       <Navbar />
       <Container component="main" maxWidth="xs">
-        <Box
-          sx={{
-            marginTop: 6,
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            padding: '10px',
-            width: '100%',
-            border: "2px solid #2c6b6b",
-            borderRadius: "8px",
-          }}
-        >
-          <Typography variant="h5">
-            Cambiar Contraseña:
+      <Typography variant="h5">
+            Cambiar Contraseña
           </Typography>
+          <Box
+  sx={{
+    top: 250,
+    left: 450,
+    position: 'absolute',
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    justifyContent: "center",
+    padding: '10px',
+    width: '600px',
+    border: "2px solid #2c6b6b",
+    borderRadius: "8px",
+    textAlign: "center",
+  }}
+>
           <Collapse in={showNotification}>
             <Alert severity="success" sx={{ mb: 2, mt: 2, width: '100%' }}>
               ¡Contraseña cambiada con éxito!
@@ -148,7 +156,7 @@ export default function ChangePassword() {
                     {...field}
                     required
                     fullWidth
-                    label="Contraseña Actual"
+                    label="Contraseña actual"
                     type={showPassword.actual ? "text" : "password"}
                     error={Boolean(errors.PasswordActual)}
                     helperText={errors.PasswordActual?.message}
@@ -188,7 +196,7 @@ export default function ChangePassword() {
                     {...field}
                     required
                     fullWidth
-                    label="Nueva Contraseña"
+                    label="Nueva contraseña"
                     type={showPassword.nuevo ? "text" : "password"}
                     error={Boolean(errors.NewPassword)}
                     helperText={errors.NewPassword?.message}
@@ -224,7 +232,7 @@ export default function ChangePassword() {
                     {...field}
                     required
                     fullWidth
-                    label="Confirmar Nueva Contraseña"
+                    label="Confirmar nueva contraseña"
                     type={showPassword.confirmar ? "text" : "password"}
                     error={Boolean(errors.ConfirmarPassword)}
                     helperText={errors.ConfirmarPassword?.message}

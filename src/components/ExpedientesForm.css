@@ -20,13 +20,10 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-left: 250px;
   }
 
 .expediente-header {
     text-align: center;
-    background-color: #f0ffff;
-    padding: 20px;
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -36,26 +33,12 @@ body {
     background-repeat: no-repeat; 
   }
 
-.expediente-header .logo {
-    max-width: 100px;
-    height: auto;
-    margin-bottom: 10px;
-    object-fit: contain;
-    display: block;
-  }
-
-.expediente-header h1 {
-    font-family: 'Nunito';
-    color: #2c6b6b;
-    margin: 10px 0 5px 0;
+.title-header{
+    font-family: 'Poppins';
+    color: #ea3c3c;
     font-weight: 600;
   }
   
-.expediente-header p {
-    color: #2c6b6b;
-    font-size: 1em;
-    margin-top: 5px;
-  }
 
 .expedientes-form {
     border: 1px solid #2c6b6b; 
@@ -120,4 +103,49 @@ body {
   .submit-button:hover {
     background-color: #f0ffff !important;
     color: #2c6b6b;
+  }
+
+  .modal-expediente-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+  
+  .modal-expediente {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    width: 600px;
+  }
+  
+  .modal-expediente-title {
+    color: #2c6b6b;
+    font-family: 'Poppins';
+    font-weight: 600;
+    margin-top: 0;
+  }
+  
+  .modal-close-expediente-button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #ea3c3c;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    height: auto;
+  }
+  
+  .modal-close-expediente-button:hover {
+    background-color: #fff;
+    color: #ea3c3c;
   }

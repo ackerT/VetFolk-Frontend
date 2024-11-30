@@ -125,18 +125,17 @@ function SalesModule() {
             styles: { 
                 font: "Helvetica", 
                 fontSize: 7, 
-                fillColor: [255, 255, 255], // Fondo blanco (sin color)
-                textColor: [0, 0, 0],       // Texto negro
-                lineColor: [0, 0, 0],       // Líneas negras
-                lineWidth: 0.1              // Grosor de las líneas
+                fillColor: [255, 255, 255], 
+                textColor: [0, 0, 0],       
+                lineColor: [255, 255, 255],       
             },
             headStyles: {
-                fillColor: [255, 255, 255], // Sin color de fondo en el encabezado
-                textColor: [0, 0, 0],       // Texto negro
-                lineColor: [0, 0, 0]        // Líneas negras
+                fillColor: [255, 255, 255], 
+                textColor: [0, 0, 0],       
+                lineColor: [0, 0, 0]        
             },
             alternateRowStyles: {
-                fillColor: [255, 255, 255] // Sin color alterno en las filas
+                fillColor: [255, 255, 255] 
             }
         });
 
@@ -199,12 +198,16 @@ function SalesModule() {
     return (
         <>
             <AdminSideBar />
+
+            <div className='sales-header'>
+                <h1 className='sales-header-title'>Ventas y facturación</h1>
+            </div>
             <div className="sales-container">
                 <div className="sales-details">
                     <h2 className='title-sales'>Detalle de Venta</h2>
-                    <div className="search-bar">
+                    <div className="sales-search-bar">
                         <Autocomplete
-                            className='search-input'
+                            className='sales-search-input'
                             freeSolo
                             options={products}
                             getOptionLabel={(option) => option.name}
@@ -246,7 +249,7 @@ function SalesModule() {
                         <tbody>
                             {Sale.length === 0 ? (
                                 <tr>
-                                    <td colSpan="5" style={{ textAlign: 'center', color: '#aaa' }}>
+                                    <td className='td-sales-table' colSpan="5" style={{ textAlign: 'center', color: '#aaa' }}>
                                         No hay productos agregados
                                     </td>
                                 </tr>

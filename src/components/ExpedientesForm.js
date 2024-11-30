@@ -10,7 +10,8 @@ function ExpedientesForm() {
   const [alergias, setAlergias] = useState('');
   const [condicionesCronicas, setCondicionesCronicas] = useState('');
   const [observaciones, setObservaciones] = useState('');
-  const [mascotas, setMascotas] = useState([]); // Estado para guardar las mascotas
+  const [mascotas, setMascotas] = useState([]); 
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   // Obtener todas las mascotas desde el backend
   useEffect(() => {
@@ -57,6 +58,7 @@ function ExpedientesForm() {
 
       if (response.ok) {
         console.log('Expediente creado exitosamente');
+        setIsModalOpen(true);
       } else {
         console.error('Error al crear el expediente');
       }
@@ -65,15 +67,18 @@ function ExpedientesForm() {
     }
   };
 
+  const handleCloseModal = () => {
+    setIsModalOpen(false); // Cierra la modal
+};
+
   return (
     <>
       <AdminSideBar />
-      <div className='expediente-container'>
-        <div className="expediente-header">
-          <img src={vetImage} alt="Vet Folk Logo" className="logo" />
+      <div className="expediente-header">
           <h1 className='title-header'>Creación de Expedientes</h1>
-          <p className='description-header'>Completa la información para agregar un nuevo expediente al sistema.</p>
-        </div>
+      </div>
+
+      <div className='expediente-container'>
 
         <div className='expedientes-form'>
           <form onSubmit={handleSubmit}>
@@ -82,10 +87,10 @@ function ExpedientesForm() {
                 <FormControl variant="outlined" fullWidth className="custom-text-field" style={{ marginBottom: '16px' }}>
                   <Autocomplete
                     options={mascotas}
-                    getOptionLabel={(option) => option.nombreMascota} // Mostrar el nombre de la mascota
+                    getOptionLabel={(option) => option.nombreMascota} 
                     value={nombreMascota}
                     onChange={(event, newValue) => {
-                      setNombreMascota(newValue); // Guardamos el objeto completo
+                      setNombreMascota(newValue); 
                     }}
                     renderInput={(params) => (
                       <TextField {...params} label="Nombre de la Mascota" variant="outlined" />
@@ -98,7 +103,7 @@ function ExpedientesForm() {
 
               <Grid item xs={6}>
                 <TextField
-                  label="Fecha de Apertura"
+                  label="Fecha de apertura"
                   variant="outlined"
                   fullWidth
                   type="date"
@@ -125,7 +130,7 @@ function ExpedientesForm() {
 
               <Grid item xs={6}>
                 <TextField
-                  label="Condiciones Crónicas"
+                  label="Condiciones crónicas"
                   variant="outlined"
                   fullWidth
                   name="condicionesCronicas"
@@ -155,6 +160,19 @@ function ExpedientesForm() {
             </Grid>
           </form>
         </div>
+        
+        {isModalOpen && (
+    <div className="modal-expediente-overlay">
+        <div className="modal-expediente">
+            <h2 className='modal-expediente-title'>¡Éxito!</h2>
+            <p className='modal-expediente-text'>El expediente se ha creado correctamente.</p>
+            <button onClick={handleCloseModal} className="modal-close-expediente-button">
+                Cerrar
+            </button>
+        </div>
+    </div>
+)}
+
       </div>
     </>
   );

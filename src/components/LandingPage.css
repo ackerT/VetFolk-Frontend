@@ -1,5 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600&display=swap');
 
 .h-wrapper{
@@ -25,6 +24,23 @@
     padding-top: 1rem;
     padding-left: 15rem;
     padding-right:15rem;
+}
+
+.h-landing-button{
+    background-color: #fff;
+    color: #2c6b6b;
+    font-size: 18px;
+    height:auto;
+    align-items: center; 
+    justify-content: center;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+}
+
+.h-landing-button:hover{
+    background-color: #fff;
+    color: #2c6b6b;
+    cursor: pointer;
+    scale: 1.025;
 }
 
 .text1{
@@ -57,10 +73,9 @@
     position: relative;
     z-index: 1;
     left: 15%;
-    top: -30%;
 }
 
-.hero-title>h1{
+.hero-landing-title{
     font-family: 'Poppins';
     font-weight: 600;
     font-size: 3.8rem;
@@ -73,10 +88,27 @@
     font-size: large;
 }
 
-.h-button{
+.hero-button{
     position: relative;
     left: 15%;
   }
+
+.hero-landing-button{
+    background-color: #fff;
+    color: #2c6b6b;
+    font-size: 18px;
+    height:auto;
+    align-items: center; 
+    justify-content: center;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+}
+
+.hero-landing-button:hover{
+    background-color: #fff;
+    color: #2c6b6b;
+    cursor: pointer;
+    scale: 1.025;
+}
 
 .red-circle{
     height: 4rem;
@@ -339,8 +371,16 @@
     text-align: center;
 }
 
-.inner-container .button{
+.g-landing-button{
     color: #ea3c3c;
+    background-color: #fff;
+    height: auto;
+    font-size: 20px;
+    width: 250px;
+}
+
+.g-landing-button:hover{
+    color: #fff;
 }
 
 .f-wrapper{

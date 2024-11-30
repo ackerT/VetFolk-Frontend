@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { FaSearch } from 'react-icons/fa';
 import './Inventory.css';
 import AdminSideBar from './AdminSideBar';
 
@@ -160,7 +159,7 @@ const Inventory = () => {
           <input type="number" name="precio" placeholder="Precio" value={formData.precio} onChange={handleInputChange} />
           <input type="number" name="stock" placeholder="Stock" value={formData.stock} onChange={handleInputChange} />
           <input type="file" onChange={handleFileChange} accept="image/*" />
-          <button onClick={handleAddOrEditProduct}>{editIndex !== null ? 'Guardar cambios' : 'Agregar producto'}</button>
+          <button className='guardar-invoice-button' onClick={handleAddOrEditProduct}>{editIndex !== null ? 'Guardar cambios' : 'Agregar producto'}</button>
           {errorMessage && <p className="error-message">{errorMessage}</p>}
         </div>
 
@@ -204,16 +203,16 @@ const Inventory = () => {
                 <td>L. {product.precio}</td>
                 <td>{product.stock}</td>
                 <td>{product.imagenUrl && <img src={product.imagenUrl} alt="Producto" width="50" />}</td>
-                <td><button onClick={() => handleEdit(product.idProducto)}>Editar</button></td>
+                <td><button className='edit-invoice-button' onClick={() => handleEdit(product.idProducto)}>Editar</button></td>
               </tr>
             ))}
           </tbody>
         </table>
 
         <div className="pagination-controls">
-          <button onClick={handlePrevPage}>Anterior</button>
+          <button className='pagination-invoice-buttons' onClick={handlePrevPage}>Anterior</button>
           <span>Página {currentPage} de {totalPages}</span>
-          <button onClick={handleNextPage}>Siguiente</button>
+          <button className='pagination-invoice-buttons' onClick={handleNextPage}>Siguiente</button>
         </div>
       </div>
     </>

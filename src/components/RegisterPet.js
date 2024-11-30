@@ -71,9 +71,8 @@ function RegisterPet() {
       <AdminSideBar />
       <div className="register-pet-container">
         <div className="register-pet-header">
-          <img src={logo} alt="VetFolk Logo" className="logo" />
-          <h1>Registro de Mascotas</h1>
-          <p>Completa la información para agregar una nueva mascota al sistema.</p>
+          <h1 className='register-pet-title'>Registro de Mascotas</h1>
+          <p className='register-pet-text'>Completa la información para agregar una nueva mascota al sistema.</p>
         </div>
         <form onSubmit={registerPet} className="register-pet-form">
           <label>Nombre de la mascota:</label>
@@ -107,7 +106,7 @@ function RegisterPet() {
             )}
           </select>
 
-          <button type="submit" className="register-button">Guardar Mascota</button>
+          <button type="submit" className="register-pet-button">Guardar Mascota</button>
         </form>
       </div>
     </>

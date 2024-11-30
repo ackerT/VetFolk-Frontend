@@ -24,34 +24,34 @@ const AboutUs = () => {
       <br /><br /><br /><br /><br /><br />
 
       <div className="about-us-container">
-        <h1>Sobre Nosotros</h1>
-        <p>En VetFolk, nos dedicamos a brindar atención médica y grooming de calidad para tus mascotas.</p>
+        <h1 className='about-us-title'>Sobre Nosotros</h1>
+        <p className='about-us-text'>En VetFolk, nos dedicamos a brindar atención médica y grooming de calidad para tus mascotas.</p>
 
         <div className="mission-vision-values">
           <div className="card mission">
             <h2>Misión</h2>
             <p>
-              Nuestra misión es ofrecer un cuidado integral, compasivo y de alta calidad para todas las mascotas que llegan a nuestra clínica...
+              Nuestra misión es ofrecer un cuidado integral, compasivo y de alta calidad para todas las mascotas que llegan a nuestra clínica.
             </p>
           </div>
 
           <div className="card vision">
             <h2>Visión</h2>
             <p>
-              Nuestra visión es ser reconocidos como líderes en el campo de la medicina veterinaria a nivel local y regional...
+              Nuestra visión es ser reconocidos como líderes en el campo de la medicina veterinaria a nivel local y regional.
             </p>
           </div>
 
           <div className="card values">
             <h2>Valores</h2>
             <p>
-              Compromiso con el bienestar animal, respeto y empatía hacia las mascotas y sus dueños...
+              Compromiso con el bienestar animal, respeto y empatía hacia las mascotas y sus dueños.
             </p>
           </div>
         </div>
 
         <div className="team-section">
-          <h2>Conoce a Nuestro Equipo</h2>
+          <h2 className='team-title'>Conoce a Nuestro Equipo</h2>
           <div className="team">
             {equipo.map((miembro) => (
               <div key={miembro.idPersonal} className="team-member">
