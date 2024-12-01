@@ -26,7 +26,7 @@
     padding-right:15rem;
 }
 
-.h-landing-button{
+.h-landing-boton{
     background-color: #fff;
     color: #2c6b6b;
     font-size: 18px;
@@ -36,7 +36,7 @@
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
 }
 
-.h-landing-button:hover{
+.h-landing-boton:hover{
     background-color: #fff;
     color: #2c6b6b;
     cursor: pointer;
@@ -93,7 +93,7 @@
     left: 15%;
   }
 
-.hero-landing-button{
+.hero-landing-boton{
     background-color: #fff;
     color: #2c6b6b;
     font-size: 18px;
@@ -103,9 +103,11 @@
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
 }
 
-.hero-landing-button:hover{
+.hero-landing-boton:hover{
     background-color: #fff;
     color: #2c6b6b;
+    border: none;
+    border-radius: 4px;
     cursor: pointer;
     scale: 1.025;
 }
@@ -371,7 +373,7 @@
     text-align: center;
 }
 
-.g-landing-button{
+.g-landing-boton{
     color: #ea3c3c;
     background-color: #fff;
     height: auto;
@@ -379,7 +381,7 @@
     width: 250px;
 }
 
-.g-landing-button:hover{
+.g-landing-boton:hover{
     color: #fff;
 }
 

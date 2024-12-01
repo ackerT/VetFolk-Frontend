@@ -46,8 +46,8 @@ const Products = () => {
                 {categories.map((category, index) => (
                     <div key={index}>
                         <div className='s-head2 flexColStart'>
-                            <h2>{category.nombreCategoria}</h2> {/* Cambia 'category.category' por 'category.nombre' */}
-                            <h3>{category.descripcion}</h3> {/* Cambia 'category.description' por 'category.descripcion' */}
+                            <h2 className='products-category-title'>{category.nombreCategoria}</h2> {/* Cambia 'category.category' por 'category.nombre' */}
+                            <h3 className='products-category-description'>{category.descripcion}</h3> {/* Cambia 'category.description' por 'category.descripcion' */}
                         </div>
 
                         <Swiper {...sliderSettings}>

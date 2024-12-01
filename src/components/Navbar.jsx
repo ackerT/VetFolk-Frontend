@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import vetImageB from '../img/VetBlanco.png';
 import UserMenu from './UserMenu';
+import Notifications from './Notifications';
 
 function Navbar() {
     const navigate = useNavigate();
@@ -35,6 +36,7 @@ function Navbar() {
                             Productos en Tienda Física
                         </Link>
                     </div>
+                    <Notifications />
                     <UserMenu />
                 </div>
             </section>

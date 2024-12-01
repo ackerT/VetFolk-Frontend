@@ -84,7 +84,7 @@ function LandingPage() {
                         <a href='/' style={{ textDecoration: 'none', color: 'white' }}>Inicio</a>
                         <a href='#serv' style={{ textDecoration: 'none', color: 'white' }}>Servicios</a>
                         <a href='#contacto' style={{ textDecoration: 'none', color: 'white' }}>Contacto</a>
-                        <button className='h-landing-button' onClick={() => navigate('/login')}>
+                        <button className='h-landing-boton' onClick={() => navigate('/login')}>
                             ¡Comencemos!
                         </button>
                     </div>
@@ -108,7 +108,7 @@ function LandingPage() {
                             <span className='hero-landing-text'>En VetFolk, tu mascota recibe el mejor cuidado y atención.</span>
                         </div>
                         <div className='hero-button'>
-                            <button className='hero-landing-button' onClick={() => navigate('/login')}>
+                            <button className='hero-landing-boton' onClick={() => navigate('/login')}>
                                 ¡Iniciar Ahora!
                             </button>
                         </div>
@@ -208,7 +208,7 @@ function LandingPage() {
                     <span className='g-text'>Agenda una cita con nuestros profesionales expertos y descubre todos los servicios que ofrecemos para garantizar la salud y bienestar de tu compañero peludo. 
                         <br/>
                         ¡Estamos aquí para ayudarte!</span> <br/> <br/>
-                        <button className='g-landing-button' onClick={() => navigate('/login')}>
+                        <button className='g-landing-boton' onClick={() => navigate('/login')}>
                                 ¡Comienza Aquí!
                         </button>
                     </div> 

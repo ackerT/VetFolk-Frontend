@@ -23,6 +23,7 @@ import ConsultaMedicaUpdate from './components/ConsultaMedicaUpdate';
 import Login from './components/Login';
 import CitaPage from './components/CitaPage';
 import HistoriaCitaPage from './components/HistoriaCitaPage';
+import Notifications from './components/Notifications';
 
 
 
@@ -39,6 +40,7 @@ function App() {
     <Route path="/servicio" element={<Servicio />} />
     <Route path="/edit-profile" element={<EditProfile />} />
     <Route path='/change-password' element={<ChangePasswordPage/>}></Route>
+    <Route path='/notications' element={Notifications}></Route>
 
     <Route path="/admin" element={<AdminDashboard />} />
     <Route path="/admin/mascotas" element={<RegisterPet />} />
