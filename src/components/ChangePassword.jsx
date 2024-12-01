@@ -1,274 +1,212 @@
-import React, { useState } from "react";
-import { useForm, Controller } from "react-hook-form";
-import {
-  Button, TextField, Box, Typography, Container, Alert, Collapse,
-  ThemeProvider, createTheme, InputAdornment, IconButton
-} from "@mui/material";
-import { Visibility, VisibilityOff } from "@mui/icons-material";
-import { useNavigate } from "react-router-dom";
-import Navbar from "./Navbar";
-import Footer from "./Footer";
-import axios from "axios";
+import React, { useState, useEffect } from 'react';
+import './UpdateRegisterPet.css';
+import logo from '../img/vet.png';
+import AdminSideBar from './AdminSideBar';
 
-const theme = createTheme({
-  typography: {
-    fontFamily: 'Nunito, sans-serif',
-    h5: {
-      color: '#2c6b6b',
-      margin: '20px',
-      fontWeight: '600',
-    },
-  },
-});
-
-const textFieldEstilo = {
-  '& label.Mui-focused': {
-    color: "#2c6b6b", 
-  },
-  mt: 2,
-  '& .MuiOutlinedInput-root': {
-    '& fieldset': {
-      borderColor: '#2c6b6b', 
-    },
-    '&:hover fieldset': {
-      borderColor: '#2c6b6b', 
-    },
-    '&.Mui-focused fieldset': {
-      borderColor: '#2c6b6b', 
-    },
-  },
-};
-
-const ButtonEstilo = {
-  backgroundColor: "#2c6b6b", 
-  color: "#f0ffff",
-  '&:hover': {
-    backgroundColor: "#f0ffff", 
-    color: "#2c6b6b", 
-  },
-};
-
-export default function ChangePassword() {
-  const { control, handleSubmit, formState: { errors }, getValues, trigger } = useForm();
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [showNotification, setShowNotification] = useState(false);
-  const [errorNotification, setErrorNotification] = useState('');
-  const [formVisible, setFormVisible] = useState(true);
-  const [showPassword, setShowPassword] = useState({
-    actual: false,
-    nuevo: false,
-    confirmar: false,
+function RegisterPet() {
+  const [petData, setPetData] = useState({
+    nombreMascota: '',
+    idEspecie: '',
+    fechaNacimiento: '',
+    observaciones: '',
+    idPropietario: '',
   });
+  const [personas, setPersonas] = useState([]);
+  const [isUpdating, setIsUpdating] = useState(false);
+  const [errors, setErrors] = useState({});
+  const [successMessage, setSuccessMessage] = useState('');
+  const [isDisabled, setIsDisabled] = useState(false);  // Para deshabilitar los campos
 
-  const navigate = useNavigate();
+  useEffect(() => {
+    const fetchPersonas = async () => {
+      try {
+        const response = await fetch('http://18.221.225.5/personas/obtener');
+        const data = await response.json();
 
-  const handleClickShowPassword = (field) => {
-    setShowPassword((prev) => ({ ...prev, [field]: !prev[field] }));
+        if (Array.isArray(data)) {
+          setPersonas(data);
+        } else {
+          console.error('La respuesta no es un array:', data);
+        }
+      } catch (error) {
+        console.error('Error al obtener las personas:', error);
+      }
+    };
+
+    fetchPersonas();
+  }, []);
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setPetData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
   };
 
-  const onSubmit = async (formData) => {
-    setIsSubmitting(true);
-    setShowNotification(false);
-    setErrorNotification('');
+  const handleValidation = () => {
+    const validationErrors = {};
 
-    if (formData.NewPassword !== formData.ConfirmarPassword) {
-      setErrorNotification('Las contraseñas no coinciden');
-      setIsSubmitting(false);
+    if (!petData.nombreMascota) validationErrors.nombreMascota = 'El nombre de la mascota es obligatorio.';
+    if (!petData.idEspecie) validationErrors.idEspecie = 'Selecciona una especie.';
+    if (!petData.fechaNacimiento) {
+      validationErrors.fechaNacimiento = 'La fecha de nacimiento es obligatoria.';
+    } else {
+      const today = new Date();
+      const birthDate = new Date(petData.fechaNacimiento);
+      if (birthDate > today) {
+        validationErrors.fechaNacimiento = 'La fecha de nacimiento no puede ser mayor a la fecha actual.';
+      }
+    }
+    if (!petData.idPropietario) validationErrors.idPropietario = 'Selecciona un dueño.';
+
+    setErrors(validationErrors);
+    return Object.keys(validationErrors).length === 0;
+  };
+
+  const registerPet = async (e) => {
+    e.preventDefault();
+
+    if (!handleValidation()) {
+      alert('Por favor completa los campos requeridos.');
       return;
     }
 
     try {
-      // Obtener userID desde localStorage
-      const userId = localStorage.getItem("userId");
+      const response = await fetch('http://18.221.225.5/mascotas/crear', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(petData),
+      });
 
-      if (!userId) {
-        setErrorNotification("No se encontró el ID de usuario.");
-        setIsSubmitting(false);
-        return;
+      if (response.ok) {
+        alert('Mascota registrada con éxito');
+        console.log(await response.json());
+        setPetData({ nombreMascota: '', idEspecie: '', fechaNacimiento: '', observaciones: '', idPropietario: '' });
+      } else {
+        alert('Hubo un error al registrar la mascota');
       }
-
-      // Llamada a la API para cambiar la contraseña
-      const response = await axios.put(
-        `http://18.221.225.5/personas/${userId}/cambiar-contrasena`, // URL de la API
-        {
-          contrasenaActual: formData.PasswordActual,
-          contrasenaNueva: formData.NewPassword,
-        }
-      );
-
-      setShowNotification(true);
-      setIsSubmitting(false);
-      setFormVisible(false);
-      console.log("Contraseña cambiada: ", response.data);
     } catch (error) {
-      setErrorNotification("Ocurrió un error al cambiar la contraseña.");
-      setIsSubmitting(false);
-      console.error("Error al cambiar la contraseña:", error);
+      console.error('Error al registrar la mascota:', error);
+      alert('Hubo un error al registrar la mascota');
+    }
+  };
+
+  const updatePet = async (e) => {
+    e.preventDefault();
+
+    if (!handleValidation()) {
+      alert('Por favor completa los campos requeridos.');
+      return;
+    }
+
+    try {
+      const response = await fetch('http://18.221.225.5/mascotas/actualizar', {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(petData),
+      });
+
+      if (response.ok) {
+        setSuccessMessage('Datos de la mascota actualizados con éxito');
+        setIsUpdating(false);  // Cambiar a no actualizando
+        setIsDisabled(true);    // Deshabilitar los campos
+      } else {
+        alert('Hubo un error al actualizar los datos');
+      }
+    } catch (error) {
+      console.error('Error al actualizar los datos:', error);
+      alert('Hubo un error al actualizar los datos');
     }
   };
 
   return (
-    <><ThemeProvider theme={theme}>
-      <Navbar />
-      <Container component="main" maxWidth="xs">
-        <Box
-          sx={{
-            marginTop: 6,
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            padding: '10px',
-            width: '100%',
-            border: "2px solid #2c6b6b",
-            borderRadius: "8px",
-          }}
-        >
-          <Typography variant="h5">
-            Cambiar Contraseña:
-          </Typography>
-          <Collapse in={showNotification}>
-            <Alert severity="success" sx={{ mb: 2, mt: 2, width: '100%' }}>
-              ¡Contraseña cambiada con éxito!
-            </Alert>
-          </Collapse>
-          {errorNotification && (
-            <Alert severity="error" sx={{ mt: 2, width: '100%' }}>
-              {errorNotification}
-            </Alert>
+    <>
+      <AdminSideBar />
+      <div className="register-pet-container">
+        <div className="register-pet-header">
+          <h1 className="register-pet-title">
+            {isUpdating ? 'Actualizar Datos de Mascota' : 'Registro de Mascotas'}
+          </h1>
+          <p className="register-pet-text">
+            {isUpdating ? 'Actualiza la información de la mascota.' : 'Completa la información para agregar una nueva mascota al sistema.'}
+          </p>
+        </div>
+
+        {successMessage && !isDisabled && (
+          <div className="success-message">
+            <p>{successMessage}</p>
+          </div>
+        )}
+
+        <form onSubmit={isUpdating ? updatePet : registerPet} className="register-pet-form">
+          <label>Nombre de la mascota:</label>
+          <input
+            type="text"
+            name="nombreMascota"
+            value={petData.nombreMascota}
+            onChange={handleChange}
+            required
+            disabled={isDisabled} // Deshabilitar el campo si está inhabilitado
+          />
+          {errors.nombreMascota && <span className="error">{errors.nombreMascota}</span>}
+
+          <label>Especie:</label>
+          <select name="idEspecie" value={petData.idEspecie} onChange={handleChange} required disabled={isDisabled}>
+            <option value="">Selecciona la especie</option>
+            <option value="1">Perro</option>
+            <option value="2">Gato</option>
+            <option value="3">Otro</option>
+          </select>
+          {errors.idEspecie && <span className="error">{errors.idEspecie}</span>}
+
+          <label>Fecha de nacimiento:</label>
+          <input
+            type="date"
+            name="fechaNacimiento"
+            value={petData.fechaNacimiento}
+            onChange={handleChange}
+            required
+            disabled={isDisabled}
+          />
+          {errors.fechaNacimiento && <span className="error">{errors.fechaNacimiento}</span>}
+
+          <label>Observaciones:</label>
+          <textarea
+            name="observaciones"
+            value={petData.observaciones}
+            onChange={handleChange}
+            disabled={isDisabled}
+          />
+
+          <label>Dueño:</label>
+          <select name="idPropietario" value={petData.idPropietario} onChange={handleChange} required disabled={isDisabled}>
+            <option value="">Selecciona el dueño</option>
+            {personas && Array.isArray(personas) && personas.length > 0 ? (
+              personas.map((persona) => (
+                <option key={persona.idPersona} value={persona.idPersona}>
+                  {persona.nombre1} {persona.nombre2} {persona.apellido1} {persona.apellido2}
+                </option>
+              ))
+            ) : (
+              <option disabled>No hay dueños disponibles</option>
+            )}
+          </select>
+          {errors.idPropietario && <span className="error">{errors.idPropietario}</span>}
+
+          {!isDisabled && (
+            <button type="submit" className="register-pet-button">
+              {isUpdating ? 'Actualizar Datos' : 'Guardar Mascota'}
+            </button>
           )}
-          {formVisible && (
-            <Box component="form" onSubmit={handleSubmit(onSubmit)} noValidate>
-              <Controller
-                name="PasswordActual"
-                control={control}
-                defaultValue=""
-                rules={{ required: "Este campo es requerido" }}
-                render={({ field }) => (
-                  <TextField
-                    {...field}
-                    required
-                    fullWidth
-                    label="Contraseña Actual"
-                    type={showPassword.actual ? "text" : "password"}
-                    error={Boolean(errors.PasswordActual)}
-                    helperText={errors.PasswordActual?.message}
-                    size="small"
-                    InputProps={{
-                      endAdornment: (
-                        <InputAdornment position="end">
-                          <IconButton
-                            onMouseDown={() => handleClickShowPassword('actual')}
-                            onMouseUp={() => handleClickShowPassword('actual')}
-                            edge="end"
-                          >
-                            {showPassword.actual ? <Visibility sx={{ fontSize: 15 }} /> : <VisibilityOff sx={{ fontSize: 15 }} />}
-                          </IconButton>
-                        </InputAdornment>
-                      ),
-                    }}
-                    sx={{ mb: 2, ...textFieldEstilo }} />
-                )} />
-              <Controller
-                name="NewPassword"
-                control={control}
-                defaultValue=""
-                rules={{
-                  required: "Este campo es requerido",
-                  minLength: {
-                    value: 8,
-                    message: "La nueva contraseña debe tener al menos 8 caracteres",
-                  },
-                  pattern: {
-                    value: /^(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*_-])(?=.*[0-9])/,
-                    message: "La nueva contraseña debe contener al menos una letra mayúscula, una letra minúscula, un carácter especial (!@#$%^&*_-) y un número",
-                  },
-                }}
-                render={({ field }) => (
-                  <TextField
-                    {...field}
-                    required
-                    fullWidth
-                    label="Nueva Contraseña"
-                    type={showPassword.nuevo ? "text" : "password"}
-                    error={Boolean(errors.NewPassword)}
-                    helperText={errors.NewPassword?.message}
-                    size="small"
-                    InputProps={{
-                      endAdornment: (
-                        <InputAdornment position="end">
-                          <IconButton
-                            onMouseDown={() => handleClickShowPassword('nuevo')}
-                            onMouseUp={() => handleClickShowPassword('nuevo')}
-                            edge="end"
-                          >
-                            {showPassword.nuevo ? <Visibility sx={{ fontSize: 15 }} /> : <VisibilityOff sx={{ fontSize: 15 }} />}
-                          </IconButton>
-                        </InputAdornment>
-                      ),
-                    }}
-                    sx={{ mb: 2, ...textFieldEstilo }}
-                    onBlur={() => {
-                      trigger("NewPassword");
-                    }} />
-                )} />
-              <Controller
-                name="ConfirmarPassword"
-                control={control}
-                defaultValue=""
-                rules={{
-                  required: "Este campo es requerido",
-                  validate: (value) => value === getValues("NewPassword") || "Las contraseñas no coinciden"
-                }}
-                render={({ field }) => (
-                  <TextField
-                    {...field}
-                    required
-                    fullWidth
-                    label="Confirmar Nueva Contraseña"
-                    type={showPassword.confirmar ? "text" : "password"}
-                    error={Boolean(errors.ConfirmarPassword)}
-                    helperText={errors.ConfirmarPassword?.message}
-                    size="small"
-                    InputProps={{
-                      endAdornment: (
-                        <InputAdornment position="end">
-                          <IconButton
-                            onMouseDown={() => handleClickShowPassword('confirmar')}
-                            onMouseUp={() => handleClickShowPassword('confirmar')}
-                            edge="end"
-                          >
-                            {showPassword.confirmar ? <Visibility sx={{ fontSize: 15 }} /> : <VisibilityOff sx={{ fontSize: 15 }} />}
-                          </IconButton>
-                        </InputAdornment>
-                      ),
-                    }}
-                    sx={{ mb: 2, ...textFieldEstilo }}
-                    onBlur={() => {
-                      trigger("ConfirmarPassword");
-                    }} />
-                )} />
-              <Button
-                type="submit"
-                fullWidth
-                variant="contained"
-                sx={{ ...ButtonEstilo, mb: 2 }}
-                disabled={isSubmitting}
-              >
-                {isSubmitting ? "Cambiando..." : "Cambiar Contraseña"}
-              </Button>
-            </Box>
-          )}
-          {!formVisible && (
-            <Button
-              variant="outlined"
-              onClick={() => navigate('/')}
-              sx={{ ...ButtonEstilo, mb: 2 }}
-            >
-              Volver al Inicio
-            </Button>
-          )}
-        </Box>
-      </Container>
-    </ThemeProvider><Footer /></>
+        </form>
+      </div>
+    </>
   );
 }
+
+export default RegisterPet;

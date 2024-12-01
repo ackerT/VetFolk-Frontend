@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useParams, useNavigate } from 'react-router-dom'; 
+import { useParams, useNavigate } from 'react-router-dom';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import { DataGrid } from '@mui/x-data-grid';
@@ -13,7 +13,7 @@ import './ExpedientePage.css';
 
 export function ExpedientePage() {
   const { IdMascota } = useParams(); // Obtiene el IdMascota de la URL
-  const navigate = useNavigate(); 
+  const navigate = useNavigate();
 
   const [open, setOpen] = useState(false);
   const [selectedImage, setSelectedImage] = useState('');
@@ -59,6 +59,21 @@ export function ExpedientePage() {
     { field: 'Alergias', headerName: 'Alergias', width: 200 },
     { field: 'CondicionCronicas', headerName: 'Condiciones Crónicas', width: 200 },
     { field: 'Observaciones', headerName: 'Observaciones', width: 250 },
+    {
+      field: 'acciones',
+      headerName: 'Acciones',
+      width: 150,
+      renderCell: (params) => (
+        <Button
+          className="register-button"
+          variant="contained"
+          color="primary"
+          onClick={() => handleEditExpediente(params.row.IdExpediente)}
+        >
+          Editar
+        </Button>
+      ),
+    },
   ];
 
   const consultaColumns = [
@@ -109,6 +124,11 @@ export function ExpedientePage() {
 
   const handleClose = () => {
     setOpen(false);
+  };
+
+  const handleEditExpediente = (idExpediente) => {
+    console.log(`Editar expediente con ID: ${idExpediente}`);
+    navigate(`/admin/expediente-update/${idExpediente}`); 
   };
 
   const handleEditConsulta = (idConsulta) => {
@@ -197,3 +217,4 @@ export function ExpedientePage() {
 }
 
 export default ExpedientePage;
+
