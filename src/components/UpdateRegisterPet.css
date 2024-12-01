@@ -1,0 +1,28 @@
+.error {
+    color: red;
+    font-size: 0.9rem;
+    margin-top: 5px;
+    display: block;
+  }
+  .register-button {
+    width: 100% !important;
+    background-color: #00796b!important;
+    color: #ffffff !important;
+    font-weight: bold !important;
+    border: none !important;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    padding: 8px !important;
+    font-size: 0.9em !important;
+  }
+  
+  
+  .register-button:hover {
+    background-color:#085a50 !important;
+  }  
+
+  .success-message{
+    margin: 30px;
+    
+  }
