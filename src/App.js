@@ -8,7 +8,7 @@ import {DetallesPage} from './components/servicios/pages/DetallesPage';
 import FormularioPage from './components/servicios/pages/FormularioPage';
 import {ProductoPage} from './components/servicios/pages/ProductoPage';
 import {HomePage} from './components/servicios/pages/HomePage';
-import CambioPasswordPage from './components/CambioPassword';
+import ChangePasswordPage from './components/ChangePassword';
 import BuscarMascotas from './components/BuscarMascotas';
 import ExpedientePage from './components/ExpedientePage';
 import RegisterPet from './components/RegisterPet';
@@ -16,6 +16,9 @@ import ConsultaMedica from './components/ConsultaMedica';
 import ConsultaMedicaUpdate from './components/ConsultaMedicaUpdate';
 import {CitaPage}  from './components/CitaPage';
 import { HistoriaCitaPage } from './components/HistoriaCitaPage';
+import EditProfile from './components/EditProfile';
+import UserDatingHistory from './components/UserDatingHistory';
+
 
 function App() {
   return (
@@ -30,7 +33,9 @@ function App() {
       <Route path='/agendar-cita' element={<FormularioPage/>}></Route>
       <Route path='/producto' element={<ProductoPage/>}></Route>
       <Route path='/home' element={<HomePage/>}></Route>
-      <Route path='/cambio-password' element={<CambioPasswordPage/>}></Route>
+      <Route path='/change-password' element={<ChangePasswordPage/>}></Route>
+      <Route path='/edit-profile' element={<EditProfile/>}></Route>
+      <Route path='/userdatinghistory' element={< UserDatingHistory/>}></Route>
       
       <Route path="/admin/mascotas" element={<RegisterPet />} />
       <Route path='/admin/buscar-mascotas' element={<BuscarMascotas/>}></Route>
@@ -40,7 +45,7 @@ function App() {
       <Route path="/admin/consulta-medica-update/:IdConsulta" element={<ConsultaMedicaUpdate />} />
       <Route path="/admin/mascotas" element={<RegisterPet />} />
       <Route path='/admin/cita' element={< CitaPage/>}></Route>
-      <Route path='/admin/historiacita' element={< HistoriaCitaPage/>}></Route>
+      <Route path='/admin/historiacita' element={< HistoriaCitaPage/>}></Route>      
 
     {/* 
     //Rutas de las url 

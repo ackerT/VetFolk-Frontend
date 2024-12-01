@@ -1,0 +1,155 @@
+/* Estilos para el Navbar */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #333;
+  color: white;
+  padding: 10px 20px;
+  z-index: 1000;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar h1 {
+  font-size: 1.5rem;
+}
+
+.customer-profile {
+  margin-top: 60px; /* Altura del Navbar */
+  padding: 20px;
+  overflow-y: auto;
+  height: 100vh;
+  box-sizing: border-box;
+}
+
+/* Tabla responsive */
+.appointments-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.appointments-table th,
+.appointments-table td {
+  padding: 10px;
+  text-align: left;
+  border-bottom: 1px solid #ccc;
+}
+
+.appointments-table th {
+  background-color: #f4f4f4;
+}
+
+.appointments-table td button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 3px;
+}
+
+.appointments-table td button:hover {
+  background-color: #0056b3;
+}
+
+/* Filtros responsive */
+.filters {
+  margin-bottom: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.filters input,
+.filters select {
+  flex: 1;
+  min-width: 200px;
+  padding: 8px;
+  font-size: 1rem;
+}
+
+/* Media Queries para dispositivos pequeños */
+@media (max-width: 768px) {
+  .navbar h1 {
+    font-size: 1.2rem;
+  }
+
+  .filters input,
+  .filters select {
+    min-width: 100%;
+  }
+
+  .appointments-table th,
+  .appointments-table td {
+    font-size: 0.9rem;
+    padding: 8px;
+  }
+
+  .appointments-table td button {
+    padding: 5px;
+    font-size: 0.8rem;
+  }
+}
+
+/*  dispositivos muy pequeños */
+@media (max-width: 480px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .filters {
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .appointments-table {
+    font-size: 0.8rem;
+  }
+
+  .appointments-table th,
+  .appointments-table td {
+    display: block;
+    width: 100%;
+    text-align: right;
+  }
+
+  .appointments-table th {
+    text-align: left;
+  }
+
+  .appointments-table tr {
+    margin-bottom: 10px;
+    display: block;
+    border-bottom: 1px solid #ddd;
+  }
+
+  .appointments-table td button {
+    width: 100%;
+    padding: 8px;
+    font-size: 1rem;
+  }
+}
+
+
+
+.customer-profile h1 {
+  font-family: 'Nunito', sans-serif;
+  color: #2c6b6b;
+  margin: 70px 0 5px 0;
+  padding: 5px 0; 
+  font-weight: 200;
+}
+
+.customer-profile h2 {
+  font-family: 'Nunito', sans-serif;
+  color: #2c6b6b;
+  margin: 5px 0 5px 0;
+  padding: 5px 0; 
+  font-weight: 300;
+}
+
