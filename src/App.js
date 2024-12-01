@@ -9,22 +9,18 @@ import {DetallesPage} from './components/servicios/pages/DetallesPage';
 import FormularioPage from './components/servicios/pages/FormularioPage';
 import {ProductoPage} from './components/servicios/pages/ProductoPage';
 import {HomePage} from './components/servicios/pages/HomePage';
-
- //  Ruth  Que me muestros Roles  que tiene la veterinaria */}
- import { GestionarRolesPage} from './components/servicios/pages/GestionarRolesPage';
- import { ExpedientePage} from './components/servicios/pages/ExpedientePage';
- import { UsuarioDatosPage } from './components/servicios/pages/UsuarioDatosPage';
- import { CitaPage} from './components/servicios/pages/CitaPage';
- import { HistoriaCitaPage} from './components/servicios/pages/HistoriaCitaPage';
- import UpdateRegisterPet from './components/UpdateRegisterPet';
-
-//Gaby   rutas 
-import AdminDashboard from "./components/AdminDashboard"; 
-import RegisterPet from './components/RegisterPet';
-
-//David rutas
+import ChangePasswordPage from './components/ChangePassword';
 import BuscarMascotas from './components/BuscarMascotas';
-import CambioPasswordPage from './components/CambioPassword';
+import ExpedientePage from './components/ExpedientePage';
+import RegisterPet from './components/RegisterPet';
+import ConsultaMedica from './components/ConsultaMedica';
+import ConsultaMedicaUpdate from './components/ConsultaMedicaUpdate';
+import {CitaPage}  from './components/CitaPage';
+import { HistoriaCitaPage } from './components/HistoriaCitaPage';
+import EditProfile from './components/EditProfile';
+import AdminDashboard from './components/AdminDashboard';
+import UserDatingHistory from './components/UserDatingHistory';
+import UpdateRegisterPet from './components/UpdateRegisterPet';
 
 
 function App() {
@@ -35,34 +31,37 @@ function App() {
         <Route path="/landing" element={<Landing />} />
 
         {/*   Que me muestros servicio  que tiene la veterinaria */}
-        <Route path='/servicio' element={<ServicioPage/>}></Route>
-        <Route path='/servicio/:id' element={<DetallesPage/>}></Route>
-        <Route path='/agendar-cita' element={<FormularioPage/>}></Route>
-        <Route path='/producto' element={<ProductoPage/>}></Route>
-        <Route path='/home' element={<HomePage/>}></Route>
+      <Route path='/servicio' element={<ServicioPage/>}></Route>
+      <Route path='/servicio/:id' element={<DetallesPage/>}></Route>
+      <Route path='/agendar-cita' element={<FormularioPage/>}></Route>
+      <Route path='/producto' element={<ProductoPage/>}></Route>
+      <Route path='/home' element={<HomePage/>}></Route>
+      <Route path='/change-password' element={<ChangePasswordPage/>}></Route>
+      <Route path='/edit-profile' element={<EditProfile/>}></Route>
+      <Route path='/userdatinghistory' element={< UserDatingHistory/>}></Route>
+      
+      <Route path="/admin" element={<AdminDashboard />} />
+      <Route path="/admin/mascotas" element={<RegisterPet />} />
+      <Route path='/admin/buscar-mascotas' element={<BuscarMascotas/>}></Route>
+      <Route path="/admin/buscar-expediente/:IdMascota" element={<ExpedientePage />} />
+      <Route path='/admin/buscar-expediente' element={< ExpedientePage/>}></Route>
+      <Route path="/admin/consulta-medica/:IdMascota/:IdExpediente" element={<ConsultaMedica />} />
+      <Route path="/admin/consulta-medica-update/:IdConsulta" element={<ConsultaMedicaUpdate />} />
+      <Route path="/admin/mascotas" element={<RegisterPet />} />
+      <Route path='/admin/cita' element={< CitaPage/>}></Route>
+      <Route path='/admin/historiacita' element={< HistoriaCitaPage/>}></Route>      
+      <Route path='/admin/updateregisterpet/:IdMascota' element={< UpdateRegisterPet/>}></Route>      
 
-        {/*   Que me muestros Roles  que tiene la veterinaria */}
-        <Route path='/admin/gestionar-roles' element={< GestionarRolesPage/>}></Route>
-        <Route path='/admin/expediente' element={< ExpedientePage/>}></Route>
-        <Route path='/admin/usuario-datos' element={< UsuarioDatosPage/>}></Route>
-        <Route path='/admin/cita' element={< CitaPage/>}></Route>
-        <Route path='/admin/historia' element={< HistoriaCitaPage/>}></Route>
-        <Route path='/admin/updateregisterpet/:IdMascota' element={< UpdateRegisterPet/>}></Route>      
+    {/* 
+    //Rutas de las url 
+  <Route path='/servicio/ConsultasVeterinarias' element={<Servicio/>}></Route>
+  <Route path='/servicio/Vacunación' element={<Servicio/>}></Route>
+  <Route path='/servicio/Desparasitación' element={<Servicio/>}></Route>
+  <Route path='/servicio/Cirugías' element={<Servicio/>}></Route>
+  <Route path='/servicio/BañoPeluquería' element={<Servicio/>}></Route>
+  <Route path='/servicio/VentaProductos' element={<Servicio/>}></Route>
 
-
-
-
-
-
-
-        {/* Gaby*/}
-        <Route path="/admin" element={<AdminDashboard />} />
-        <Route path="/mascotas" element={<RegisterPet />} />
-
-        {/* David*/}
-        <Route path='/buscar-mascotas' element={<BuscarMascotas/>}></Route>
-        <Route path='/cambio-password' element={<CambioPasswordPage/>}></Route>
-       
+     */}
     
 
     </Routes>

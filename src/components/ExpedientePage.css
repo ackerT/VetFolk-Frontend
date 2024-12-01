@@ -1,0 +1,25 @@
+.h2-centrado{
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 24px;
+  color: #2c6b6b;
+  padding: 30px;
+  margin: 0;
+}
+
+.register-button {
+  width: 100% !important;  /* Asegura que el botón ocupe todo el ancho disponible */
+  background-color: #00796b !important;
+  color: #ffffff !important;
+  font-weight: bold !important;
+  border: none !important;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  padding: 12px 0 !important; /* Asegura que el botón tenga una altura apropiada */
+  font-size: 1em !important;  /* Ajustar el tamaño de fuente */
+  display: block;
+  margin-top: 16px;
+  box-sizing: border-box; /* Incluye el padding dentro del tamaño total */
+}

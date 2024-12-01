@@ -1,3 +1,4 @@
+
 //CitaData.js
 export const citas = [
     {
@@ -8,7 +9,7 @@ export const citas = [
       IdEstado: 1,
       Fecha: "2024-11-15",
       Hora: "10:30",
-      comentario: "Revisión general programada" // Añadir el campo de comentario vacío
+      comentario: "" // Añadir el campo de comentario vacío
     },
     {
       idCita: 2,
@@ -18,7 +19,7 @@ export const citas = [
       IdEstado: 2,
       Fecha: "2024-11-16",
       Hora: "12:00",
-      comentario: "Cita de vacunación" // Añadir el campo de comentario vacío
+      comentario: "" // Añadir el campo de comentario vacío
     },
     {
       idCita: 3,
@@ -28,7 +29,7 @@ export const citas = [
       IdEstado: 3,
       Fecha: "2024-11-17",
       Hora: "09:00",
-      comentario: "Cita de vacunación" // Añadir el campo de comentario vacío
+      comentario: "" // Añadir el campo de comentario vacío
     },
     {
       idCita: 4,
@@ -38,7 +39,7 @@ export const citas = [
       IdEstado: 4,
       Fecha: "2024-11-18",
       Hora: "09:00",
-      comentario: "Cita de vacunación" // Añadir el campo de comentario vacío
+      comentario: "" // Añadir el campo de comentario vacío
     }
 
 
@@ -64,7 +65,7 @@ export const citas = [
     }, 
     {
       IdEstado: 4,
-      Estado: "Completada",
+      Estado: "Competada",
       Descripcion: "Cita programada y pendiente de atención"
     },
   ];

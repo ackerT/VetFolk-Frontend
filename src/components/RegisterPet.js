@@ -1,13 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { FaUsers, FaPaw, 
-    FaCalendarAlt,
-     FaBoxOpen, FaStethoscope, 
-     FaFileMedical, 
-     FaUserCircle,
-      FaSignOutAlt } from "react-icons/fa";
+import { FaUsers, FaPaw, FaCalendarAlt, FaBoxOpen, FaStethoscope, FaFileMedical, FaUserCircle, FaSignOutAlt } from "react-icons/fa";
 import './RegisterPet.css';
 import logo from '../img/vet.png';
-import { MdFindInPage } from "react-icons/md";
 
 function RegisterPet() {
   const [petData, setPetData] = useState({
@@ -59,7 +53,6 @@ function RegisterPet() {
         <ul id="mainMenu">
           <li><a href="/clientes"><FaUsers /> Clientes y Personal</a></li>
           <li><a href="/mascotas"><FaPaw /> Mascotas</a></li>
-          <li><a href="/buscar-mascotas"><MdFindInPage/>Busqueda  de Mascota</a></li>
           <li><a href="/agenda"><FaCalendarAlt /> Agenda</a></li>
           <li><a href="/products"><FaBoxOpen /> Productos</a></li>
           <li><a href="/services"><FaStethoscope /> Servicios</a></li>
