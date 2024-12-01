@@ -16,6 +16,7 @@ import {HomePage} from './components/servicios/pages/HomePage';
  import { UsuarioDatosPage } from './components/servicios/pages/UsuarioDatosPage';
  import { CitaPage} from './components/servicios/pages/CitaPage';
  import { HistoriaCitaPage} from './components/servicios/pages/HistoriaCitaPage';
+ import UpdateRegisterPet from './components/UpdateRegisterPet';
 
 //Gaby   rutas 
 import AdminDashboard from "./components/AdminDashboard"; 
@@ -46,6 +47,9 @@ function App() {
         <Route path='/admin/usuario-datos' element={< UsuarioDatosPage/>}></Route>
         <Route path='/admin/cita' element={< CitaPage/>}></Route>
         <Route path='/admin/historia' element={< HistoriaCitaPage/>}></Route>
+        <Route path='/admin/updateregisterpet/:IdMascota' element={< UpdateRegisterPet/>}></Route>      
+
+
 
 
 
