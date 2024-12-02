@@ -115,7 +115,7 @@ const BuscarMascota = () => {
       width: 150,
       renderCell: (params) => (
         <Button onClick={() => handleViewDetails(params.row.id_mascota)} sx={ButtonEstilo}>
-          Editar Expediente
+          Editar 
         </Button>
       ),
     },
@@ -137,8 +137,7 @@ const BuscarMascota = () => {
               onChange={handleOwnerChange}
             />
             <Button onClick={handleSearch} sx={ButtonEstilo}>Buscar</Button>
-            <Button onClick={handleAddPet} sx={ButtonEstilo}>Agregar Nueva Mascota</Button>
-            <Button onClick={handleNavigateHome} sx={ButtonEstilo}>Inicio</Button>
+           
           </div>
 
           {selectedOwnerPets.length > 0 && (

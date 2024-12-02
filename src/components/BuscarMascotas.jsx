@@ -144,7 +144,7 @@ const Mascotas = () => {
                     <td style={{ border: '1px solid black', padding: '7px' }}>{pet.esterilizada ? 'Sí' : 'No'}</td>
                     <td style={{ border: '1px solid black', padding: '7px' }}>
                     <Button onClick={() => handleViewDetails(pet.id_mascota)} sx={{ mb: 2, mt: ButtonEstilo }}>
-                  Editar Expediente
+                  Editar 
                   </Button>   
                     </td>
                   </tr>
