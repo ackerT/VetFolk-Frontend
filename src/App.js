@@ -19,7 +19,9 @@ import { HistoriaCitaPage } from './components/HistoriaCitaPage';
 import EditProfile from './components/EditProfile';
 import AdminDashboard from './components/AdminDashboard';
 import UserDatingHistory from './components/UserDatingHistory';
+import ExpedientesForm from './components/ExpedientesForm';
 import UpdateRegisterPet from './components/UpdateRegisterPet';
+import UpdateExpedientes from './components/UpdateExpedientes';
 
 
 function App() {
@@ -42,6 +44,8 @@ function App() {
       <Route path="/admin" element={<AdminDashboard />} />
       <Route path="/admin/mascotas" element={<RegisterPet />} />
       <Route path='/admin/buscar-mascotas' element={<BuscarMascotas/>}></Route>
+      <Route path='/admin/crear-expediente' element={<ExpedientesForm />} />
+      <Route path="/admin/expediente-update/:IdExpediente" element={<UpdateExpedientes />} />
       <Route path="/admin/buscar-expediente/:IdMascota" element={<ExpedientePage />} />
       <Route path='/admin/buscar-expediente' element={< ExpedientePage/>}></Route>
       <Route path="/admin/consulta-medica/:IdMascota/:IdExpediente" element={<ConsultaMedica />} />

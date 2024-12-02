@@ -109,7 +109,7 @@ function AdminSideBar() {
                         </a>
                         {isExpedientesOpen && (
                             <ul className="submenu">
-                                <li><a href="/admin/expedientes"><FaPlusCircle /> Crear Expediente</a></li>
+                                <li><a href="/admin/crear-expediente"><FaPlusCircle /> Crear Expediente</a></li>
                                 <li><a href="/admin/buscar-expediente"><LuFolderSearch /> Buscar Expediente</a></li>
                             </ul>
                         )}
