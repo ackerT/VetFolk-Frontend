@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';  // Para capturar el ID de la mascota de la URL
 import './UpdateRegisterPet.css';
+import vetImage from '../img/vet.png';
 import AdminSideBar from './AdminSideBar';
 
 function RegisterPet() {
@@ -132,7 +133,7 @@ function RegisterPet() {
     setIsSubmitted(true);
     setTimeout(() => {
       //alert('Datos actualizados correctamente');
-      navigate(`/admin`);  // Redirigir después de la actualización
+      navigate(`/admin/`);  // Redirigir después de la actualización
     }, 1500);
   };
 
@@ -141,8 +142,9 @@ function RegisterPet() {
       <AdminSideBar />
       <div className="register-pet-container">
         <div className="register-pet-header">
+        <img src={vetImage} alt="Vet Folk Logo" className="logo" />
           <h1 className="register-pet-title">
-            Actualizar Datos de Mascota
+            Actualizacion de los datos
           </h1>
           <p className="register-pet-text">
             Aquí puedes ver los datos de la mascota y editarlos si es necesario.
@@ -168,7 +170,8 @@ function RegisterPet() {
             {errors.nombreMascota && <span className="error">{errors.nombreMascota}</span>}
 
             <label>Especie:</label>
-            <select name="idEspecie" value={petData.idEspecie} onChange={handleChange} required disabled={isDisabled}>
+            <select name="idEspecie"
+             value={petData.idEspecie} onChange={handleChange} required disabled={isDisabled}>
               <option value="">Selecciona la especie</option>
               <option value="1">Perro</option>
               <option value="2">Gato</option>
@@ -185,7 +188,8 @@ function RegisterPet() {
               required
               disabled={isDisabled}
             />
-            {errors.fechaNacimiento && <span className="error">{errors.fechaNacimiento}</span>}
+            {errors.fechaNacimiento && 
+              <span className="error">{errors.fechaNacimiento}</span>}
 
             <label>Observaciones:</label>
             <textarea
@@ -213,7 +217,7 @@ function RegisterPet() {
             {errors.idPropietario && <span className="error">{errors.idPropietario}</span>}
 
             <button type="submit" className="update-button" disabled={isDisabled}>
-              Confirmar Cambios
+              Confirmar 
             </button>
           </form>
         )}

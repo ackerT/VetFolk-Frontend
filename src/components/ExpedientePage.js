@@ -147,9 +147,10 @@ export function ExpedientePage() {
   return (
     <>
       <AdminSideBar />
-      <Box sx={{ display: 'flex', flexDirection: 'column', marginLeft: '200px' }}>
+      <Box sx={{ display: 'flex', flexDirection: 'column', marginRight: '-350px' }}>
         <h2 className="h2-centrado">Expediente</h2>
-        <Box sx={{ width: '100%', overflow: 'auto' }}>
+        <Box sx={{ overflow: '', height: 90, width: '100%',
+            marginBottom: 5  }}>
           <DataGrid
             rows={expedienteRows}
             columns={expedienteColumns}
@@ -217,4 +218,3 @@ export function ExpedientePage() {
 }
 
 export default ExpedientePage;
-

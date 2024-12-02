@@ -23,6 +23,7 @@ import UserDatingHistory from './components/UserDatingHistory';
 import UpdateRegisterPet from './components/UpdateRegisterPet';
 
 
+
 function App() {
   return (
    <BrowserRouter>
@@ -50,7 +51,8 @@ function App() {
       <Route path="/admin/mascotas" element={<RegisterPet />} />
       <Route path='/admin/cita' element={< CitaPage/>}></Route>
       <Route path='/admin/historiacita' element={< HistoriaCitaPage/>}></Route>      
-      <Route path='/admin/updateregisterpet/:IdMascota' element={< UpdateRegisterPet/>}></Route>      
+      <Route path='/admin/updateregisterpet/:IdMascota' element={< UpdateRegisterPet/>}></Route>  
+          
 
     {/* 
     //Rutas de las url 

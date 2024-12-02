@@ -20,6 +20,7 @@ const theme = createTheme({
     h6: {
       color: '#2c6b6b',
       margin: '20px',
+      
     },
   },
 }
@@ -142,7 +143,9 @@ const Mascotas = () => {
                     <td style={{ border: '1px solid black', padding: '7px' }}>{pet.agresiva ? 'Sí' : 'No'}</td>
                     <td style={{ border: '1px solid black', padding: '7px' }}>{pet.esterilizada ? 'Sí' : 'No'}</td>
                     <td style={{ border: '1px solid black', padding: '7px' }}>
-                      <Button onClick={() => handleViewDetails(pet.id_mascota)} sx={{ mb: 2, mt: ButtonEstilo }}>Consultar</Button>
+                    <Button onClick={() => handleViewDetails(pet.id_mascota)} sx={{ mb: 2, mt: ButtonEstilo }}>
+                  Editar Expediente
+                  </Button>   
                     </td>
                   </tr>
                 ))}
@@ -155,13 +158,15 @@ const Mascotas = () => {
           <DialogTitle>Seleccionar Propietario</DialogTitle>
           <DialogContent>
             {matchingOwners.map((owner) => (
-              <Button key={owner.IdUsuario} onClick={() => handleOwnerSelect(owner)} sx={{ mt: ButtonEstilo }}>
+              <Button key={owner.IdUsuario}
+                onClick={() => handleOwnerSelect(owner)} sx={{ mt: ButtonEstilo }}>
                 {owner.Nombre} (ID: {owner.IdUsuario})
               </Button>
             ))}
           </DialogContent>
           <DialogActions>
-            <Button onClick={() => setDialogOpen(false)} sx={{ mt: ButtonEstilo }} >Cancelar</Button>
+            <Button onClick={() => 
+               setDialogOpen(false)} sx={{ mt: ButtonEstilo }} >Cancelar</Button>
           </DialogActions>
         </Dialog>
       </div>

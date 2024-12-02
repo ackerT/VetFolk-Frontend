@@ -50,7 +50,9 @@ function ExpedientesForm() {
         <form onSubmit={handleSubmit}>
                 <Grid container spacing={2}>
                     <Grid item xs={6}>
-                        <FormControl variant="outlined" fullWidth className="custom-text-field" style={{ marginBottom: '16px' }}>
+                        <FormControl variant="outlined" 
+                            fullWidth className="custom-text-field" 
+                            style={{ height: 360, width: '100%', marginTop: 20 }}>
                             <Autocomplete
                                 options={mascotas}
                                 getOptionLabel={(option) => option.label}
