@@ -1,0 +1,48 @@
+/* Contenedor principal */
+.register-pet-container {
+  width: 190%; /* Aumenta el ancho del contenedor */
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 60px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.register-pet-container {
+  margin-left: 250px;  /* Asegúrate de que el contenido principal se mueva a la derecha */
+  padding: 20px;
+}
+
+@media (max-width: 768px) {
+  .register-pet-container {
+    margin-left: 200px;  /* Ajusta el margen cuando la sidebar se reduce */
+  }
+}
+
+.error {
+    color: red;
+    font-size: 0.9rem;
+    margin-top: 5px;
+    display: block;
+  }
+  .register-button {
+    width: 100% !important;
+    background-color: #00796b!important;
+    color: #ffffff !important;
+    font-weight: bold !important;
+    border: none !important;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    padding: 8px !important;
+    font-size: 0.9em !important;
+  }
+  
+  
+  .register-button:hover {
+    background-color:#085a50 !important;
+  }  
+
+  .success-message{
+    margin: 30px;
+    
+  }

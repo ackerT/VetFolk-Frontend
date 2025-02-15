@@ -1,0 +1,116 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600&display=swap');
+
+.about-us-container {
+    padding: 20px;
+    text-align: center;
+    background-color: #f0ffff; 
+}
+
+.about-us-title{
+  position: absolute;
+  color: #ea3c3c;
+  font-family: 'Poppins';
+  font-weight: 500; 
+  top: 20%;
+  left: 40%;
+}
+
+.about-us-text{
+  position: absolute;
+  color: #2c6b6b;
+  font-family:'Nunito';
+  top: 30%;
+  left: 22%;
+}
+  
+  .mission-vision-values {
+    position: absolute;
+    display: flex;
+    justify-content: space-around;
+    top: 40%;
+    left: 0%;
+  }
+  
+  .card {
+    background-color: white;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 30%;
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  
+  .card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+  }
+  
+  .mission h2, .vision h2, .values h2 {
+    color: #ea3c3c;
+  }
+  
+  .team-section {
+    margin-top: 40px;
+  }
+
+  .team-title{
+    position: absolute;
+    color: #ea3c3c;
+    font-family: 'Poppins';
+    font-weight: 500; 
+    top: 80%;
+    left: 36.5%;
+  }
+  
+  .team {
+    position: absolute;
+    top: 95%;
+    left: 18%;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+  }
+  
+  .team-member {
+    background-color: white;
+    padding: 10px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .team-member img {
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+  }
+  
+  .team-member h3 {
+    margin-top: 10px;
+    color: #343434;
+  }
+  
+  .team-member p {
+    color: #2c6b6b;
+  }
+  
+  /*Footer*/
+.f-wrapper1{
+  position: absolute;
+  top: 150%;
+  left: 0;
+  width: 100%;
+  background: #f0ffff;
+}
+
+.f-container1{
+  justify-content: space-between;
+}
+
+.f-text1{
+  color: #2c6b6b;
+  font-family: 'Nunito';
+  font-size: 1rem;
+  font-weight: 500;
+}

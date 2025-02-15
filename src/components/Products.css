@@ -1,0 +1,123 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600&display=swap');
+
+/*Productos*/
+.s-wrapper2{
+    background: #f0ffff;
+    width: 100%;
+    position: absolute;
+    top: 15%;
+    left: 0;
+}
+
+.s-head2{
+    margin-bottom: 2rem;
+    position: relative;
+    left: 7%;
+}
+
+.s-head2>h1{
+    color: #ea3c3c;
+    font-family: 'Poppins';
+    font-weight: 600;
+    font-size: 2rem;
+    line-height: 4rem;
+}
+
+.primaryText{
+    color: #ea3c3c;
+    font-family: 'Poppins';
+    font-weight: 600;
+}
+
+.secondaryText{
+    color: #343434;
+    font-family: 'Nunito';
+    font-size: 0.9rem;
+}
+
+.s-container2{
+    position: relative;
+    overflow: hidden;
+}
+
+.s-card2{
+    gap: 0.6rem;
+    padding: 1rem;
+    border-radius: 10px;
+    max-width: 20rem;
+    margin: auto;
+    transition: all 300ms ease-in;
+}
+
+.s-card2>img{
+    width: 100%;
+    max-width: 20rem;
+    border-radius: 10px;
+}
+
+.s-card2:hover{
+    scale: 1.025;
+    cursor: pointer;
+    background : linear-gradient(to bottom, #f0ffff, #ffff);
+    box-shadow: 5px 5px 10px #2c6b6b;
+}
+
+.swiper-horizontal{
+    overflow: visible;
+}
+
+.s-button2{
+    position: absolute;
+    gap: 1rem;
+    top: -4rem;
+    right: -0;
+}
+
+.s-button2 button{
+    font-size: 1.2rem;
+    padding: 0.2rem 0.8rem;
+    color: #ea3c3c;
+    border: none;
+    border-radius: 5px;
+    background-color: #f0ffff;
+    cursor:pointer;
+}
+
+.s-button2 button:hover{
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+    scale: 1.025;
+    cursor: pointer;
+    color: none;
+}
+
+.products-category-title{
+    color: #2c6b6b;
+    font-family: 'Poppins';
+    font-weight: 500;
+}
+
+.products-category-description{
+    color: #2c6b6b;
+    font-family: 'Nunito';
+}
+
+/*Footer*/
+.f-wrapper2{
+    position: absolute;
+    top: 50;
+    left: 0;
+    width: 100%;
+    background: #f0ffff;
+}
+
+.f-container2{
+    justify-content: space-between;
+}
+
+.f-text2{
+    color: #2c6b6b;
+    font-family: 'Nunito';
+    font-size: 1rem;
+    font-weight: 500;
+}

@@ -1,0 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600&display=swap');
+
+.user-menu {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .user-icon {
+    color: white;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 40px;
+  }
+  
+  .menu-options {
+    position: absolute;
+    top: 60px;
+    right: 0;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 6px;
+    overflow: hidden;
+    z-index: 100;
+    width: 180px;
+  }
+  
+  .menu-options button {
+    background: none;
+    border: none;
+    width: 100%;
+    padding: 10px;
+    text-align: left;
+    cursor: pointer;
+    font-size: 14px;
+    font-family: 'Nunito';
+    color: #2c6b6b;
+  }
+  
+  .menu-options button:hover {
+    background-color: #f0ffff;
+  }
+  
